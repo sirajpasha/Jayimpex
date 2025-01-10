@@ -1,1 +1,2 @@
 # Jayimpex
+Static Webpages
