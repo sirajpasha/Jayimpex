@@ -86,10 +86,10 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('text=Commodities+Export+Leader');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     background-size: cover;
     background-position: center;
-    height: 40vh;
+    height: 25vh;
     display: flex;
     align-items: center;
     margin-top: 80px;
@@ -105,11 +105,11 @@ nav ul li a:hover {
 .hero-content h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .hero-content p {
-    font-size: 20px;
+    font-size: 15px;
     max-width: 600px;
     margin-bottom: 30px;
 }

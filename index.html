@@ -15,10 +15,8 @@
             width: 100vw;
             border: none;
             display: block;
-        }
-        /* Optional: Prevent scrollbars on body when iframe is 100vh */
-        html, body {
-            overflow: hidden;
+            min-height: 1000px;
+            transition: height 0.2s;
         }
     </style>
 </head>
@@ -26,8 +24,8 @@
     <!-- Header -->
     <header>
         <div class="header-container">
+            <div class="logo"></div>
             <div class="logo" style="display: flex; align-items: center;">
-                <img src="images/Jayimpex-Logo.PNG" alt="JayImpex Logo - Commodities Exporter" style="margin-right: 10px; margin-left: 0;">
                 <img src="images/JayImpexExporter-logo.png" alt="JayImpex Logo - Commodities Exporter">
                 <div class="logo-text">
                     <h1>JayImpex</h1>
@@ -44,9 +42,17 @@
             </nav>
         </div>
     </header>
+
+        <div style="flex:1; min-width:250px; background:#fff; margin-top: 80px; padding:32px; text-align:center;">
+            <p style="font-size: 2rem;"><b>
+                JayImpex Commodities Export Leader
+            </b></p>
+        </div>    
     
     <!-- Main Content Iframe -->
     <iframe id="mainFrame" class="main-iframe" src="home.html"></iframe>
+
+
 
    <!-- Footer -->
     <footer>
@@ -72,48 +78,32 @@
                     <li><a href="#contact" onclick="loadPage('contact.html')">Contact</a></li>
                 </ul>
             </div>
-<!--            <div class="footer-links">
-                <h3>Product Categories</h3>
-                <ul>
-                    <li><a href="#">Engine Parts</a></li>
-                    <li><a href="#">Brake Systems</a></li>
-                    <li><a href="#">Transmission</a></li>
-                    <li><a href="#">Suspension</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Returns & Refunds</a></li>
-                </ul>
-            </div> -->
         </div>
         <div class="copyright">
             <p>&copy; 2025 JayImpex. All Rights Reserved.</p>
         </div>
     </footer>
 
-
     <script>
-        function setIframeHeight() {
-            const header = document.querySelector('header');
-            const footer = document.querySelector('footer');
-            const iframe = document.getElementById('mainFrame');
-            const headerHeight = header ? header.offsetHeight : 0;
-            const footerHeight = footer ? footer.offsetHeight : 0;
-            const windowHeight = window.innerHeight;
-            iframe.style.height = (windowHeight - headerHeight - footerHeight) + 'px';
-        }
-
         function loadPage(page) {
             document.getElementById('mainFrame').src = page;
         }
 
-        window.addEventListener('resize', setIframeHeight);
-        window.addEventListener('DOMContentLoaded', setIframeHeight);
+        // Listen for messages from the iframe
+        window.addEventListener('message', function(event) {
+            if (typeof event.data === 'object' && event.data.type === 'setHeight') {
+                const iframe = document.getElementById('mainFrame');
+                if (iframe) {
+                    iframe.style.height = event.data.height + 'px';
+                }
+            }
+        });
+
+        // Also adjust height when iframe loads a new page
+        document.getElementById('mainFrame').addEventListener('load', function() {
+            // Ask the iframe to send its height
+            this.contentWindow.postMessage('getDocHeight', '*');
+        });
     </script>
 </body>
 </html>

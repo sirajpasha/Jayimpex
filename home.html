@@ -10,12 +10,7 @@
 
 
     <section>
-        <div style="flex:1; min-width:250px; background:#fff; margin-top: 80px; padding:32px; text-align:center;">
-            <p style="font-size: 2rem;"><b>
-                JayImpex Commodities Export Leader
-            </b></p>
-        </div>
-            <!-- Rotating Image at the Top -->
+        <!-- Rotating Image at the Top -->
         <div style="text-align:center; ">
             <img id="rotatingImage" src="images/Rotate-Rice.png" alt="Rotating" style="max-width: 800px; width: 100%; height: auto;" />
         </div>
@@ -47,15 +42,15 @@
         </div>
     </section>
 
-    <section class="hero" id="home">
-
-        <div class="hero-content">
-            <h1>Global Suppliers of Commodities</h1>
-            <p>Exporting high-quality automotive components to markets worldwide with reliability and competitive pricing.</p>
-            <a href="contact.html" onclick="loadPage('contact.html');" class="cta-button" target="_parent">Get in Touch</a>
-        </div>
-    </section>
+    
 
 <script src="rotate-images.js"></script>
+<script>
+
+    window.addEventListener('load', function() {
+        var height = document.body.scrollHeight;
+        window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+    });
+</script>
 </body>
 </html>

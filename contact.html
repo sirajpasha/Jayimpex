@@ -66,5 +66,11 @@
         }
     </script>
 </section>
+<script>
+window.addEventListener('load', function() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+});
+</script>
 </body>
 </html>

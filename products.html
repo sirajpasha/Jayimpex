@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
+
+    <section>
+        <!-- Rotating Image at the Top -->
+        <div style="text-align:center; ">
+            <img src="images/Spices.jpg" alt="Spices" style="width: 100%; height: auto;" />
+        </div>
+    </section>
+    
 <section class="section products" id="products">
     <div class="section-title">
         <h2>Our Product Range</h2>
@@ -99,5 +107,11 @@
         </div>
     </div>
 </section>
+<script>
+window.addEventListener('load', function() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({ type: 'setHeight', height: height }, '*');
+});
+</script>
 </body>
 </html>
