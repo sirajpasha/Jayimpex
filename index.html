@@ -3,11 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>JayImpex - Automotive Spare Parts Exporters</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .main-iframe {
+            width: 100vw;
+            border: none;
+            display: block;
+        }
+        /* Optional: Prevent scrollbars on body when iframe is 100vh */
+        html, body {
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 50px;">
-        <img src="./images/coming-soon-2712818.jpg" alt="Coming Soon" style="max-width: 100%; height: auto;">
-    </div>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images\Jayimpex-Logo.PNG" alt="JayImpex Logo - Commodities Exporter">
+                <img src="images\JayimpexExporter-logo.png" alt="JayImpex Logo - Commodities Exporter">
+                <div class="logo-text">
+                    <h1>JayImpex</h1>
+                    <span>Leading Commodities Exporter</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="loadPage('home.html')">Home</a></li>
+                    <li><a href="#" onclick="loadPage('about.html')">About Us</a></li>
+                    <li><a href="#" onclick="loadPage('products.html')">Products</a></li>
+                    <li><a href="#" onclick="loadPage('contact.html')">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content Iframe -->
+    <iframe id="mainFrame" class="main-iframe" src="home.html"></iframe>
+
+   <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="images\JayimpexExporter-logo.png" alt="JayImpex Logo - Commodities Exporter">
+                </div>
+                <p class="justified">JayImpex is expert in exporting commodities from India to any part of the world. Our extensive knowledge and experience in international trade ensure a seamless and efficient process for our clients. We specialize in handling a diverse range of products and take pride in delivering exceptional service to meet the unique needs of each customer.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home" onclick="loadPage('home.html')">Home</a></li>
+                    <li><a href="#aboutus" onclick="loadPage('about.html')">About Us</a></li>
+                    <li><a href="#products" onclick="loadPage('products.html')">Products</a></li>
+                    <li><a href="#contact" onclick="loadPage('contact.html')">Contact</a></li>
+                </ul>
+            </div>
+<!--            <div class="footer-links">
+                <h3>Product Categories</h3>
+                <ul>
+                    <li><a href="#">Engine Parts</a></li>
+                    <li><a href="#">Brake Systems</a></li>
+                    <li><a href="#">Transmission</a></li>
+                    <li><a href="#">Suspension</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                </ul>
+            </div> -->
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 JayImpex. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        function setIframeHeight() {
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            const iframe = document.getElementById('mainFrame');
+            const headerHeight = header ? header.offsetHeight : 0;
+            const footerHeight = footer ? footer.offsetHeight : 0;
+            const windowHeight = window.innerHeight;
+            iframe.style.height = (windowHeight - headerHeight - footerHeight) + 'px';
+        }
+
+        function loadPage(page) {
+            document.getElementById('mainFrame').src = page;
+        }
+
+        window.addEventListener('resize', setIframeHeight);
+        window.addEventListener('DOMContentLoaded', setIframeHeight);
+    </script>
 </body>
 </html>
