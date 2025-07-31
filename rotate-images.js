@@ -3,7 +3,8 @@
 const imageList = [
     "images/Rotate-Rice.png",
     "images/Rotate-Spices.png",
-    "images/Rotate-FMCG.png"
+    "images/Rotate-FMCG.png",
+    "images/Rotate-Dals.jpg"
 ];
 
 let currentIndex = 0;
