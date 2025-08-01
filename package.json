@@ -4,8 +4,8 @@
     "express": "^5.1.0"
   },
   "name": "jayimpex",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Jayimpex is a company dedicated to providing high-quality products and services in the import and export industry. This website serves as an informational platform for customers and partners to learn more about Jayimpex, explore its offerings, and get in touch for business inquiries. The site aims to showcase the company's expertise, highlight its product range, and facilitate seamless communication with clients worldwide.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
