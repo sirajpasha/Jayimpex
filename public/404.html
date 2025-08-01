@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 - Page Not Found | JayImpex</title>
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #a7e9af 40%, #f9d29d 80%, #f6b2e1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .notfound-container {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            padding: 48px 32px;
+            text-align: center;
+            max-width: 400px;
+        }
+        .notfound-container h1 {
+            font-size: 5rem;
+            color: #e63946;
+            margin-bottom: 16px;
+        }
+        .notfound-container h2 {
+            font-size: 2rem;
+            color: #003366;
+            margin-bottom: 12px;
+        }
+        .notfound-container p {
+            color: #444;
+            margin-bottom: 24px;
+        }
+        .notfound-container a {
+            display: inline-block;
+            background: #003366;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .notfound-container a:hover {
+            background: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <div class="notfound-container">
+        <h1>404</h1>
+        <h2>Oops! Page Not Found</h2>
+        <p>Sorry, the page you are looking for doesn't exist or has been moved.<br>
+        Please check the URL or return to the homepage.</p>
+        <a href="/" onclick="window.top.loadPage ? window.top.loadPage('home.html') : window.location.replace('index.html'); return false;">Go to Homepage</a>
+    </div>
+</body>
+</html>
