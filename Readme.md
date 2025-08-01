@@ -1,0 +1,3 @@
+# Jayimpex
+
+Jayimpex is a company dedicated to providing high-quality products and services in the import and export industry. This website serves as an informational platform for customers and partners to learn more about Jayimpex, explore its offerings, and get in touch for business inquiries. The site aims to showcase the company's expertise, highlight its product range, and facilitate seamless communication with clients worldwide.
