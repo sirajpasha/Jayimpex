@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/sirajpasha/Jayimpex/issues"
   },
-  "homepage": "https://github.com/sirajpasha/Jayimpex#readme"
+  "homepage": "https://github.com/sirajpasha/Jayimpex#readme",
+  "devDependencies": {}
 }
