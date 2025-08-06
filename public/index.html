@@ -45,10 +45,38 @@
                             <b>About Us</b>
                         </button>
                     </li>
-                    <li>
-                        <button type="button" onclick="loadPage('products.html')" style="background: none; border: none; color: #003366; font-size: 1rem; cursor: pointer; padding: 8px 16px; border-radius: 4px; transition: background 0.2s;">
-                            <b>Products</b>
+                    <li style="position: relative;">
+                        <button type="button"
+                            onclick="document.getElementById('productsDropdown').classList.toggle('show');"
+                            style="background: none; border: none; color: #003366; font-size: 1rem; cursor: pointer; padding: 8px 16px; border-radius: 4px; transition: background 0.2s; position: relative;">
+                            <b>Products</b> <span style="font-size:0.8em;">▼</span>
                         </button>
+                        <ul id="productsDropdown" style="display: none; position: absolute; left: 0; top: 100%; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); list-style: none; margin: 0; padding: 0; min-width: 160px; z-index: 1001;">
+                            <li>
+                                <button type="button" onclick="loadPage('products.html'); document.getElementById('productsDropdown').classList.remove('show');"
+                                    style="background: none; border: none; color: #003366; font-size: 1rem; cursor: pointer; width: 100%; text-align: left; padding: 10px 20px;">
+                                    All Products
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="loadPage('products.html#rice'); document.getElementById('productsDropdown').classList.remove('show');"
+                                    style="background: none; border: none; color: #003366; font-size: 1rem; cursor: pointer; width: 100%; text-align: left; padding: 10px 20px;">
+                                    Rice
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="loadPage('products.html#turmeric'); document.getElementById('productsDropdown').classList.remove('show');"
+                                    style="background: none; border: none; color: #003366; font-size: 1rem; cursor: pointer; width: 100%; text-align: left; padding: 10px 20px;">
+                                    Turmeric Powder
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" onclick="loadPage('products.html#chilli'); document.getElementById('productsDropdown').classList.remove('show');"
+                                    style="background: none; border: none; color: #003366; font-size: 1rem; cursor: pointer; width: 100%; text-align: left; padding: 10px 20px;">
+                                    Chilli Powder
+                                </button>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <button type="button" onclick="loadPage('contact.html')" style="background: none; border: none; color: #003366; font-size: 1rem; cursor: pointer; padding: 8px 16px; border-radius: 4px; transition: background 0.2s;">
@@ -121,6 +149,30 @@
             // Ask the iframe to send its height
             this.contentWindow.postMessage('getDocHeight', '*');
         });
+
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('productsDropdown');
+            if (dropdown && dropdown.classList.contains('show')) {
+                var isClickInside = dropdown.parentElement.contains(event.target);
+                if (!isClickInside) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        });
+        // Show/hide logic for dropdown
+        document.querySelectorAll('#productsDropdown').forEach(function(drop) {
+            drop.classList.remove('show');
+            drop.style.display = 'none';
+        });
+        // Toggle display based on class
+        const observer = new MutationObserver(function() {
+            var dropdown = document.getElementById('productsDropdown');
+            if (dropdown) {
+                dropdown.style.display = dropdown.classList.contains('show') ? 'block' : 'none';
+            }
+        });
+        observer.observe(document.getElementById('productsDropdown'), { attributes: true, attributeFilter: ['class'] });
     </script>
 </body>
 </html>
