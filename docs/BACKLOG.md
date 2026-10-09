@@ -12,13 +12,13 @@
 
 | Metric | Count | Status |
 |---|---|---|
-| **Total Epics** | 5 | 0/5 Complete |
-| **Total User Stories** | 10 | 0/10 Complete |
-| **Total Tasks** | 26 | 0/26 Complete |
-| **Priority P0 (Blockers)** | 35 issues | Backlog |
+| **Total Epics** | 5 | 1/5 Complete |
+| **Total User Stories** | 10 | 2/10 Complete |
+| **Total Tasks** | 26 | 6/26 Complete |
+| **Priority P0 (Blockers)** | 35 issues | In Progress |
 | **Priority P1 (Important)** | 6 issues | Backlog |
-| **Phase 1 (Foundation)** | 8 issues (#2–#10) | Ready to Start |
-| **Phase 2 (Pages & Catalogue)** | 16 issues (#11–#28) | Queued |
+| **Phase 1 (Foundation)** | 8 issues (#2–#10) | Completed on `feature/phase-1-foundation` |
+| **Phase 2 (Pages & Catalogue)** | 16 issues (#11–#28) | Ready to Start |
 | **Phase 3 (Contact & API)** | 12 issues (#29–#40) | Queued |
 | **Phase 4 (QA & Cutover)** | 11 issues (#41–#50) | Queued |
 
@@ -28,8 +28,8 @@
 
 ```mermaid
 graph TD
-    E1["Epic 1: Foundation & CI/CD (#2)"] --> S11["Story 1.1: React Setup & Shell (#3)"]
-    E1 --> S12["Story 1.2: CI/CD & Railway (#7)"]
+    E1["Epic 1: Foundation & CI/CD (#2) ✅"] --> S11["Story 1.1: React Setup & Shell (#3) ✅"]
+    E1 --> S12["Story 1.2: CI/CD & Railway (#7) ✅"]
     
     E2["Epic 2: Public Core Pages (#11)"] --> S21["Story 2.1: Home Page Experience (#12)"]
     E2 --> S22["Story 2.2: About Us & Sourcing (#16)"]
@@ -52,17 +52,17 @@ graph TD
 > **GitHub Issue:** [#2](https://github.com/sirajpasha/Jayimpex/issues/2) | **Priority:** `P0` | **Phase:** `Phase 1 - Foundation`  
 > **PRD Mapping:** Section 3.1 (Product Goals 1, 5, 6), Section 8 (FR-1), Section 9.1, Section 9.4, Section 10
 
-- [ ] **[Story 1.1] Core React/TypeScript Application Setup & Shared Shell Layout** — [#3](https://github.com/sirajpasha/Jayimpex/issues/3) `P0`
+- [x] **[Story 1.1] Core React/TypeScript Application Setup & Shared Shell Layout** — [#3](https://github.com/sirajpasha/Jayimpex/issues/3) `P0`
   - *User Story:* As a visitor, I want consistent navigation across all pages so that I can explore the website without broken iframe embeds or unpredictable scrolling.
-  - [ ] **[Task 1.1.1]** Initialize React + TypeScript project with strict mode & design system tokens — [#4](https://github.com/sirajpasha/Jayimpex/issues/4) `P0`
-  - [ ] **[Task 1.1.2]** Build reusable Site Shell (Header, Mobile Menu, Footer) and routing structure — [#5](https://github.com/sirajpasha/Jayimpex/issues/5) `P0`
-  - [ ] **[Task 1.1.3]** Implement accessible navigation landmarks, skip-link, and focus styling — [#6](https://github.com/sirajpasha/Jayimpex/issues/6) `P0`
+  - [x] **[Task 1.1.1]** Initialize React + TypeScript project with strict mode & design system tokens — [#4](https://github.com/sirajpasha/Jayimpex/issues/4) `P0`
+  - [x] **[Task 1.1.2]** Build reusable Site Shell (Header, Mobile Menu, Footer) and routing structure — [#5](https://github.com/sirajpasha/Jayimpex/issues/5) `P0`
+  - [x] **[Task 1.1.3]** Implement accessible navigation landmarks, skip-link, and focus styling — [#6](https://github.com/sirajpasha/Jayimpex/issues/6) `P0`
 
-- [ ] **[Story 1.2] CI/CD Pipeline, Automated Quality Gates & Railway Deployment** — [#7](https://github.com/sirajpasha/Jayimpex/issues/7) `P0`
+- [x] **[Story 1.2] CI/CD Pipeline, Automated Quality Gates & Railway Deployment** — [#7](https://github.com/sirajpasha/Jayimpex/issues/7) `P0`
   - *User Story:* As an operator and maintainer, I want automated CI checks and reliable deployment so that defective code or vulnerabilities are caught before production.
-  - [ ] **[Task 1.2.1]** Create GitHub Actions workflow for lint, typecheck, build, and npm audit — [#8](https://github.com/sirajpasha/Jayimpex/issues/8) `P0`
-  - [ ] **[Task 1.2.2]** Configure Railway hosting configuration, environment secrets, and health check route — [#9](https://github.com/sirajpasha/Jayimpex/issues/9) `P0`
-  - [ ] **[Task 1.2.3]** Add security headers middleware (CSP, nosniff, frame-ancestors, referrer-policy) — [#10](https://github.com/sirajpasha/Jayimpex/issues/10) `P0`
+  - [x] **[Task 1.2.1]** Create GitHub Actions workflow for lint, typecheck, build, and npm audit — [#8](https://github.com/sirajpasha/Jayimpex/issues/8) `P0`
+  - [x] **[Task 1.2.2]** Configure Railway hosting configuration, environment secrets, and health check route — [#9](https://github.com/sirajpasha/Jayimpex/issues/9) `P0`
+  - [x] **[Task 1.2.3]** Add security headers middleware (CSP, nosniff, frame-ancestors, referrer-policy) — [#10](https://github.com/sirajpasha/Jayimpex/issues/10) `P0`
 
 ---
 
