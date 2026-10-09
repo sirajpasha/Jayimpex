@@ -12,15 +12,15 @@
 
 | Metric | Count | Status |
 |---|---|---|
-| **Total Epics** | 5 | 3/5 Complete |
-| **Total User Stories** | 10 | 6/10 Complete |
-| **Total Tasks** | 26 | 18/26 Complete |
+| **Total Epics** | 5 | 4/5 Complete |
+| **Total User Stories** | 10 | 8/10 Complete |
+| **Total Tasks** | 26 | 23/26 Complete |
 | **Priority P0 (Blockers)** | 35 issues | In Progress |
 | **Priority P1 (Important)** | 6 issues | In Progress |
 | **Phase 1 (Foundation)** | 8 issues (#2–#10) | Completed on `feature/phase-1-foundation` |
 | **Phase 2 (Pages & Catalogue)** | 16 issues (#11–#28) | Completed on `feature/phase-2-pages-catalogue` |
-| **Phase 3 (Contact & API)** | 12 issues (#29–#40) | Ready to Start |
-| **Phase 4 (QA & Cutover)** | 11 issues (#41–#50) | Queued |
+| **Phase 3 (Contact & API)** | 12 issues (#29–#40) | Completed on `feature/phase-3-contact-service` |
+| **Phase 4 (QA & Cutover)** | 11 issues (#41–#50) | Ready to Start |
 
 ---
 
@@ -37,8 +37,8 @@ graph TD
     E3["Epic 3: Structured Catalogue (#20) ✅"] --> S31["Story 3.1: Catalogue Architecture (#21) ✅"]
     E3 --> S32["Story 3.2: Product Detail Pages (#25) ✅"]
     
-    E4["Epic 4: Secure Contact & RFQ (#29)"] --> S41["Story 4.1: Accessible Contact Page (#30)"]
-    E4 --> S42["Story 4.2: Contact API & Anti-Spam (#35)"]
+    E4["Epic 4: Secure Contact & RFQ (#29) ✅"] --> S41["Story 4.1: Accessible Contact Page (#30) ✅"]
+    E4 --> S42["Story 4.2: Contact API & Anti-Spam (#35) ✅"]
     
     E5["Epic 5: SEO, QA & Deployment (#41)"] --> S51["Story 5.1: SEO & URL Migration (#42)"]
     E5 --> S52["Story 5.2: Automated Test Suite (#45)"]
@@ -110,21 +110,21 @@ graph TD
 > **GitHub Issue:** [#29](https://github.com/sirajpasha/Jayimpex/issues/29) | **Priority:** `P0` | **Phase:** `Phase 3 - Secure Contact Delivery`  
 > **PRD Mapping:** Section 8 (FR-6, FR-7, FR-8), Section 9.2 (Server API), Section 10.2 (Spam & Header Controls), User Stories 9, 12, 16–28
 
-- [ ] **[Story 4.1] Accessible Contact & Export Desk Page** — [#30](https://github.com/sirajpasha/Jayimpex/issues/30) `P0`
+- [x] **[Story 4.1] Accessible Contact & Export Desk Page** — [#30](https://github.com/sirajpasha/Jayimpex/issues/30) `P0`
   - *User Story:* As a customer or wholesale partner, I want approved contact details and an easy-to-use form so that I can reach the commercial desk directly.
   - *Design Preview:* [Stitch Screen `f899566a555144d5b6deb942acae4b05`](https://lh3.googleusercontent.com/aida/AEtjO1XwkHIeo0O6x2mnAp_AyojNklE7iLO2hDSjx4rg_gEnrrnRQuuCKqsTuPBbt0T4H9l5GlCC57v_CPJ6D7aMcXM2syjv5WjJw0gZRhqodCZi_f9QFYETYYm3iV5KQ44BsSCPt-HeaggMl62UmEZ05_-xagVoTEIdw2qIQmTvkS2RbB-8wd-sRenv0kw0eXDJx28wI9wXrXpvY8OuLBQUGwqXNAMC621sthLIEZN3Epebv74xr7sdS9gf9grD)
-  - [ ] **[Task 4.1.1]** Build `/contact` route with corporate address, hotline, WhatsApp, and operating hours — [#31](https://github.com/sirajpasha/Jayimpex/issues/31) `P0`
-  - [ ] **[Task 4.1.2]** Implement accessible commercial enquiry form with client-side validation feedback — [#32](https://github.com/sirajpasha/Jayimpex/issues/32) `P0`
-  - [ ] **[Task 4.1.3]** Add location card with fallback link and click-to-load map embed — [#33](https://github.com/sirajpasha/Jayimpex/issues/33) `P0`
-  - [ ] **[Task 4.1.4]** Build `/privacy` notice page and consent checkbox integration — [#34](https://github.com/sirajpasha/Jayimpex/issues/34) `P0`
+  - [x] **[Task 4.1.1]** Build `/contact` route with corporate address, hotline, WhatsApp, and operating hours — [#31](https://github.com/sirajpasha/Jayimpex/issues/31) `P0`
+  - [x] **[Task 4.1.2]** Implement accessible commercial enquiry form with client-side validation feedback — [#32](https://github.com/sirajpasha/Jayimpex/issues/32) `P0`
+  - [x] **[Task 4.1.3]** Add location card with fallback link and click-to-load map embed — [#33](https://github.com/sirajpasha/Jayimpex/issues/33) `P0`
+  - [x] **[Task 4.1.4]** Build `/privacy` notice page and consent checkbox integration — [#34](https://github.com/sirajpasha/Jayimpex/issues/34) `P0`
 
-- [ ] **[Story 4.2] Server-Side Contact Endpoint, Anti-Spam & Email Delivery** — [#35](https://github.com/sirajpasha/Jayimpex/issues/35) `P0`
+- [x] **[Story 4.2] Server-Side Contact Endpoint, Anti-Spam & Email Delivery** — [#35](https://github.com/sirajpasha/Jayimpex/issues/35) `P0`
   - *User Story:* As the site owner, I want enquiries validated, spam-protected, and securely routed to our email without exposing secrets or risking mail-header injection.
-  - [ ] **[Task 4.2.1]** Implement `/api/contact` endpoint with Zod schema validation and request size limits — [#36](https://github.com/sirajpasha/Jayimpex/issues/36) `P0`
-  - [ ] **[Task 4.2.2]** Implement spam defense layers (honeypot field + submission timing checks) — [#37](https://github.com/sirajpasha/Jayimpex/issues/37) `P0`
-  - [ ] **[Task 4.2.3]** Implement rate limiting and client IP extraction compatible with Railway proxy — [#38](https://github.com/sirajpasha/Jayimpex/issues/38) `P0`
-  - [ ] **[Task 4.2.4]** Build email delivery service adapter with header injection protections — [#39](https://github.com/sirajpasha/Jayimpex/issues/39) `P0`
-  - [ ] **[Task 4.2.5]** Implement privacy-safe operational logging (redacting message bodies and PII) — [#40](https://github.com/sirajpasha/Jayimpex/issues/40) `P0`
+  - [x] **[Task 4.2.1]** Implement `/api/contact` endpoint with Zod schema validation and request size limits — [#36](https://github.com/sirajpasha/Jayimpex/issues/36) `P0`
+  - [x] **[Task 4.2.2]** Implement spam defense layers (honeypot field + submission timing checks) — [#37](https://github.com/sirajpasha/Jayimpex/issues/37) `P0`
+  - [x] **[Task 4.2.3]** Implement rate limiting and client IP extraction compatible with Railway proxy — [#38](https://github.com/sirajpasha/Jayimpex/issues/38) `P0`
+  - [x] **[Task 4.2.4]** Build email delivery service adapter with header injection protections — [#39](https://github.com/sirajpasha/Jayimpex/issues/39) `P0`
+  - [x] **[Task 4.2.5]** Implement privacy-safe operational logging (redacting message bodies and PII) — [#40](https://github.com/sirajpasha/Jayimpex/issues/40) `P0`
 
 ---
 
