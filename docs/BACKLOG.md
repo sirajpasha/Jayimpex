@@ -12,14 +12,14 @@
 
 | Metric | Count | Status |
 |---|---|---|
-| **Total Epics** | 5 | 1/5 Complete |
-| **Total User Stories** | 10 | 2/10 Complete |
-| **Total Tasks** | 26 | 6/26 Complete |
+| **Total Epics** | 5 | 3/5 Complete |
+| **Total User Stories** | 10 | 6/10 Complete |
+| **Total Tasks** | 26 | 18/26 Complete |
 | **Priority P0 (Blockers)** | 35 issues | In Progress |
-| **Priority P1 (Important)** | 6 issues | Backlog |
+| **Priority P1 (Important)** | 6 issues | In Progress |
 | **Phase 1 (Foundation)** | 8 issues (#2–#10) | Completed on `feature/phase-1-foundation` |
-| **Phase 2 (Pages & Catalogue)** | 16 issues (#11–#28) | Ready to Start |
-| **Phase 3 (Contact & API)** | 12 issues (#29–#40) | Queued |
+| **Phase 2 (Pages & Catalogue)** | 16 issues (#11–#28) | Completed on `feature/phase-2-pages-catalogue` |
+| **Phase 3 (Contact & API)** | 12 issues (#29–#40) | Ready to Start |
 | **Phase 4 (QA & Cutover)** | 11 issues (#41–#50) | Queued |
 
 ---
@@ -31,11 +31,11 @@ graph TD
     E1["Epic 1: Foundation & CI/CD (#2) ✅"] --> S11["Story 1.1: React Setup & Shell (#3) ✅"]
     E1 --> S12["Story 1.2: CI/CD & Railway (#7) ✅"]
     
-    E2["Epic 2: Public Core Pages (#11)"] --> S21["Story 2.1: Home Page Experience (#12)"]
-    E2 --> S22["Story 2.2: About Us & Sourcing (#16)"]
+    E2["Epic 2: Public Core Pages (#11) ✅"] --> S21["Story 2.1: Home Page Experience (#12) ✅"]
+    E2 --> S22["Story 2.2: About Us & Sourcing (#16) ✅"]
     
-    E3["Epic 3: Structured Catalogue (#20)"] --> S31["Story 3.1: Catalogue Architecture (#21)"]
-    E3 --> S32["Story 3.2: Product Detail Pages (#25)"]
+    E3["Epic 3: Structured Catalogue (#20) ✅"] --> S31["Story 3.1: Catalogue Architecture (#21) ✅"]
+    E3 --> S32["Story 3.2: Product Detail Pages (#25) ✅"]
     
     E4["Epic 4: Secure Contact & RFQ (#29)"] --> S41["Story 4.1: Accessible Contact Page (#30)"]
     E4 --> S42["Story 4.2: Contact API & Anti-Spam (#35)"]
@@ -70,19 +70,19 @@ graph TD
 > **GitHub Issue:** [#11](https://github.com/sirajpasha/Jayimpex/issues/11) | **Priority:** `P0` | **Phase:** `Phase 2 - Public Pages & Catalogue`  
 > **PRD Mapping:** Section 8 (FR-2, FR-3), Section 14 (Phase 2), User Stories 1, 10, 13
 
-- [ ] **[Story 2.1] Modernized B2B Home Page Experience** — [#12](https://github.com/sirajpasha/Jayimpex/issues/12) `P0`
+- [x] **[Story 2.1] Modernized B2B Home Page Experience** — [#12](https://github.com/sirajpasha/Jayimpex/issues/12) `P0`
   - *User Story:* As an international buyer, I want to understand JayImpex's business focus directly on the home page so that I can quickly decide whether to explore commodities.
   - *Design Preview:* [Stitch Screen `ec0786d3239b411a968473deba443efa`](https://lh3.googleusercontent.com/aida/AEtjO1Vn9bIrXN8G42eR1WuXSe8e-Z6KYpfQaN98DkiZQu9SRAF-bhe-8UfOg_M8WA16Spu3amw7rIUa2zouGFPW2nwEQ8yqE7hgF5SkxIEatCBDS7xTauoRdyaRyntGO59Cdy7kxM57ZiAZrvDBBm2HyNXltX5I-6wsqXnly8eCdXxTlQ7X3oFZ2a8lntzJV49lkDYbs4vejnzOiVu27uc1nzO7788wGGW-Vf7i0drZl3_smg6ELkmktJS6uMnm)
-  - [ ] **[Task 2.1.1]** Build Home Page Hero section with verified value proposition and CTAs — [#13](https://github.com/sirajpasha/Jayimpex/issues/13) `P0`
-  - [ ] **[Task 2.1.2]** Implement 3 Core Capabilities cards (Exporter, Wholesaler, Distribution) — [#14](https://github.com/sirajpasha/Jayimpex/issues/14) `P0`
-  - [ ] **[Task 2.1.3]** Build Export Process workflow section (Inquire -> Inspection -> Packing -> Dispatch) — [#15](https://github.com/sirajpasha/Jayimpex/issues/15) `P0`
+  - [x] **[Task 2.1.1]** Build Home Page Hero section with verified value proposition and CTAs — [#13](https://github.com/sirajpasha/Jayimpex/issues/13) `P0`
+  - [x] **[Task 2.1.2]** Implement 3 Core Capabilities cards (Exporter, Wholesaler, Distribution) — [#14](https://github.com/sirajpasha/Jayimpex/issues/14) `P0`
+  - [x] **[Task 2.1.3]** Build Export Process workflow section (Inquire -> Inspection -> Packing -> Dispatch) — [#15](https://github.com/sirajpasha/Jayimpex/issues/15) `P0`
 
-- [ ] **[Story 2.2] Company Profile & Sourcing Capabilities (About Us)** — [#16](https://github.com/sirajpasha/Jayimpex/issues/16) `P0`
+- [x] **[Story 2.2] Company Profile & Sourcing Capabilities (About Us)** — [#16](https://github.com/sirajpasha/Jayimpex/issues/16) `P0`
   - *User Story:* As a prospective trade partner, I want verified details on JayImpex's sourcing epicenters and compliance so that I have confidence in supply reliability.
   - *Design Preview:* [Stitch Screen `5231c2448a694702a50ba5f659af0a42`](https://lh3.googleusercontent.com/aida/AEtjO1WPY9YWXjw7zjgMlKRalIGlvKkvrDNS_b2Lo2Wo3kKjE-LaqrKCuMynrnlFV5VcWTG5-EJFFJXofKujNK4A-9m7pzQYWnKmek20-p9pwTGcHnGH5jnrn84I2fWhEgLuS4Wk9adcQGXEOFyWMemEFqLIE6-cBqKkvf6zQnfn1GkFAR8RsUHIB94yTCUf76iGaa6x_LuoXV7Kk0wk2SBEcEO1K_EzORmJU1QdcYnx-YeWlX5Te2PaDGSeSL4n)
-  - [ ] **[Task 2.2.1]** Implement About Us narrative and verified export history — [#17](https://github.com/sirajpasha/Jayimpex/issues/17) `P0`
-  - [ ] **[Task 2.2.2]** Implement Regional Sourcing Hubs grid and export corridors map — [#18](https://github.com/sirajpasha/Jayimpex/issues/18) `P0`
-  - [ ] **[Task 2.2.3]** Build Statutory Accreditations and compliance seals component — [#19](https://github.com/sirajpasha/Jayimpex/issues/19) `P0`
+  - [x] **[Task 2.2.1]** Implement About Us narrative and verified export history — [#17](https://github.com/sirajpasha/Jayimpex/issues/17) `P0`
+  - [x] **[Task 2.2.2]** Implement Regional Sourcing Hubs grid and export corridors map — [#18](https://github.com/sirajpasha/Jayimpex/issues/18) `P0`
+  - [x] **[Task 2.2.3]** Build Statutory Accreditations and compliance seals component — [#19](https://github.com/sirajpasha/Jayimpex/issues/19) `P0`
 
 ---
 
@@ -90,19 +90,19 @@ graph TD
 > **GitHub Issue:** [#20](https://github.com/sirajpasha/Jayimpex/issues/20) | **Priority:** `P0` | **Phase:** `Phase 2 - Public Pages & Catalogue`  
 > **PRD Mapping:** Section 8 (FR-4, FR-5, FR-11), Section 9.3 (Content Model), User Stories 5, 6, 7, 8, 29, 30, 31
 
-- [ ] **[Story 3.1] Data-Driven Product Catalogue Architecture & Filtering** — [#21](https://github.com/sirajpasha/Jayimpex/issues/21) `P0`
+- [x] **[Story 3.1] Data-Driven Product Catalogue Architecture & Filtering** — [#21](https://github.com/sirajpasha/Jayimpex/issues/21) `P0`
   - *User Story:* As an importer, I want to browse products by category with accurate descriptions and images so that I can identify what JayImpex offers.
   - *Design Preview:* [Stitch Screen `97042db87a0649eca001f83855297ee7`](https://lh3.googleusercontent.com/aida/AEtjO1Wr1bQBnC5J5MHz_Xb_xaOO1drW8cX3_gLBYk33V65L8ztHDS27ojSRbc49sY5eQGT7PhVv-fxMrqn2LGvxe5UZC123-hpY09s8HSEf-5cm4Jat2Qet4TaDVTbTDnDWAR5wusgZS6S4MIhEzJEDPYzqlNMeSHrUHDYjYDsrh7_Y4QCpgMZ_3PM_67MF0sGtB-hiFRVbHqtAeGQrk_nYLPwgiCYuFN3A0G5OfTxqe1l03UPwu1i5e35cptY)
-  - [ ] **[Task 3.1.1]** Define TypeScript schema & seed dataset for approved commodities and categories — [#22](https://github.com/sirajpasha/Jayimpex/issues/22) `P0`
-  - [ ] **[Task 3.1.2]** Inventory and map image assets from `images/` directory with responsive optimization — [#23](https://github.com/sirajpasha/Jayimpex/issues/23) `P0`
-  - [ ] **[Task 3.1.3]** Build `/products` catalogue page with search, category filtering, and product cards — [#24](https://github.com/sirajpasha/Jayimpex/issues/24) `P0`
+  - [x] **[Task 3.1.1]** Define TypeScript schema & seed dataset for approved commodities and categories — [#22](https://github.com/sirajpasha/Jayimpex/issues/22) `P0`
+  - [x] **[Task 3.1.2]** Inventory and map image assets from `images/` directory with responsive optimization — [#23](https://github.com/sirajpasha/Jayimpex/issues/23) `P0`
+  - [x] **[Task 3.1.3]** Build `/products` catalogue page with search, category filtering, and product cards — [#24](https://github.com/sirajpasha/Jayimpex/issues/24) `P0`
 
-- [ ] **[Story 3.2] Product Detail Pages & Technical Export Specifications** — [#25](https://github.com/sirajpasha/Jayimpex/issues/25) `P1`
+- [x] **[Story 3.2] Product Detail Pages & Technical Export Specifications** — [#25](https://github.com/sirajpasha/Jayimpex/issues/25) `P1`
   - *User Story:* As a bulk buyer, I want detailed export specifications and packaging options so that I can specify requirements precisely.
   - *Design Preview:* [Stitch Screen `2f6b96b7a63a4cc6863076acf93b9a38`](https://lh3.googleusercontent.com/aida/AEtjO1UJXpVvH26KDh0igFXQ6WR1ltxSOz5oheAhR6rzkoYKoIZ2KuZ4D5ovh2cq6ujwxhsc_PnUN-LSzzk-v7Kj4Ow3pNXPLGMoL_DH7TwBCUGnWmg5ocEsirwB69cgLjVTzITACRPej-RZTuhQACZZ5ELJ9nevSNT_V1I7tcXjgxQslPUZddoJcE-cIDiUtK-HadATNhqZARcYBI_kMEZCar7Mc5ilRhlx77KtOhL3K_ybmNbsHoe4ImYT6x0)
-  - [ ] **[Task 3.2.1]** Build dynamic route `/products/:slug` with canonical metadata and 404 fallback — [#26](https://github.com/sirajpasha/Jayimpex/issues/26) `P1`
-  - [ ] **[Task 3.2.2]** Implement Technical Specifications table and variant grade selector — [#27](https://github.com/sirajpasha/Jayimpex/issues/27) `P1`
-  - [ ] **[Task 3.2.3]** Add 'Enquire for Bulk Quote' CTA with prefilled commodity context in contact form — [#28](https://github.com/sirajpasha/Jayimpex/issues/28) `P1`
+  - [x] **[Task 3.2.1]** Build dynamic route `/products/:slug` with canonical metadata and 404 fallback — [#26](https://github.com/sirajpasha/Jayimpex/issues/26) `P1`
+  - [x] **[Task 3.2.2]** Implement Technical Specifications table and variant grade selector — [#27](https://github.com/sirajpasha/Jayimpex/issues/27) `P1`
+  - [x] **[Task 3.2.3]** Add 'Enquire for Bulk Quote' CTA with prefilled commodity context in contact form — [#28](https://github.com/sirajpasha/Jayimpex/issues/28) `P1`
 
 ---
 
