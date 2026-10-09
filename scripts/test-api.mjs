@@ -1,7 +1,41 @@
+import { spawn } from "child_process";
+
 // Integration test suite using native HTTP fetch against local server
 const BASE_URL = process.env.TEST_URL || "http://localhost:3000";
 
+async function ensureServerRunning() {
+  try {
+    const res = await fetch(`${BASE_URL}/api/health`);
+    if (res.status === 200) return null;
+  } catch {}
+
+  console.log(`[SETUP] Spawning local standalone server at ${BASE_URL}...`);
+  const server = spawn(process.execPath, [".next/standalone/server.js"], {
+    stdio: "ignore",
+    detached: false,
+  });
+
+  for (let i = 0; i < 30; i++) {
+    await new Promise((r) => setTimeout(r, 200));
+    try {
+      const res = await fetch(`${BASE_URL}/api/health`);
+      if (res.status === 200) {
+        console.log(`[SETUP] Local standalone server ready.\n`);
+        return server;
+      }
+    } catch {}
+  }
+  throw new Error("Failed to start local standalone server within 6s");
+}
+
 async function runTests() {
+  let serverProcess = null;
+  try {
+    serverProcess = await ensureServerRunning();
+  } catch (err) {
+    console.error("[SETUP ERROR]", err.message);
+  }
+
   console.log(`=== JAY IMPEX API VALIDATION & SECURITY TEST SUITE ===`);
   console.log(`Target: ${BASE_URL}\n`);
 
@@ -168,6 +202,7 @@ async function runTests() {
     });
     const data = await res.json();
     assert(res.status === 200, "Fast submission (< 2.5s) silently returns HTTP 200 without email delivery");
+    assert(data.success === true, "Fast submission returns synthetic success");
   } catch (e) {
     console.error("Fast submission test threw:", e.message);
     failed++;
@@ -209,6 +244,11 @@ async function runTests() {
   } catch (e) {
     console.error("Rate limiting test threw:", e.message);
     failed++;
+  }
+
+  if (serverProcess) {
+    console.log("[TEARDOWN] Stopping local test server...");
+    serverProcess.kill();
   }
 
   console.log(`\nTest Summary: ${passed} Passed, ${failed} Failed.`);
