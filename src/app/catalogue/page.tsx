@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { PRODUCTS } from "@/data/products";
-import { PrintButton } from "@/components/layout/PrintButton";
+import { BrochureDownload } from "@/components/BrochureDownload";
 
 export const metadata: Metadata = {
   title: "Export Catalogue & Specification Sheet",
@@ -23,15 +24,35 @@ export default function CataloguePage() {
           Incoterms (FOB, CIF, CFR, EXW). Contact: info@jayimpex.net · +91 94440 42275 ·
           www.jayimpex.net
         </p>
-        <PrintButton />
+        <div className="flex flex-wrap items-center gap-3 print:hidden">
+          <BrochureDownload />
+        </div>
       </header>
 
       <div className="space-y-6">
         {PRODUCTS.map((p) => (
           <section
             key={p.id}
-            className="print-avoid-break border border-slate-200 rounded-xl p-5"
+            className="print-avoid-break border border-slate-200 rounded-xl p-5 flex flex-col sm:flex-row gap-5"
           >
+            <div className="sm:w-44 shrink-0">
+              <div className="relative w-full sm:w-44 h-44 rounded-lg bg-white border border-slate-100 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  width={176}
+                  height={176}
+                  sizes="176px"
+                  className="max-h-44 w-auto object-contain"
+                />
+              </div>
+              {p.imageCredit && (
+                <p className="mt-1 text-[9px] leading-tight text-slate-400">
+                  Photo: {p.imageCredit.author}, {p.imageCredit.license}
+                </p>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h2 className="text-lg font-bold text-[#0F284E]">{p.name}</h2>
               <span className="text-xs font-medium text-slate-500">{p.categoryLabel}</span>
@@ -65,6 +86,7 @@ export default function CataloguePage() {
                 View product page
               </Link>
             </p>
+            </div>
           </section>
         ))}
       </div>

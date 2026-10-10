@@ -62,6 +62,7 @@ export default function PrivacyPage() {
               <li>Contact details: Name, designation, business email address, phone/WhatsApp number.</li>
               <li>Company details: Business/importer name, country of incorporation, target destination seaport.</li>
               <li>Trade specifications: Commodity requirements, estimated volume, preferred packaging, Incoterms.</li>
+              <li>Brochure requests: Name, email, company, phone and country entered in the brochure download form.</li>
               <li>Technical logs: IP address, submission timestamp, and basic browser user-agent for rate-limiting and anti-spam verification.</li>
             </ul>
           </div>
@@ -73,6 +74,7 @@ export default function PrivacyPage() {
               <li>Formulating accurate FOB, CIF, or CFR commodity price quotations.</li>
               <li>Communicating phytosanitary specifications, laboratory test results, and shipping schedules.</li>
               <li>Fulfilling statutory export documentation with customs and regulatory bodies (APEDA, DGFT).</li>
+              <li>Notifying our commercial team of your enquiry by email.</li>
               <li>Preventing malicious denial-of-service, automated form spam, and phishing attempts.</li>
             </ul>
             <p className="text-slate-600 mt-2 font-medium">
