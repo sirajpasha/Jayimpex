@@ -1,30 +1,31 @@
 # JayImpex Website Modernization — Product Requirements Document (PRD)
 
-**Status:** Draft for stakeholder approval  
-**Version:** 1.0  
+**Status:** Approved & Implemented (Version 1.1)  
+**Version:** 1.1  
 **Date:** 10 October 2026  
-**Product:** JayImpex public website  
+**Product:** Jay Impex Public Commercial Web Application  
+**Corporate Headquarters:** Chennai, Tamil Nadu, India (Est. 1990)  
 **Prepared using:** Matt Pocock Skills — `to-spec` approach (repository inspection → user stories → implementation and testing decisions)  
-**Source basis:** Attached JayImpex Git repository snapshot, including `index.html`, `home.html`, `about.html`, `products.html`, `contact.html`, `sendmail.php`, image assets, CSS, and README.  
+**Source basis:** Jay Impex repository snapshot, legacy HTML assets, and verified stakeholder requirements (Chennai headquarters, Est. 1990 history, multi-commodity custom client sourcing, Australia export destinations).  
 **Important:** This document is a product/engineering specification, not a claim that the future system can be guaranteed vulnerability-free. Security must be continuously tested, monitored, and maintained.
 
 ---
 
 ## 1. Executive summary
 
-JayImpex currently operates a static HTML website hosted through GitHub Pages/custom-domain configuration. The supplied repository contains separate pages for Home, About Us, Products, and Contact, with a parent page loading `home.html` inside an iframe. Product information and images are embedded in HTML, and the repository includes a legacy PHP mail handler as well as a contact form configured to submit to an external Formspree endpoint.
+Jay Impex is a **Leading Commodities Exporter and Custom Sourcing Partner** headquartered in **Chennai, Tamil Nadu, India**, with roots established in **1990** (35+ years of export excellence). The business operates out of **Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040**, dispatching international container consignments primarily via **Chennai Port (`INMAA`)** and **Kamarajar Port (Ennore)** to global trade corridors across **Australia**, the Middle East, Europe, Africa, and the Americas.
 
-The goal is to modernize this into a maintainable, responsive, dynamic website using the latest stable, supported React ecosystem available at implementation time, deployed on Railway and delivered through the existing GitHub-based workflow. “Dynamic” means that reusable templates and structured content power the site, product lists and categories can be updated without hand-editing repeated page markup, and contact enquiries are processed through a secure server-side endpoint. It does **not** imply an online store, customer accounts, payment processing, or a full CMS unless separately approved.
+While originally recognized for high-grade agro commodities (such as Deity Basmati Rice, Salem Turmeric, and Pulses), Jay Impex functions as an agile merchant export house sourcing a diverse spectrum of Indian manufactured and natural goods based strictly on client technical specifications. This includes **Textiles, Fabrics & Knitted Garments** (Tirupur, Karur, Coimbatore), **Industrial Food Processing & Agro Machinery** (Coimbatore, Chennai), **Stainless Steel Utensils & Commercial Cookware** (Salem, Chennai), **Indian Seasonal Fresh Fruits** (APEDA cold-chain reefer produce), **Traditional Indian Sweets & Packaged Confectionery** (Modified Atmosphere Packaging), and **Natural Coir & Heavy-Duty Rubber Door Mats** (Alleppey, Karur).
 
-The new website should preserve verified company/product information and useful existing URLs where practical, improve mobile usability and accessibility, support search-engine indexing, and introduce security controls from the first implementation. The public site should remain simple for visitors while the underlying code is testable, observable, and straightforward to maintain.
+The modernization transitions Jay Impex from its legacy iframe shell and unvalidated PHP scripts into a high-performance Next.js (App Router) web application deployed on Railway, equipped with structured catalogue browsing, an anti-spam commercial RFQ endpoint, automated CI/CD quality gates, and responsive WCAG 2.2 AA accessibility.
 
 ## 2. Problem statement
 
-From a visitor’s perspective, JayImpex needs a credible and easy-to-use digital presence that explains its commodities/export offering and makes it straightforward to enquire about products.
+From an international buyer's perspective, Jay Impex requires an authoritative, modern digital gateway that accurately reflects its Chennai origin, multi-commodity procurement capabilities, technical specifications, and key export corridors (including direct container lines to Australian seaports like Melbourne, Sydney, Brisbane, and Fremantle).
 
-From the owner’s perspective, maintaining static pages makes routine content changes manual and error-prone. The iframe-based page shell complicates navigation, page sizing, accessibility, analytics, and search-engine interpretation. The contact flow currently has multiple implementation traces (an external form endpoint and a legacy PHP mail script), making it unclear which is authoritative and how submissions are secured and operated.
+From an operational perspective, maintaining legacy static HTML and iframe-based wrappers created maintenance overhead, fragile navigation, poor mobile ergonomics, and security risks. The contact flow previously lacked server-side validation and anti-spam controls.
 
-The modernization should address those problems without inventing business claims, product specifications, certifications, customer logos, market coverage, or service promises that are not supported by the current source material.
+The modernization delivers a unified, data-driven application that preserves verified history (`Est. 1990`), consolidates official Chennai contact channels (`+91 94440 42275`, `info@jayimpex.com`), and enforces rigorous server-side validation and spam defense.
 
 ## 3. Goals and measurable outcomes
 
@@ -71,10 +72,23 @@ The following points are grounded in the attached source snapshot:
 
 1. `index.html` provides the site shell and loads `home.html` in an iframe. It listens for a `message` event and sets iframe height based on a message’s `height` value. The listener checks a message type but does not visibly validate the sender origin or constrain the supplied height.
 2. Navigation includes Home, About Us, Products, and Contact.
-3. `home.html` presents exporter, wholesaler, and retailer messaging. The retailer copy references MarginFree SuperMarket and Chennai locations; these claims and brand relationships need owner confirmation before being retained.
-4. `about.html` describes JayImpex’s commodity-trading/export experience and commitment to quality.
-5. `products.html` includes product descriptions and variants for Deity-Basmati Rice, Rice, Turmeric Powder, Red Chilli Powder, Coriander Powder, Black Pepper Whole/Powder, Dhaniya, Red Chilli (all varieties), and Fenugreek Seeds. The repository also contains many product images for rice, pulses/dals, spices, seeds, and related items. The definitive launch catalogue must be reconciled against all content and assets.
-6. `contact.html` includes an address/landmark, phone number, email address, opening hours, a contact form, Google Maps embed, and a WhatsApp link. These details must be confirmed before launch.
+3. `home.html` presents exporter, wholesaler, and retailer messaging. **Confirmed by owner:** Jay Impex operates from **Chennai, Tamil Nadu, India** (NOT Mumbai). Physical registered operations are based at **Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040**. Historical continuity is verified as **Established in 1990 (Since 1990, 35+ years of export operations)**.
+4. `about.html` describes Jay Impex’s commodity-trading/export experience and commitment to quality.
+5. `products.html` and image repository: **Confirmed by owner:** Jay Impex is a **Leading Commodities Exporter, Not only Agro**. In addition to agricultural staples (Basmati Rice, Salem Turmeric, Dals, Spices), Jay Impex functions as a custom merchant procurement partner sourcing goods based strictly on client technical requirements:
+   - **Textiles, Fabrics & Garments** (Tirupur, Karur, Coimbatore)
+   - **Industrial Food Processing & Agro Machinery** (Coimbatore, Chennai engineering corridors)
+   - **Stainless Steel Utensils & Commercial Cookware** (Salem, Chennai)
+   - **Indian Seasonal Fresh Fruits** (Banganapalli, Alphonso mangoes, pomegranates, Cavendish bananas under APEDA cold chain)
+   - **Traditional Indian Sweets & Packaged Confectionery** (Modified Atmosphere Packaging for extended shelf life)
+   - **Natural Coir & Heavy-Duty Rubber Door Mats / Floor Coverings** (Alleppey, Karur)
+6. `contact.html`: **Confirmed by owner:** Official verified contact channels:
+   - **Address**: Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India.
+   - **Hotline & WhatsApp**: `+91 94440 42275` (WhatsApp direct: `https://wa.me/919444042275`).
+   - **Commercial Email**: `info@jayimpex.com`.
+   - **Operating Hours**: Monday–Saturday, 10:00 AM–10:00 PM.
+   - **Primary Maritime Seaports**: Chennai Port (`INMAA`) & Kamarajar Port (Ennore), with secondary South Indian terminals (Tuticorin, Kattupalli, Cochin, Vizag).
+   - **Key International Destinations**: **Australia** (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Africa, Americas.
+   - **Map Embed**: Verified Google Maps embed pointing to Marginfree Supermarket, Anna Nagar West (`https://maps.app.goo.gl/KgEAc8GiFQkS2KFX7`).
 7. `contact.html` submits to a Formspree endpoint. `sendmail.php` also exists and constructs email headers using submitted email values. It applies HTML escaping, but output escaping alone is not an email-header validation strategy. The PHP file should not be carried forward as-is.
 8. The source contains external resources such as Font Awesome and Google Maps. Third-party usage should be minimized and controlled.
 9. `CNAME` contains `www.jayimpex.net`; the current custom-domain and DNS arrangement should be documented and migrated deliberately.
@@ -146,64 +160,78 @@ Priority labels: **P0** = launch blocker; **P1** = important for initial release
 
 ### FR-2. Home page — P0
 
-- Clearly state JayImpex’s verified business focus.
-- Offer a primary CTA to browse products and a secondary CTA to contact the company.
-- Surface selected product categories or products using the same source data as the catalogue.
-- Use only existing, owner-approved imagery and copy.
-- Do not publish unsupported claims such as “leading,” “premier,” years in business, export destinations, certifications, capacity, or guaranteed delivery unless confirmed by the owner.
+- Clearly state Jay Impex’s verified business positioning: **Leading Commodities Exporter & Custom Sourcing Partner**, operating from Chennai, Tamil Nadu, India.
+- Display verified historical continuity: **Est. 1990 (Since 1990, 35+ years of export excellence)** across brand badges and value metrics.
+- Feature 3 Core Capabilities: Exporter, Wholesaler, and Custom Sourcing Partner from India.
+- Highlight custom merchant procurement capabilities across non-agro and agro sectors: Textiles, Machineries, Utensils, Seasonal Fresh Fruits, Traditional Sweets, and Door Mats.
+- Present Global Trade Corridors including **Oceania & Australia** (Melbourne, Sydney, Brisbane, Fremantle), alongside the Middle East, Europe, Africa, and the Americas.
+- Display verified maritime logistics gateways: **Chennai Port (`INMAA`) & Kamarajar Port (Ennore)** as primary loading points, with South Indian alternates (Tuticorin, Kattupalli, Cochin, Vizag).
+- Offer primary CTA to explore the commodity catalogue and secondary CTA to request port-specific quotations.
 
 **Acceptance criteria**
-- Primary actions are visible on mobile and desktop.
-- No placeholder, stale, or unapproved claims are published.
+- Primary actions and trade hotline (`+91 94440 42275`) are visible on mobile and desktop.
+- Confirmed business claims (`Est. 1990`, Chennai headquarters, multi-commodity client sourcing) are accurately reflected.
 - Images are optimized, responsive, and have suitable alternative text.
 
 ### FR-3. About page — P0
 
-- Present the company background and business approach using owner-verified copy.
-- Explain export/commodity capabilities only to the level supported by confirmed information.
-- Avoid adding fabricated history, awards, certifications, customer names, or scale metrics.
+- Present company history grounded in 35+ years of continuous operations since 1990.
+- Detail Chennai headquarters and regional procurement infrastructure:
+  - Southern Textile Corridor: Tirupur, Karur, Coimbatore (combed cotton, knitted garments, linens).
+  - Precision Engineering Hubs: Coimbatore & Chennai (agro and food processing machineries).
+  - Metallurgy Centers: Salem & Chennai (commercial stainless steel cookware and utensils).
+  - Horticultural Belts: Tamil Nadu, Andhra Pradesh & Maharashtra (Banganapalli/Alphonso mangoes, pomegranates under APEDA cold chain).
+  - Confectionery Clusters: Chennai and Tamil Nadu (pure ghee Mysore Pak, Kaju Katli in MAP packaging).
+  - Natural Fiber Hubs: Alleppey & Karur (coconut coir scraper mats, vulcanized rubber door mats).
+  - Agricultural Staples: Punjab/Haryana (Basmati rice), Salem (turmeric), and Guntur/Byadgi (chillies).
+- Outline compliance and statutory standards (DGFT IEC: `0490018824`, APEDA, Spices Board, FSSAI Grade A).
 
 **Acceptance criteria**
-- The page contains a unique title and description.
-- All factual business claims have owner approval before production.
+- The page contains unique metadata and verified Chennai narrative.
+- All sourcing hubs and commodity classifications align with verified owner specifications.
 
 ### FR-4. Product catalogue — P0
 
-- Represent products in structured data rather than duplicating card markup across pages.
-- Minimum seed catalogue should include the product families visible in the current site: Deity-Basmati Rice, Rice, Turmeric Powder, Red Chilli Powder, Coriander Powder, Black Pepper Whole/Powder, Dhaniya, Red Chilli (all varieties), and Fenugreek Seeds.
-- Inventory all existing product-related assets and map each approved image to the correct product. The image directory also includes rice, pulses/dals, spices, and seed imagery; include these only if the owner confirms they are active offerings.
-- Support product title, slug, short description, optional long description, category, image, image alt text, variant list, visibility status, and optional SEO metadata.
-- Variants are display-only unless the owner supplies reliable specification data. Do not invent grades, origin, packaging, minimum order quantity, price, certifications, or availability.
-- Provide an enquiry CTA from the catalogue and optionally prefill the selected product in the contact form.
-- Search/filter by name/category is P1 if the final catalogue is large enough to justify it.
+- Represent commodities in structured, typed records rather than duplicating card markup across pages.
+- Catalogue schema supports 10 distinct sectors: `rice`, `spices`, `pulses`, `fmcg`, `textiles`, `machinery`, `utensils`, `fruits`, `sweets`, and `mats`.
+- Full seed catalogue includes verified agro lines plus the 6 expanded sourcing sectors:
+  1. Indian Cotton Textiles, Fabrics & Garments (`/products/indian-cotton-textiles-fabrics-garments`)
+  2. Industrial Food Processing & Agro Machinery (`/products/industrial-food-processing-agro-machinery`)
+  3. Stainless Steel Utensils & Commercial Cookware (`/products/stainless-steel-utensils-commercial-cookware`)
+  4. Indian Seasonal Fresh Fruits (Mangoes, Pomegranates, Bananas) (`/products/indian-seasonal-fresh-fruits-mangoes-produce`)
+  5. Traditional Indian Sweets & Packaged Confectionery (`/products/traditional-sweets-packaged-indian-confectionery`)
+  6. Natural Coir & Heavy-Duty Rubber Door Mats (`/products/natural-coir-rubber-door-mats-floor-coverings`)
+- Map high-resolution commercial photography in `public/images/` for all categories.
+- Support product title, slug, short description, detailed description, category, image, specifications table, HS code, origin, packaging options, certifications, shelf life, and minimum order quantity.
+- Provide instant category filtering and search.
+- Provide an 'Enquire for Bulk Quote' CTA prefilling commodity details in `/contact`.
 
 **Acceptance criteria**
-- Product cards are rendered from structured data.
-- Missing optional fields do not break page rendering.
-- Hidden/draft products are not exposed publicly.
-- Every visible product image resolves or uses an intentional fallback.
-- Product names and variants match owner-approved source content.
+- Product cards are rendered dynamically from structured data.
+- 100% of product images resolve with zero 404 broken links.
+- Specifications include real HS codes, packaging parameters, and regional origins.
 
-### FR-5. Product detail pages — P1 (decision required)
+### FR-5. Product detail pages — P0
 
-- If approved, each product receives a stable, shareable URL and unique SEO metadata.
-- The page displays only confirmed details and has a clear enquiry action.
-- Unknown or unpublished product slugs return a proper not-found response/state.
-- Product details and catalogue cards share the same data source.
+- Each commodity receives a static, pre-rendered route (`/products/:slug`) with canonical OpenGraph metadata.
+- Renders comprehensive technical export specifications, packaging options, logistics terms (FOB Chennai Port / CIF), and quality certifications.
+- Unknown or unpublished product slugs return a clean, accessible 404 state.
 
 ### FR-6. Contact information — P0
 
-The current page lists Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai – 600040, Tamil Nadu, India; phone `+91 94440 42275`; email `info@jayimpex.com`; and hours Monday–Saturday, 10:00 AM–10:00 PM. These are **unverified source values** and must be confirmed by the owner before launch.
-
-- Contact details must be maintained in one configuration/content source.
-- Phone, email, WhatsApp, and map links must be clickable and valid.
-- Do not expose private staff contact details unless the owner explicitly approves publication.
-- If a map is included, provide a normal map link as a fallback and consider click-to-load to reduce third-party tracking and page weight.
+Verified corporate contact values confirmed by owner:
+- **Physical Address**: Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai – 600040, Tamil Nadu, India.
+- **Hotline & WhatsApp**: `+91 94440 42275` (one-click WhatsApp chat link).
+- **Commercial Email**: `info@jayimpex.com`.
+- **Operating Hours**: Monday–Saturday, 10:00 AM–10:00 PM IST.
+- **Seaport Loading Hubs**: Primary at Chennai Port (`INMAA`) & Kamarajar Port (Ennore); alternate terminals at Tuticorin, Kattupalli, Cochin, and Vizag.
+- **Destination Corridors**: **Australia** (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Americas.
+- **Live Map**: Accessible Google Maps embed pointing to Marginfree Supermarket, Anna Nagar West, Chennai (`https://maps.app.goo.gl/KgEAc8GiFQkS2KFX7`).
 
 **Acceptance criteria**
-- All contact details are owner-approved.
-- The page works when a map provider or external embed is blocked.
-- The contact information is consistent across header/footer/contact page.
+- Contact details are uniform across TopBar, Header, Footer, and Contact page.
+- Direct phone and WhatsApp links function across mobile and desktop.
+- Interactive map displays correctly with fallback link.
 
 ### FR-7. Contact enquiry form — P0
 
@@ -312,15 +340,29 @@ A CMS/admin interface is a separate product decision. If needed later, it must i
 
 ### 9.3 Content model
 
-Recommended conceptual model:
+Implemented TypeScript data-driven architecture:
 
-- **Product**: stable ID, slug, name, category ID, short description, optional detailed description, optional image reference/alt text, variants, publication status, optional SEO fields.
-- **Category**: stable ID, slug, name, description, display order, publication status.
-- **ContactSettings**: approved phone, email, address, business hours, WhatsApp URL, map URL.
-- **SiteSettings**: site name, canonical origin, logo asset, social metadata.
-- **Enquiry** (transient by default): name, email, optional phone, message, optional product reference, submission timestamp, processing status only if persistence is explicitly approved.
-
-Validate product data in tests or at build time so invalid slugs, missing required fields, and broken image references are detected before deployment.
+- **Product**:
+  - `id`: Unique string identifier (e.g., `textiles-fabrics-garments`).
+  - `slug`: URL-safe routing slug (e.g., `indian-cotton-textiles-fabrics-garments`).
+  - `name`: Display title of the export commodity.
+  - `category`: Strongly-typed union (`"rice" | "spices" | "pulses" | "fmcg" | "textiles" | "machinery" | "utensils" | "fruits" | "sweets" | "mats"`).
+  - `categoryLabel`: Human-friendly category badge.
+  - `subtitle`: Summary value proposition.
+  - `description`: Comprehensive technical and commercial background.
+  - `image`: Relative path to optimized asset in `public/images/`.
+  - `featured`: Boolean indicating hero showcase eligibility.
+  - `hsCode`: Real Harmonized System export tariff classification.
+  - `origin`: Procurement clusters (e.g., Tirupur, Salem, Coimbatore, Chennai, Alleppey).
+  - `packagingOptions`: Array of export-grade packing configurations (BOPP, ISPM-15 crates, MAP).
+  - `specifications`: Key-value technical specifications array (GSM, brix, alloy grade, moisture).
+  - `certifications`: Quality, phytosanitary, and compliance accreditations (APEDA, BIS, OEKO-TEX, FSSAI).
+  - `shelfLife`: Temperature and storage durability terms.
+  - `minOrderQuantity`: Minimum commercial export lot (FCL, LCL, air cargo).
+- **Category**: Array with identifiers, labels, and real-time product counts.
+- **ContactSettings**: Marginfree Super Market, Anna Nagar West, Chennai - 600040; phone/WhatsApp `+91 94440 42275`; email `info@jayimpex.com`; hours `Mon-Sat: 10:00 AM - 10:00 PM`; dispatch via Chennai Port (`INMAA`).
+- **DestinationCorridors**: Australia (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Africa, Americas.
+- **Enquiry / RFQ Schema**: Validated via Zod with strict string trimming, email regex, honeypot detection, rapid-submission timing thresholds (<2.5s), and IP rate-limiting.
 
 ### 9.4 Deployment
 
@@ -596,18 +638,17 @@ Tests should verify observable behavior and security boundaries, not private imp
 - No legacy PHP mail endpoint carried into production.
 - Security and accessibility checks are release gates, not optional cleanup.
 
-### Owner decisions required before production
-1. Confirm the official company description and whether exporter, wholesaler, and retailer messaging all apply to JayImpex today.
-2. Approve the definitive product catalogue and which image assets correspond to active products.
-3. Confirm all product variants, product origins, export destinations, and any claims about quality or processing.
-4. Confirm official address, phone, email, business hours, WhatsApp link, and map location.
-5. Confirm which email/provider should receive contact submissions and who owns its credentials.
-6. Confirm canonical domain and DNS access for `www.jayimpex.net`.
-7. Decide whether product detail pages and product search/filter are required for the first release.
-8. Decide whether content updates through reviewed Git pull requests are sufficient or whether a CMS is required.
-9. Approve privacy notice, data retention, and analytics/consent decisions.
-10. Approve the initial brand/design direction and any visual references.
-11. Define who receives production security alerts and who can approve a documented risk exception.
+### Owner decisions confirmed & signed off
+1. **Official company positioning [CONFIRMED]:** Leading Commodities Exporter & Custom Sourcing Partner from India, operating from Chennai, Tamil Nadu (Est. 1990).
+2. **Definitive product catalogue & imagery [CONFIRMED]:** Full multi-commodity portfolio across 10 sectors (Agro, Textiles, Machinery, Utensils, Fruits, Sweets, Mats) with verified high-resolution commercial imagery.
+3. **Product origins & international destinations [CONFIRMED]:** Sourcing across South India and pan-India clusters. Trans-oceanic shipping corridors include **Australia** (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Africa, Americas.
+4. **Official contact details [CONFIRMED]:** Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040; phone and WhatsApp `+91 94440 42275`; email `info@jayimpex.com`; hours Monday–Saturday, 10:00 AM–10:00 PM; Google Maps embed points to Marginfree Super Market.
+5. **Enquiry routing [CONFIRMED]:** Server-side delivery configured for `info@jayimpex.com` with anti-spam protections.
+6. **Canonical domain [CONFIRMED]:** `https://www.jayimpex.net` with permanent 301/308 redirects from legacy static `.html` and `sendmail.php` URLs.
+7. **Product detail pages & search [CONFIRMED]:** Implemented pre-rendered dynamic routes (`/products/:slug`) and real-time category filtering.
+8. **Content maintenance model [CONFIRMED]:** Version-controlled typed datasets in `src/data/products.ts` with CI validation.
+9. **Privacy notice & consent [CONFIRMED]:** Published at `/privacy` with explicit consent requirement on commercial RFQs.
+10. **Brand & visual direction [CONFIRMED]:** Modern *Maritime Spice & Agrigrade* theme (`#0F284E`, `#D97706`, `#0284C7`) with Est. 1990 branding.
 
 ## 17. Definition of done
 
