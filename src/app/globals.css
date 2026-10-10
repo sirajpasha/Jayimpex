@@ -69,3 +69,13 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
 }
+
+/* Print / Save-as-PDF: show only page content (used by /catalogue) */
+@media print {
+  body > :not(main) {
+    display: none !important;
+  }
+  .print-avoid-break {
+    break-inside: avoid;
+  }
+}

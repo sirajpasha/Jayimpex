@@ -179,3 +179,29 @@ graph TD
   - [x] **[Task 6.3.1]** Add Oceania & Australia trade lane to Homepage and About page trade corridors, featuring Melbourne, Sydney, Brisbane, and Fremantle container ports — [#68](https://github.com/sirajpasha/Jayimpex/issues/68) `P0`
   - [x] **[Task 6.3.2]** Update RFQ commercial enquiry form destination port options, layout metadata, and logistics dispatch references — [#69](https://github.com/sirajpasha/Jayimpex/issues/69) `P0`
 
+
+---
+
+### Epic 7: Client Reachability & UX Hardening (Post-Launch Review)
+> **Source:** UX/gap review of PRD, backlog and code, 10 October 2026. GitHub issue IDs not yet assigned.
+
+**Done**
+- [x] RFQ reference numbers, buyer acknowledgement email, and honest 503 when SMTP is not configured in production (`ALLOW_EMAIL_SIMULATION=true` for CI/local tests)
+- [x] Redacted logging of dropped spam submissions (honeypot / too-fast)
+- [x] Sticky WhatsApp / Call / Get Quote bar on all pages
+- [x] Printable `/catalogue` page (save as PDF) linked from the header and sitemap
+- [x] JSON-LD structured data (Organization, Product, BreadcrumbList), product canonical URLs
+- [x] Branded `not-found` and `error` pages
+
+**Open**
+- [ ] Configure SMTP secrets on Railway and confirm a real end-to-end RFQ delivery `P0`
+- [ ] Verify and publish certificate copies (FSSAI, IEC, APEDA, ISO), "35+" statistics, and a proper registered business address `P0`
+- [ ] Designed PDF catalogue and per-product spec sheets `P1`
+- [x] Shorter quote form (name, email, product, requirements; company/phone/destination optional and collapsed)
+- [ ] Multi-product quote list `P1`
+- [x] Server-rendered `/products` with search, category and sort in the URL (works without JavaScript)
+- [x] Header/footer logo reduced from 4 MB to ~150 KB (other images are served through next/image)
+- [ ] Per-page Open Graph images, analytics / conversion tracking `P1`
+- [ ] Automated accessibility (axe/Lighthouse) check in CI — Task 5.2.3 is marked done but no such script exists `P1`
+- [ ] Shared-store rate limiting if the service scales beyond one replica; tighten CSP (`unsafe-inline` / `unsafe-eval`) `P2`
+- [ ] Additional languages (e.g. Arabic) `P2`

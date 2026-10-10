@@ -383,15 +383,17 @@ function ContactFormContent() {
                   />
                 </div>
 
-                {/* Name & Company */}
+                {/* Essentials: name, email, product, message */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
+                    <label htmlFor="rfq-name" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
                       Full Name <span className="text-rose-500">*</span>
                     </label>
                     <input
+                      id="rfq-name"
                       type="text"
                       required
+                      autoComplete="name"
                       placeholder="e.g. John Doe"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -400,130 +402,130 @@ function ContactFormContent() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                      Company / Importer Name <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Al-Noor Global Trading LLC"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                    />
-                  </div>
-                </div>
-
-                {/* Email & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
+                    <label htmlFor="rfq-email" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
                       Business Email <span className="text-rose-500">*</span>
                     </label>
                     <input
+                      id="rfq-email"
                       type="email"
                       required
+                      autoComplete="email"
                       placeholder="e.g. trade@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
                     />
                   </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                      Phone / WhatsApp (with country code) <span className="text-rose-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="e.g. +971 50 123 4567"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                    />
-                  </div>
                 </div>
 
-                {/* Country / Destination Seaport */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                    Destination Seaport &amp; Country <span className="text-rose-500">*</span>
+                  <label htmlFor="rfq-commodity" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
+                    Commodity Sector <span className="text-rose-500">*</span>
                   </label>
-                    <input
-                    type="text"
-                    required
-                    placeholder="e.g. Melbourne/Sydney (Australia), Jebel Ali (Dubai), Rotterdam, or New York"
-                    value={formData.country}
-                    onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                  <select
+                    id="rfq-commodity"
+                    value={formData.commodity}
+                    onChange={(e) => setFormData({ ...formData, commodity: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                  />
+                  >
+                    {commodityOptions.map((opt, i) => (
+                      <option key={i} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
-                {/* Commodity & Incoterms */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="sm:col-span-2">
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                      Commodity Sector <span className="text-rose-500">*</span>
-                    </label>
-                    <select
-                      value={formData.commodity}
-                      onChange={(e) => setFormData({ ...formData, commodity: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                    >
-                      {commodityOptions.map((opt, i) => (
-                        <option key={i} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                      Incoterm
-                    </label>
-                    <select
-                      value={formData.incoterm}
-                      onChange={(e) => setFormData({ ...formData, incoterm: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                    >
-                      <option value="FOB">FOB (Chennai Port / South India)</option>
-                      <option value="CIF">CIF (Port of Discharge - Global)</option>
-                      <option value="CFR">CFR (Cost &amp; Freight)</option>
-                      <option value="EXW">EXW (Factory gate)</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Required Volume / Packaging */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                    Estimated Volume &amp; Packaging Preference
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. 2 x 20ft FCL in 10kg BOPP bags or 50 MT in bulk PP sacks"
-                    value={formData.volume}
-                    onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                  />
-                </div>
-
-                {/* Detailed Specifications / Message */}
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                    Detailed Specifications &amp; Commercial Notes <span className="text-rose-500">*</span>
+                  <label htmlFor="rfq-message" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
+                    Your Requirements <span className="text-rose-500">*</span>
                   </label>
                   <textarea
+                    id="rfq-message"
                     required
                     rows={4}
-                    placeholder="Specify target grain length, moisture content, purity %, required inspection agency (SGS, Geo-Chem), or target dispatch timeline..."
+                    placeholder="Quantity, grade or specification, packaging, target destination or timeline..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
                   />
                 </div>
+
+                {/* Optional shipment details (collapsed to keep the first request short) */}
+                <details className="rounded-lg border border-slate-200 bg-slate-50/50 p-4">
+                  <summary className="cursor-pointer text-sm font-semibold text-[#0F284E] select-none">
+                    Add company &amp; shipment details{" "}
+                    <span className="font-normal text-slate-500">(optional, speeds up your quote)</span>
+                  </summary>
+                  <div className="mt-4 space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="rfq-company" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Company / Importer Name</label>
+                        <input
+                          id="rfq-company"
+                          type="text"
+                          autoComplete="organization"
+                          placeholder="e.g. Al-Noor Global Trading LLC"
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="rfq-phone" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Phone / WhatsApp (with country code)</label>
+                        <input
+                          id="rfq-phone"
+                          type="tel"
+                          autoComplete="tel"
+                          placeholder="e.g. +971 50 123 4567"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="sm:col-span-2">
+                        <label htmlFor="rfq-country" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Destination Seaport &amp; Country</label>
+                        <input
+                          id="rfq-country"
+                          type="text"
+                          placeholder="e.g. Melbourne (Australia), Jebel Ali (Dubai), Rotterdam"
+                          value={formData.country}
+                          onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="rfq-incoterm" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Incoterm</label>
+                        <select
+                          id="rfq-incoterm"
+                          value={formData.incoterm}
+                          onChange={(e) => setFormData({ ...formData, incoterm: e.target.value })}
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
+                        >
+                          <option value="FOB">FOB (Chennai Port / South India)</option>
+                          <option value="CIF">CIF (Port of Discharge - Global)</option>
+                          <option value="CFR">CFR (Cost &amp; Freight)</option>
+                          <option value="EXW">EXW (Factory gate)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="rfq-volume" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Estimated Volume &amp; Packaging Preference</label>
+                      <input
+                        id="rfq-volume"
+                        type="text"
+                        placeholder="e.g. 2 x 20ft FCL in 10kg BOPP bags or 50 MT in bulk PP sacks"
+                        value={formData.volume}
+                        onChange={(e) => setFormData({ ...formData, volume: e.target.value })}
+                        className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
+                      />
+                    </div>
+                  </div>
+                </details>
 
                 {/* Privacy Consent Checkbox */}
                 <div className="flex items-start space-x-2 pt-1">

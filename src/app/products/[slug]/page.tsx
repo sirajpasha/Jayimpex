@@ -15,6 +15,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
+import { JsonLd } from "@/components/JsonLd";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -40,6 +41,7 @@ export async function generateMetadata({
   }
 
   return {
+    alternates: { canonical: `/products/${product.slug}` },
     title: `${product.name} - Technical Export Specifications | Jay Impex`,
     description: `${product.subtitle} Origin: ${product.origin}. HS Code: ${product.hsCode}. Certified global export from Chennai Port (INMAA).`,
     openGraph: {
@@ -73,6 +75,30 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen pb-24">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Product",
+              name: product.name,
+              description: product.subtitle,
+              image: `https://www.jayimpex.net${product.image}`,
+              category: product.categoryLabel,
+              countryOfOrigin: "IN",
+              brand: { "@type": "Brand", name: "Jay Impex" },
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.jayimpex.net" },
+                { "@type": "ListItem", position: 2, name: "Products", item: "https://www.jayimpex.net/products" },
+                { "@type": "ListItem", position: 3, name: product.name, item: `https://www.jayimpex.net/products/${product.slug}` },
+              ],
+            },
+          ],
+        }}
+      />
       {/* Top Breadcrumb & Return Bar */}
       <div className="bg-[#0F284E] text-slate-300 py-4 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs">

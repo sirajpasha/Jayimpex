@@ -5,6 +5,8 @@ import { SkipLink } from "@/components/layout/SkipLink";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingContact } from "@/components/layout/FloatingContact";
+import { JsonLd } from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -101,6 +103,26 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white text-slate-900 selection:bg-amber-100 selection:text-amber-900 font-sans">
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Jay Impex",
+            url: "https://www.jayimpex.net",
+            logo: "https://www.jayimpex.net/images/Jayimpex-Logo-min.PNG",
+            foundingDate: "1990",
+            email: "info@jayimpex.com",
+            telephone: "+91-94440-42275",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "1739, 18th Main Road, Anna Nagar West",
+              addressLocality: "Chennai",
+              addressRegion: "Tamil Nadu",
+              postalCode: "600040",
+              addressCountry: "IN",
+            },
+          }}
+        />
         <SkipLink />
         <TopBar />
         <Header />
@@ -108,6 +130,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FloatingContact />
       </body>
     </html>
   );

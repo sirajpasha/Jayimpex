@@ -12,6 +12,7 @@ async function ensureServerRunning() {
   console.log(`[SETUP] Spawning local standalone server at ${BASE_URL}...`);
   const server = spawn(process.execPath, [".next/standalone/server.js"], {
     stdio: "ignore",
+    env: { ...process.env, ALLOW_EMAIL_SIMULATION: "true" },
     detached: false,
   });
 

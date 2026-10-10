@@ -60,7 +60,7 @@ jobs:
 
       - name: Run Automated Smoke & API Test Suite
         run: |
-          node .next/standalone/server.js &
+          ALLOW_EMAIL_SIMULATION=true node .next/standalone/server.js &
           sleep 2
           npm test
           npm run test:smoke

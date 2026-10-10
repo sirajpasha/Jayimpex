@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import nodemailer from "nodemailer";
+import { randomBytes } from "crypto";
 
 // Rate limiting in-memory store
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -34,8 +35,9 @@ const contactSchema = z.object({
   company: z
     .string()
     .trim()
-    .min(2, "Company name must be at least 2 characters")
-    .max(120, "Company name cannot exceed 120 characters"),
+    .max(120, "Company name cannot exceed 120 characters")
+    .optional()
+    .default(""),
   email: z
     .string()
     .trim()
@@ -44,13 +46,16 @@ const contactSchema = z.object({
   phone: z
     .string()
     .trim()
-    .min(6, "Please provide a valid contact number")
-    .max(30, "Phone number cannot exceed 30 characters"),
+    .max(30, "Phone number cannot exceed 30 characters")
+    .refine((v) => v === "" || v.length >= 6, "Please provide a valid contact number")
+    .optional()
+    .default(""),
   country: z
     .string()
     .trim()
-    .min(2, "Country or destination seaport is required")
-    .max(100, "Country cannot exceed 100 characters"),
+    .max(100, "Country cannot exceed 100 characters")
+    .optional()
+    .default(""),
   commodity: z
     .string()
     .trim()
@@ -69,6 +74,16 @@ const contactSchema = z.object({
     .boolean()
     .refine((val) => val === true, "Privacy policy consent is required"),
 });
+
+// Escape user input for safe interpolation into the HTML notification email
+function esc(val: string): string {
+  return val
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 // Helper to sanitize strings from CRLF email header injection
 function sanitizeHeader(val: string): string {
@@ -123,7 +138,8 @@ export async function POST(request: NextRequest) {
 
     // 4. Anti-Spam Layer 1: Honeypot trap
     if (data.honeypot && data.honeypot.trim() !== "") {
-      // Silently pretend success to fool bot scripts
+      // Silently pretend success to fool bot scripts (logged without PII)
+      console.warn("[CONTACT_SPAM_DROPPED] reason=honeypot");
       return NextResponse.json(
         {
           success: true,
@@ -136,7 +152,8 @@ export async function POST(request: NextRequest) {
     // 5. Anti-Spam Layer 2: Fast Submission Timing (< 2.5 seconds)
     const now = Date.now();
     if (data.renderTimestamp > 0 && now - data.renderTimestamp < 2500) {
-      // Sub-2.5 second bot submission
+      // Sub-2.5 second bot submission (logged without PII)
+      console.warn(`[CONTACT_SPAM_DROPPED] reason=too-fast elapsedMs=${now - data.renderTimestamp}`);
       return NextResponse.json(
         {
           success: true,
@@ -153,7 +170,10 @@ export async function POST(request: NextRequest) {
     const sanitizedCommodity = sanitizeHeader(data.commodity);
     const sanitizedCountry = sanitizeHeader(data.country);
 
-    const emailSubject = `Export RFQ: ${sanitizedCommodity} - ${sanitizedCompany} (${sanitizedCountry})`;
+    const referenceId = `JI-${new Date().toISOString().slice(0, 10).replace(/-/g, "")}-${randomBytes(3)
+      .toString("hex")
+      .toUpperCase()}`;
+    const emailSubject = `Export RFQ [${referenceId}]: ${[sanitizedCommodity, sanitizedCompany, sanitizedCountry].filter(Boolean).join(" - ")}`;
 
     const emailHtml = `
       <!DOCTYPE html>
@@ -184,43 +204,43 @@ export async function POST(request: NextRequest) {
               <table class="table">
                 <tr>
                   <th>Importer / Buyer:</th>
-                  <td><strong>${sanitizedName}</strong></td>
+                  <td><strong>${esc(sanitizedName)}</strong></td>
                 </tr>
                 <tr>
                   <th>Company / Org:</th>
-                  <td><strong>${sanitizedCompany}</strong></td>
+                  <td><strong>${esc(sanitizedCompany) || "Not provided"}</strong></td>
                 </tr>
                 <tr>
                   <th>Business Email:</th>
-                  <td><a href="mailto:${sanitizedEmail}" style="color: #0284c7;">${sanitizedEmail}</a></td>
+                  <td><a href="mailto:${esc(sanitizedEmail)}" style="color: #0284c7;">${esc(sanitizedEmail)}</a></td>
                 </tr>
                 <tr>
                   <th>Phone / WhatsApp:</th>
-                  <td>${data.phone}</td>
+                  <td>${esc(data.phone) || "Not provided"}</td>
                 </tr>
                 <tr>
                   <th>Destination Seaport / Country:</th>
-                  <td>${sanitizedCountry}</td>
+                  <td>${esc(sanitizedCountry) || "Not provided"}</td>
                 </tr>
                 <tr>
                   <th>Commodity Sector:</th>
-                  <td><span style="background-color: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-weight: 600;">${sanitizedCommodity}</span></td>
+                  <td><span style="background-color: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-weight: 600;">${esc(sanitizedCommodity)}</span></td>
                 </tr>
                 <tr>
                   <th>Required Volume:</th>
-                  <td>${data.volume || "To be discussed"}</td>
+                  <td>${esc(data.volume) || "To be discussed"}</td>
                 </tr>
                 <tr>
                   <th>Preferred Incoterm:</th>
-                  <td>${data.incoterm || "FOB"}</td>
+                  <td>${esc(data.incoterm || "FOB")}</td>
                 </tr>
               </table>
 
               <h3 style="font-size: 15px; color: #0f284e; margin: 16px 0 8px;">Detailed Specifications &amp; Message:</h3>
-              <div class="message-box">${data.message}</div>
+              <div class="message-box">${esc(data.message)}</div>
             </div>
             <div class="footer">
-              <p style="margin: 0;">Submission IP: ${clientIp} &bull; Timestamp: ${new Date().toISOString()}</p>
+              <p style="margin: 0;">Submission IP: ${esc(clientIp)} &bull; Timestamp: ${new Date().toISOString()}</p>
               <p style="margin: 4px 0 0;">Jay Impex &bull; Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India</p>
             </div>
           </div>
@@ -253,18 +273,53 @@ export async function POST(request: NextRequest) {
         subject: emailSubject,
         html: emailHtml,
       });
+
+      // Buyer acknowledgement is best-effort; the RFQ itself is already delivered.
+      try {
+        await transporter.sendMail({
+          from: `"Jay Impex Commercial Desk" <${smtpUser}>`,
+          to: sanitizedEmail,
+          replyTo: toEmail,
+          subject: `We received your enquiry [${referenceId}] - Jay Impex`,
+          text: [
+            `Dear ${sanitizedName},`,
+            "",
+            `Thank you for contacting Jay Impex. We have received your enquiry for ${sanitizedCommodity} (reference ${referenceId}).`,
+            "A trade officer will respond with pricing and specifications within 24 business hours.",
+            "",
+            "For urgent requirements, reach us on WhatsApp or phone: +91 94440 42275.",
+            "",
+            "Jay Impex - Commodities Exporters, Chennai, India",
+            "https://www.jayimpex.net",
+          ].join("\n"),
+        });
+      } catch (ackErr) {
+        console.error("[CONTACT_ACK_ERROR]", ackErr);
+      }
+    } else if (
+      process.env.NODE_ENV !== "production" ||
+      process.env.ALLOW_EMAIL_SIMULATION === "true"
+    ) {
+      // Development / CI only: no SMTP configured, log a redacted summary.
+      console.log(`[COMMERCIAL DESK INQUIRY SIMULATION] ref=${referenceId} commodity=${sanitizedCommodity}`);
     } else {
-      // In development or when SMTP credentials are not yet configured in env
-      console.log("[COMMERCIAL DESK INQUIRY SIMULATION]");
-      console.log(`Subject: ${emailSubject}`);
-      console.log(`From: ${sanitizedName} <${sanitizedEmail}> (${sanitizedCompany})`);
-      console.log(`Commodity: ${sanitizedCommodity} | Volume: ${data.volume}`);
+      // Production without SMTP: never tell the buyer their enquiry was sent.
+      console.error(`[CONTACT_SMTP_NOT_CONFIGURED] enquiry ${referenceId} could not be delivered`);
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Our enquiry desk is temporarily unable to accept online requests. Please email info@jayimpex.com or WhatsApp +91 94440 42275 directly.",
+        },
+        { status: 503 }
+      );
     }
 
     return NextResponse.json(
       {
         success: true,
-        message: "Thank you! Your quotation request has been transmitted to our Commercial Export Desk. A trade officer will review your requirements and respond within 24 business hours.",
+        referenceId,
+        message: `Thank you! Your quotation request (reference ${referenceId}) has been transmitted to our Commercial Export Desk. A trade officer will review your requirements and respond within 24 business hours.`,
       },
       { status: 200 }
     );

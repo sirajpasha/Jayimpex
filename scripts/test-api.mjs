@@ -12,6 +12,7 @@ async function ensureServerRunning() {
   console.log(`[SETUP] Spawning local standalone server at ${BASE_URL}...`);
   const server = spawn(process.execPath, [".next/standalone/server.js"], {
     stdio: "ignore",
+    env: { ...process.env, ALLOW_EMAIL_SIMULATION: "true" },
     detached: false,
   });
 
@@ -93,6 +94,31 @@ async function runTests() {
     assert(data.success === true, "Valid RFQ response has success: true");
   } catch (e) {
     console.error("Valid RFQ test threw:", e.message);
+    failed++;
+  }
+
+  // 2b. Minimal RFQ (only name, email, commodity, message, consent)
+  try {
+    const res = await fetch(`${BASE_URL}/api/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-forwarded-for": "203.0.113.9",
+      },
+      body: JSON.stringify({
+        name: "Maria Lopez",
+        email: "maria@importer.example.com",
+        commodity: "Salem Pure Turmeric Fingers & Powder",
+        message: "Please send FOB pricing for 5 MT turmeric fingers.",
+        renderTimestamp: Date.now() - 5000,
+        consent: true,
+      }),
+    });
+    const data = await res.json();
+    assert(res.status === 200, "Minimal RFQ (optional fields omitted) returns HTTP 200");
+    assert(/^JI-\d{8}-[0-9A-F]{6}$/.test(data.referenceId || ""), "RFQ response includes a reference number");
+  } catch (e) {
+    console.error("Minimal RFQ test threw:", e.message);
     failed++;
   }
 

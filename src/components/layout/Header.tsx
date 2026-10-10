@@ -195,12 +195,12 @@ export function Header() {
             {/* Desktop Header Actions */}
             <div className="hidden lg:flex items-center space-x-3">
               <Link
-                href="/products"
+                href="/catalogue"
                 className="inline-flex items-center text-xs font-medium text-slate-600 hover:text-[#0F284E] px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors"
-                title="Download export catalogue"
+                title="Printable export catalogue (save as PDF)"
               >
                 <FileText className="w-3.5 h-3.5 text-[#0284C7] mr-1.5" />
-                <span>Specs Sheet</span>
+                <span>Download Catalogue</span>
               </Link>
               <Link
                 href="/contact"

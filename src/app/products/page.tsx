@@ -1,9 +1,7 @@
-"use client";
-
-import React, { useState, useMemo, Suspense } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import {
   Search,
   Filter,
@@ -13,46 +11,62 @@ import {
 } from "lucide-react";
 import { PRODUCTS, CATEGORIES, type Product } from "@/data/products";
 
-function CatalogueContent() {
-  const searchParams = useSearchParams();
-  const initialCategory = searchParams.get("category") || "all";
+export const metadata: Metadata = {
+  title: "Export Catalogue - Rice, Spices, Pulses & Sourced Commodities",
+  description:
+    "Browse Jay Impex export commodities: Deity Basmati rice, spices, pulses, FMCG, textiles, machinery, utensils, fruits, sweets and door mats, with HS codes and specifications.",
+  alternates: { canonical: "/products" },
+};
 
-  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [sortBy, setSortBy] = useState<"featured" | "name">("featured");
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
-  // Filtered and sorted products
-  const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter((product) => {
-      // Category filter
-      const matchesCategory =
-        selectedCategory === "all" || product.category === selectedCategory;
+function first(v: string | string[] | undefined): string {
+  return (Array.isArray(v) ? v[0] : v) ?? "";
+}
 
-      // Search query filter
-      const q = searchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !q ||
-        product.name.toLowerCase().includes(q) ||
-        product.subtitle.toLowerCase().includes(q) ||
-        product.description.toLowerCase().includes(q) ||
-        product.hsCode.toLowerCase().includes(q) ||
-        product.origin.toLowerCase().includes(q) ||
-        product.specifications.some(
-          (s) =>
-            s.label.toLowerCase().includes(q) || s.value.toLowerCase().includes(q)
-        );
+function catalogueHref(category: string, q: string, sort: string): string {
+  const params = new URLSearchParams();
+  if (category && category !== "all") params.set("category", category);
+  if (q) params.set("q", q);
+  if (sort === "name") params.set("sort", "name");
+  const qs = params.toString();
+  return qs ? `/products?${qs}` : "/products";
+}
 
-      return matchesCategory && matchesSearch;
-    }).sort((a, b) => {
-      if (sortBy === "name") {
-        return a.name.localeCompare(b.name);
-      }
-      // Featured first
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      return 0;
-    });
-  }, [selectedCategory, searchQuery, sortBy]);
+export default async function CataloguePage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const sp = await searchParams;
+  const requestedCategory = first(sp.category) || "all";
+  const selectedCategory = CATEGORIES.some((c) => c.id === requestedCategory)
+    ? requestedCategory
+    : "all";
+  const searchQuery = first(sp.q).trim().slice(0, 100);
+  const sortBy: "featured" | "name" = first(sp.sort) === "name" ? "name" : "featured";
+
+  const q = searchQuery.toLowerCase();
+  const filteredProducts = PRODUCTS.filter((product) => {
+    const matchesCategory =
+      selectedCategory === "all" || product.category === selectedCategory;
+    const matchesSearch =
+      !q ||
+      product.name.toLowerCase().includes(q) ||
+      product.subtitle.toLowerCase().includes(q) ||
+      product.description.toLowerCase().includes(q) ||
+      product.hsCode.toLowerCase().includes(q) ||
+      product.origin.toLowerCase().includes(q) ||
+      product.specifications.some(
+        (sp) => sp.label.toLowerCase().includes(q) || sp.value.toLowerCase().includes(q)
+      );
+    return matchesCategory && matchesSearch;
+  }).sort((a, b) => {
+    if (sortBy === "name") return a.name.localeCompare(b.name);
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return 0;
+  });
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen pb-20">
@@ -90,43 +104,48 @@ function CatalogueContent() {
       <section className="sticky top-20 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            {/* Search Input */}
-            <div className="relative w-full md:w-96">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Search by commodity, HS code, or origin..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50 placeholder:text-slate-400"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600"
-                >
-                  Clear
-                </button>
+            {/* Search + Sort (plain GET form: works without JavaScript, URL is shareable) */}
+            <form method="get" action="/products" className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+              {selectedCategory !== "all" && (
+                <input type="hidden" name="category" value={selectedCategory} />
               )}
-            </div>
+              <div className="relative w-full md:w-96">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" aria-hidden="true" />
+                <input
+                  type="search"
+                  name="q"
+                  defaultValue={searchQuery}
+                  aria-label="Search commodities"
+                  placeholder="Search by commodity, HS code, or origin..."
+                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50 placeholder:text-slate-400"
+                />
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="sort" className="text-xs sm:text-sm text-slate-500">Sort by:</label>
+                <select
+                  id="sort"
+                  name="sort"
+                  defaultValue={sortBy}
+                  className="rounded-lg border border-slate-300 py-2 px-3 text-xs sm:text-sm font-medium text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#D97706]"
+                >
+                  <option value="featured">Featured First</option>
+                  <option value="name">Alphabetical (A-Z)</option>
+                </select>
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded-lg bg-[#0F284E] hover:bg-[#1E3A8A] text-white text-xs sm:text-sm font-semibold"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
 
-            {/* Sort & Count */}
+            {/* Count */}
             <div className="flex items-center justify-between w-full md:w-auto gap-4 text-xs sm:text-sm">
               <span className="text-slate-500 font-medium">
                 Showing <strong className="text-slate-900 font-mono">{filteredProducts.length}</strong> commodities
               </span>
 
-              <div className="flex items-center space-x-2">
-                <span className="text-slate-500">Sort by:</span>
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as "featured" | "name")}
-                  className="rounded-lg border border-slate-300 py-1.5 px-3 text-xs sm:text-sm font-medium text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#D97706]"
-                >
-                  <option value="featured">Featured First</option>
-                  <option value="name">Alphabetical (A-Z)</option>
-                </select>
-              </div>
             </div>
           </div>
 
@@ -135,9 +154,10 @@ function CatalogueContent() {
             {CATEGORIES.map((cat) => {
               const isSelected = selectedCategory === cat.id;
               return (
-                <button
+                <Link
                   key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
+                  href={catalogueHref(cat.id, searchQuery, sortBy)}
+                  aria-current={isSelected ? "page" : undefined}
                   className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium whitespace-nowrap transition-all flex items-center space-x-2 ${
                     isSelected
                       ? "bg-[#0F284E] text-white shadow-sm ring-2 ring-[#0F284E]/20"
@@ -154,7 +174,7 @@ function CatalogueContent() {
                   >
                     {cat.count}
                   </span>
-                </button>
+                </Link>
               );
             })}
           </div>
@@ -170,18 +190,15 @@ function CatalogueContent() {
             </div>
             <h3 className="text-lg font-bold text-slate-900">No commodities matched</h3>
             <p className="text-xs text-slate-500">
-              We couldn&apos;t find any commodities matching &ldquo;{searchQuery}&rdquo;.
+              We couldn&apos;t find any commodities matching your filters{searchQuery ? <> (&ldquo;{searchQuery}&rdquo;)</> : null}.
               Try resetting your search filters or contact our commercial desk directly.
             </p>
-            <button
-              onClick={() => {
-                setSelectedCategory("all");
-                setSearchQuery("");
-              }}
+            <Link
+              href="/products"
               className="px-4 py-2 rounded-lg bg-[#0F284E] text-white text-xs font-semibold hover:bg-slate-800 transition-colors"
             >
               Reset Filters
-            </button>
+            </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -314,21 +331,5 @@ function ProductCard({ product }: { product: Product }) {
         </div>
       </div>
     </div>
-  );
-}
-
-export default function CataloguePage() {
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex items-center justify-center bg-slate-50">
-          <div className="text-sm font-semibold text-slate-600 animate-pulse">
-            Loading Export Catalogue...
-          </div>
-        </div>
-      }
-    >
-      <CatalogueContent />
-    </Suspense>
   );
 }
