@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# brochure generator outputs
+brochure/build/
+brochure-output/
+__pycache__/

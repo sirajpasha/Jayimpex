@@ -108,17 +108,64 @@ async function runTests() {
       body: JSON.stringify({
         name: "Maria Lopez",
         email: "maria@importer.example.com",
-        commodity: "Salem Pure Turmeric Fingers & Powder",
-        message: "Please send FOB pricing for 5 MT turmeric fingers.",
+        company: "Lopez Foods",
+        phone: "+34 600 123 456",
+        message: "Commodity: turmeric fingers. Please send FOB pricing for 5 MT.",
         renderTimestamp: Date.now() - 5000,
         consent: true,
       }),
     });
     const data = await res.json();
-    assert(res.status === 200, "Minimal RFQ (optional fields omitted) returns HTTP 200");
+    assert(res.status === 200, "Minimal RFQ (no commodity, destination or volume) returns HTTP 200");
     assert(/^JI-\d{8}-[0-9A-F]{6}$/.test(data.referenceId || ""), "RFQ response includes a reference number");
+
+    const base = { name: "Maria Lopez", email: "maria@importer.example.com", company: "Lopez Foods", phone: "+34 600 123 456", message: "Need FOB price for 5 MT turmeric.", renderTimestamp: Date.now() - 5000, consent: true };
+    const send = (b, ip) =>
+      fetch(`${BASE_URL}/api/contact`, { method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": ip }, body: JSON.stringify(b) });
+    assert((await send({ ...base, company: "" }, "203.0.113.30")).status === 400, "RFQ without company returns 400");
+    assert((await send({ ...base, phone: "" }, "203.0.113.31")).status === 400, "RFQ without phone returns 400");
   } catch (e) {
     console.error("Minimal RFQ test threw:", e.message);
+    failed++;
+  }
+
+  // 2c. Brochure download: details are submitted first, the PDF is only served with the issued token
+  try {
+    const post = (body, ip) =>
+      fetch(`${BASE_URL}/api/brochure`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-forwarded-for": ip },
+        body: JSON.stringify(body),
+      });
+    const ok = { name: "Test Buyer", email: "buyer@example.com", company: "ACME", phone: "+971 50 123 4567", country: "UAE", consent: true, renderTimestamp: Date.now() - 5000 };
+    const res = await post(ok, "203.0.113.20");
+    const data = await res.json();
+    assert(res.status === 200 && data.success === true, "Brochure request returns success");
+    assert(typeof data.downloadUrl === "string" && data.downloadUrl.includes("token="), "Brochure request issues a download link");
+    const pdf = await fetch(`${BASE_URL}${data.downloadUrl}`);
+    const bytes = new Uint8Array(await pdf.arrayBuffer());
+    assert(pdf.status === 200 && pdf.headers.get("content-type") === "application/pdf", "Valid token downloads the PDF");
+    assert(String.fromCharCode(...bytes.slice(0, 4)) === "%PDF", "Downloaded file is a PDF");
+    const noToken = await fetch(`${BASE_URL}/api/brochure/download`);
+    assert(noToken.status === 403, "Download without a token is refused (403)");
+    const forged = await fetch(`${BASE_URL}/api/brochure/download?token=${Date.now() + 600000}.forged`);
+    assert(forged.status === 403, "Forged download token is refused (403)");
+    const direct = await fetch(`${BASE_URL}/downloads/Jay_Impex_Export_Brochure.pdf`);
+    assert(direct.status === 404, "PDF is not publicly reachable by direct URL");
+    const noPhone = await post({ ...ok, phone: "" }, "203.0.113.24");
+    assert(noPhone.status === 400, "Brochure request without phone returns 400");
+    const noCompany = await post({ ...ok, company: "" }, "203.0.113.25");
+    assert(noCompany.status === 400, "Brochure request without company returns 400");
+    const noCountry = await post({ ...ok, country: "" }, "203.0.113.26");
+    assert(noCountry.status === 400, "Brochure request without country returns 400");
+    const badEmail = await post({ ...ok, email: "nope" }, "203.0.113.21");
+    assert(badEmail.status === 400, "Brochure request with invalid email returns 400");
+    const noConsent = await post({ ...ok, consent: false }, "203.0.113.22");
+    assert(noConsent.status === 400, "Brochure request without consent returns 400");
+    const bot = await (await post({ ...ok, honeypot: "x" }, "203.0.113.23")).json();
+    assert(bot.success === true && !bot.downloadUrl, "Honeypot brochure request gets no download link");
+  } catch (e) {
+    console.error("Brochure test threw:", e.message);
     failed++;
   }
 

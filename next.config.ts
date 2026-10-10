@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // The brochure PDF is read from disk at runtime by the download route
+  outputFileTracingIncludes: {
+    "/api/brochure/download": ["./private/**/*"],
+  },
   turbopack: {
     rules: {
       "*.css": {

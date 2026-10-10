@@ -35,9 +35,8 @@ const contactSchema = z.object({
   company: z
     .string()
     .trim()
-    .max(120, "Company name cannot exceed 120 characters")
-    .optional()
-    .default(""),
+    .min(2, "Company name must be at least 2 characters")
+    .max(120, "Company name cannot exceed 120 characters"),
   email: z
     .string()
     .trim()
@@ -46,21 +45,15 @@ const contactSchema = z.object({
   phone: z
     .string()
     .trim()
-    .max(30, "Phone number cannot exceed 30 characters")
-    .refine((v) => v === "" || v.length >= 6, "Please provide a valid contact number")
-    .optional()
-    .default(""),
+    .min(6, "Please provide a valid phone / WhatsApp number")
+    .max(30, "Phone number cannot exceed 30 characters"),
   country: z
     .string()
     .trim()
     .max(100, "Country cannot exceed 100 characters")
     .optional()
     .default(""),
-  commodity: z
-    .string()
-    .trim()
-    .min(2, "Please select an export commodity")
-    .max(100),
+  commodity: z.string().trim().max(100).optional().default(""),
   volume: z.string().trim().max(100).optional().default(""),
   incoterm: z.string().trim().max(20).optional().default("FOB"),
   message: z
@@ -173,7 +166,7 @@ export async function POST(request: NextRequest) {
     const referenceId = `JI-${new Date().toISOString().slice(0, 10).replace(/-/g, "")}-${randomBytes(3)
       .toString("hex")
       .toUpperCase()}`;
-    const emailSubject = `Export RFQ [${referenceId}]: ${[sanitizedCommodity, sanitizedCompany, sanitizedCountry].filter(Boolean).join(" - ")}`;
+    const emailSubject = `Export RFQ [${referenceId}]: ${[sanitizedCommodity, sanitizedCompany, sanitizedCountry].filter(Boolean).join(" - ") || sanitizedName}`;
 
     const emailHtml = `
       <!DOCTYPE html>
@@ -208,7 +201,7 @@ export async function POST(request: NextRequest) {
                 </tr>
                 <tr>
                   <th>Company / Org:</th>
-                  <td><strong>${esc(sanitizedCompany) || "Not provided"}</strong></td>
+                  <td><strong>${esc(sanitizedCompany)}</strong></td>
                 </tr>
                 <tr>
                   <th>Business Email:</th>
@@ -216,15 +209,11 @@ export async function POST(request: NextRequest) {
                 </tr>
                 <tr>
                   <th>Phone / WhatsApp:</th>
-                  <td>${esc(data.phone) || "Not provided"}</td>
+                  <td>${esc(data.phone)}</td>
                 </tr>
                 <tr>
                   <th>Destination Seaport / Country:</th>
                   <td>${esc(sanitizedCountry) || "Not provided"}</td>
-                </tr>
-                <tr>
-                  <th>Commodity Sector:</th>
-                  <td><span style="background-color: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-weight: 600;">${esc(sanitizedCommodity)}</span></td>
                 </tr>
                 <tr>
                   <th>Required Volume:</th>
@@ -254,6 +243,12 @@ export async function POST(request: NextRequest) {
     const smtpPass = process.env.SMTP_PASS;
     const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
     const toEmail = process.env.CONTACT_EMAIL || "info@jayimpex.net";
+    // Every RFQ also goes to these additional recipients (override with RFQ_EXTRA_RECIPIENTS, comma separated)
+    const extraRecipients = (process.env.RFQ_EXTRA_RECIPIENTS ?? "senthilmargin@gmail.com,senthilmurugan@hotmail.com")
+      .split(",")
+      .map((a) => a.trim())
+      .filter((a) => a && a.toLowerCase() !== toEmail.toLowerCase());
+    const recipients = [toEmail, ...extraRecipients];
 
     if (smtpHost && smtpUser && smtpPass) {
       const transporter = nodemailer.createTransport({
@@ -268,7 +263,7 @@ export async function POST(request: NextRequest) {
 
       await transporter.sendMail({
         from: `"Jay Impex Portal" <${smtpUser}>`,
-        to: toEmail,
+        to: recipients,
         replyTo: sanitizedEmail,
         subject: emailSubject,
         html: emailHtml,
@@ -284,7 +279,7 @@ export async function POST(request: NextRequest) {
           text: [
             `Dear ${sanitizedName},`,
             "",
-            `Thank you for contacting Jay Impex. We have received your enquiry for ${sanitizedCommodity} (reference ${referenceId}).`,
+            `Thank you for contacting Jay Impex. We have received your enquiry (reference ${referenceId}).`,
             "A trade officer will respond with pricing and specifications within 24 business hours.",
             "",
             "For urgent requirements, reach us on WhatsApp or phone: +91 94440 42275.",
@@ -301,7 +296,7 @@ export async function POST(request: NextRequest) {
       process.env.ALLOW_EMAIL_SIMULATION === "true"
     ) {
       // Development / CI only: no SMTP configured, log a redacted summary.
-      console.log(`[COMMERCIAL DESK INQUIRY SIMULATION] ref=${referenceId} commodity=${sanitizedCommodity}`);
+      console.log(`[COMMERCIAL DESK INQUIRY SIMULATION] ref=${referenceId}`);
     } else {
       // Production without SMTP: never tell the buyer their enquiry was sent.
       console.error(`[CONTACT_SMTP_NOT_CONFIGURED] enquiry ${referenceId} could not be delivered`);

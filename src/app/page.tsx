@@ -27,7 +27,7 @@ const capabilities = [
     title: "Commodities Wholesaler Since 1990",
     subtitle: "Direct Farm-Gate & Factory Procurement",
     desc: "Connecting buyers to prime agricultural mandis, processing mills, and manufacturing belts across Tamil Nadu, Andhra Pradesh, Punjab, and pan-India with zero intermediary margins.",
-    image: "/images/wholesaler.jpg",
+    image: "/images/Rotate-Dals.jpg",
     badge: "Bulk Procurement",
     linkText: "Sourcing Epicenters",
     href: "/about#sourcing",
@@ -36,7 +36,7 @@ const capabilities = [
     title: "Client-Driven Custom Sourcing",
     subtitle: "Multi-Commodity Merchant Export",
     desc: "Procuring textiles, industrial machineries, stainless steel utensils, seasonal fresh fruits, traditional sweets, door mats, and private-label packaging tailored to client specifications.",
-    image: "/images/Retailers.jpg",
+    image: "/images/textiles-sourcing.jpg",
     badge: "Bespoke Sourcing",
     linkText: "Custom Sourcing Solutions",
     href: "/products",
@@ -384,7 +384,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="relative h-44 w-full bg-slate-50 rounded-xl flex items-center justify-center p-2 overflow-hidden">
                   <Image
-                    src="/images/Rotate-FMCG.png"
+                    src="/images/jaggery.jpg"
                     alt="FMCG Division"
                     width={200}
                     height={160}

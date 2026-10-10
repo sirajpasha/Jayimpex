@@ -3,15 +3,23 @@ export interface ProductSpec {
   value: string;
 }
 
+export interface ImageCredit {
+  author: string;
+  license: string;
+  licenseUrl: string;
+  source: string;
+}
+
 export interface Product {
   id: string;
   slug: string;
   name: string;
-  category: "rice" | "spices" | "pulses" | "fmcg" | "textiles" | "machinery" | "utensils" | "fruits" | "sweets" | "mats";
+  category: "rice" | "spices" | "pulses" | "fmcg" | "textiles" | "machinery" | "utensils" | "fruits" | "sweets" | "mats" | "oilseeds";
   categoryLabel: string;
   subtitle: string;
   description: string;
   image: string;
+  imageCredit?: ImageCredit;
   featured?: boolean;
   hsCode: string;
   origin: string;
@@ -22,7 +30,7 @@ export interface Product {
   minOrderQuantity: string;
 }
 
-export const PRODUCTS: Product[] = [
+const PRODUCT_LIST: Product[] = [
   // --- BASMATI & NON-BASMATI RICE ---
   {
     id: "deity-1121-steam-basmati",
@@ -381,7 +389,7 @@ export const PRODUCTS: Product[] = [
     subtitle: "Consolidated supermarket provisions, flours, seasonings & private label packaging.",
     description:
       "Jay Impex provides turn-key FMCG export consolidation for international ethnic grocery store chains, retail distributors, and hypermarkets. We consolidate mixed 20ft and 40ft containerized shipments with multi-SKU manifests including specialty flours (Chakki Atta, Besan, Rice flour), ready blended spice mixes, edible oils, and packaged staples.",
-    image: "/images/FMCG.jpg",
+    image: "/images/Rotate-Dals.jpg",
     featured: true,
     hsCode: "2103.90.40",
     origin: "Chennai, Tamil Nadu, India",
@@ -586,18 +594,451 @@ export const PRODUCTS: Product[] = [
     shelfLife: "Long-Term Commercial Durability",
     minOrderQuantity: "1,000 Pieces or 1 x 20ft FCL (approx. 4,500–5,000 mats)",
   },
+  // --- RANGE EXPANSION: additional spices, pulses, rice, millets/oilseeds & FMCG ---
+  {
+    id: "mustard-seeds",
+    slug: "indian-mustard-seeds-black-yellow",
+    name: "Indian Mustard Seeds (Black & Yellow)",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Machine-cleaned black, brown and yellow mustard seeds for spice blends, pickling and oil extraction.",
+    description:
+      "Whole mustard seeds sourced from the main growing belts of Rajasthan, Gujarat and Madhya Pradesh, cleaned and graded to buyer purity requirements. Used by food manufacturers, pickle producers and spice packers worldwide.",
+    image: "/images/Mustard_Seeds.png",
+    hsCode: "1207.50",
+    origin: "Rajasthan, Gujarat & Madhya Pradesh, India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Varieties", value: "Black / Brown / Yellow" },
+      { label: "Purity", value: "99% Min (grade on request)" },
+      { label: "Moisture", value: "Max 8%" },
+      { label: "Admixture", value: "Max 1%" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "fenugreek-seeds",
+    slug: "indian-fenugreek-seeds-methi",
+    name: "Fenugreek Seeds (Methi / Venthayam)",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Golden, bold fenugreek seeds with strong aroma, cleaned and sortex-graded.",
+    description:
+      "Whole fenugreek seeds from Rajasthan and Gujarat, cleaned on destoning and sorting lines. Supplied to spice blenders, curry-powder manufacturers and ethnic-food retailers.",
+    image: "/images/Fenugreek_Seeds.png",
+    hsCode: "0910.99",
+    origin: "Rajasthan & Gujarat, India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Purity", value: "98% - 99% Min" },
+      { label: "Moisture", value: "Max 9%" },
+      { label: "Foreign Matter", value: "Max 1%" },
+      { label: "Colour", value: "Golden yellow" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "cinnamon-sticks",
+    slug: "cinnamon-sticks-cassia-quills",
+    name: "Cinnamon Sticks (Pattai)",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Rolled cinnamon / cassia quills in whole sticks, broken pieces and powder form.",
+    description:
+      "Cinnamon quills sourced and graded to length and colour specification, supplied as whole sticks, broken pieces or ground powder for retail packs, bakery and foodservice buyers.",
+    image: "/images/Cinnamon.png",
+    hsCode: "0906.11",
+    origin: "Kerala & South India (sourced)",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Forms", value: "Whole sticks / Broken / Powder" },
+      { label: "Stick Length", value: "Per buyer specification" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Aroma", value: "Sweet, warm, characteristic" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "cloves",
+    slug: "whole-cloves-kirambu",
+    name: "Whole Cloves (Kirambu)",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Whole dried clove buds with intact heads and high volatile-oil content.",
+    description:
+      "Hand-picked clove buds from the Western Ghats region, dried and cleaned for export to spice packers, masala manufacturers and the pharmaceutical and oral-care industry.",
+    image: "/images/Cloves.png",
+    hsCode: "0907.10",
+    origin: "Kerala & Tamil Nadu (Nilgiris), India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Grade", value: "Hand-picked / Machine-cleaned" },
+      { label: "Headless / Stem Content", value: "Per buyer specification" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Volatile Oil", value: "Per buyer specification" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "star-anise",
+    slug: "star-anise-badiyan",
+    name: "Star Anise (Badiyan)",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Whole star-shaped pods with intense licorice aroma for blends, brewing and cooking.",
+    description:
+      "Whole star anise pods graded for size and colour, supplied for spice blending, beverage and foodservice use. Packed in food-grade bags to protect aroma.",
+    image: "/images/Star_Anise.png",
+    hsCode: "0909.61",
+    origin: "Sourced in India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Form", value: "Whole pods" },
+      { label: "Colour", value: "Reddish brown" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Broken Pods", value: "Per buyer specification" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "tamarind",
+    slug: "indian-tamarind-seedless-block",
+    name: "Indian Tamarind (Seedless, Block & Whole Pod)",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Sun-dried tamarind as whole pod, seedless slab or compressed block.",
+    description:
+      "Tamarind sourced from southern India and processed into cleaned seedless slabs, compressed blocks and whole pods for food manufacturers, sauce makers and ethnic grocery distributors.",
+    image: "/images/Tamarind.png",
+    hsCode: "0813.40",
+    origin: "Tamil Nadu, Andhra Pradesh & Karnataka, India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Forms", value: "Seedless / Block / Whole pod" },
+      { label: "Moisture", value: "Max 20%" },
+      { label: "Seed & Fibre Content", value: "Per buyer specification" },
+      { label: "Colour", value: "Dark brown" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "asafoetida",
+    slug: "asafoetida-hing-compound-powder",
+    name: "Asafoetida (Hing) Lump & Compounded Powder",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Pungent hing in lump form and compounded powder for tempering and vegetarian cooking.",
+    description:
+      "Asafoetida supplied as raw resin lumps and as compounded powder with gum arabic or rice-flour carriers in the strength requested by the buyer, packed in airtight containers to protect aroma.",
+    image: "/images/Asafoetida.png",
+    hsCode: "1301.90",
+    origin: "Sourced in India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Forms", value: "Lump / Compounded powder" },
+      { label: "Strength", value: "Per buyer specification" },
+      { label: "Packing", value: "Airtight tins / pouches" },
+      { label: "Aroma", value: "Strong, sulphurous" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "bay-leaves",
+    slug: "indian-bay-leaves-tej-patta",
+    name: "Indian Bay Leaves (Tej Patta)",
+    category: "spices",
+    categoryLabel: "Spices & Seasonings",
+    subtitle: "Dried whole bay leaves, cleaned and graded for foodservice and retail.",
+    description:
+      "Whole dried bay leaves cleaned of stems and foreign matter, supplied in bulk bags or consumer packs for spice packers and foodservice distributors.",
+    image: "/images/BayLeaves.png",
+    hsCode: "0910.99",
+    origin: "Northeast & North India (sourced)",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer cartons and retail pouches"],
+    specifications: [
+      { label: "Form", value: "Whole dried leaf" },
+      { label: "Moisture", value: "Max 10%" },
+      { label: "Stem / Foreign Matter", value: "Per buyer specification" },
+      { label: "Colour", value: "Olive green to light brown" },
+    ],
+    certifications: ["Spices Board India","FSSAI","ISO 9001:2015"],
+    shelfLife: "24 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 10-14 MT)",
+  },
+  {
+    id: "masoor-dal",
+    slug: "masoor-dal-red-lentils",
+    name: "Masoor Dal (Red Lentils, Split & Whole)",
+    category: "pulses",
+    categoryLabel: "Agro Pulses & Dals",
+    subtitle: "Polished split red lentils and whole masoor, cleaned and sortex-graded.",
+    description:
+      "Red lentils from the central Indian lentil belt, processed through dehusking and splitting lines and sortex-graded for uniform colour. Supplied to importers, packers and institutional buyers.",
+    image: "/images/masoor-dal.jpg",
+    imageCredit: {"author":"Rydia~commonswiki","license":"CC BY-SA 2.5","licenseUrl":"https://creativecommons.org/licenses/by-sa/2.5","source":"https://commons.wikimedia.org/wiki/File:Masoor_dal.JPG"},
+    hsCode: "0713.40",
+    origin: "Madhya Pradesh & Uttar Pradesh, India",
+    packagingOptions: ["25 kg & 50 kg PP Woven Bags","1 kg, 2 kg & 5 kg retail BOPP pouches"],
+    specifications: [
+      { label: "Forms", value: "Split (Red) / Whole (Brown)" },
+      { label: "Purity", value: "99% Min" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Foreign Matter", value: "Max 0.5%" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 25 MT)",
+  },
+  {
+    id: "rajma",
+    slug: "rajma-red-kidney-beans",
+    name: "Rajma (Red Kidney Beans)",
+    category: "pulses",
+    categoryLabel: "Agro Pulses & Dals",
+    subtitle: "Red and speckled kidney beans graded by size, colour and cooking quality.",
+    description:
+      "Kidney beans from northern hill regions, cleaned and sorted to size and colour grade. Popular with canners, ethnic-food packers and retailers.",
+    image: "/images/rajma-kidney-beans.jpg",
+    imageCredit: {"author":"Sanjay Acharya","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0","source":"https://commons.wikimedia.org/wiki/File:Red_Speckled_Kidney_Beans.jpg"},
+    hsCode: "0713.33",
+    origin: "Jammu & Kashmir, Himachal Pradesh & Uttarakhand, India",
+    packagingOptions: ["25 kg & 50 kg PP Woven Bags","1 kg, 2 kg & 5 kg retail BOPP pouches"],
+    specifications: [
+      { label: "Varieties", value: "Red / Light speckled" },
+      { label: "Purity", value: "99% Min" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Size Grade", value: "Per buyer specification" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 25 MT)",
+  },
+  {
+    id: "moth-dal",
+    slug: "moth-beans-matki-dal",
+    name: "Moth Beans (Matki / Moth Dal)",
+    category: "pulses",
+    categoryLabel: "Agro Pulses & Dals",
+    subtitle: "Small brown moth beans, whole and split, for sprouting, snacks and curries.",
+    description:
+      "Whole and split moth beans from Rajasthan and Maharashtra, cleaned and graded for uniform size, supplied for retail packs and snack manufacturers.",
+    image: "/images/6-moth-dal-480x480.png",
+    hsCode: "0713.39",
+    origin: "Rajasthan & Maharashtra, India",
+    packagingOptions: ["25 kg & 50 kg PP Woven Bags","1 kg, 2 kg & 5 kg retail BOPP pouches"],
+    specifications: [
+      { label: "Forms", value: "Whole / Split" },
+      { label: "Purity", value: "99% Min" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Foreign Matter", value: "Max 0.5%" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 25 MT)",
+  },
+  {
+    id: "horse-gram",
+    slug: "horse-gram-kulthi-kollu",
+    name: "Horse Gram (Kulthi / Kollu)",
+    category: "pulses",
+    categoryLabel: "Agro Pulses & Dals",
+    subtitle: "Protein-rich horse gram, whole and split, for traditional South Indian cooking.",
+    description:
+      "Whole horse gram from southern India, cleaned and graded, supplied to ethnic-food distributors and retailers serving the diaspora.",
+    image: "/images/7-horse-gram-480x480.jpg",
+    hsCode: "0713.90",
+    origin: "Karnataka, Tamil Nadu & Andhra Pradesh, India",
+    packagingOptions: ["25 kg & 50 kg PP Woven Bags","1 kg, 2 kg & 5 kg retail BOPP pouches"],
+    specifications: [
+      { label: "Form", value: "Whole / Split" },
+      { label: "Purity", value: "99% Min" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Foreign Matter", value: "Max 0.5%" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 25 MT)",
+  },
+  {
+    id: "black-chana",
+    slug: "black-chana-kala-chana",
+    name: "Black Chickpeas (Kala Chana)",
+    category: "pulses",
+    categoryLabel: "Agro Pulses & Dals",
+    subtitle: "Small dark chickpeas, whole and split, with a firm bite and earthy flavour.",
+    description:
+      "Desi black chickpeas cleaned and graded for size and purity, supplied whole or as split chana dal for packers and food manufacturers.",
+    image: "/images/9-black-channa-480x480.jpg",
+    hsCode: "0713.20",
+    origin: "Maharashtra, Madhya Pradesh & Rajasthan, India",
+    packagingOptions: ["25 kg & 50 kg PP Woven Bags","1 kg, 2 kg & 5 kg retail BOPP pouches"],
+    specifications: [
+      { label: "Forms", value: "Whole / Split" },
+      { label: "Purity", value: "99% Min" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Size", value: "Per buyer specification" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 25 MT)",
+  },
+  {
+    id: "parboiled-rice",
+    slug: "indian-parboiled-rice-non-basmati",
+    name: "Indian Parboiled Rice (Non-Basmati)",
+    category: "rice",
+    categoryLabel: "Basmati & Non-Basmati Rice",
+    subtitle: "Golden parboiled long-grain rice that stays firm and separate after cooking.",
+    description:
+      "Parboiled non-basmati rice from the southern and eastern Indian rice belts. The paddy is soaked, steamed and dried before milling, giving a firm, non-sticky grain preferred in the Middle East, Africa and Sri Lanka.",
+    image: "/images/parboiled-rice.jpg",
+    imageCredit: {"author":"Luigi Chiesa","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0","source":"https://commons.wikimedia.org/wiki/File:Riso_parboiled.jpg"},
+    hsCode: "1006.30",
+    origin: "Tamil Nadu, Andhra Pradesh & Odisha, India",
+    packagingOptions: ["5 kg, 10 kg & 25 kg PP / BOPP bags","50 kg PP woven bags"],
+    specifications: [
+      { label: "Type", value: "Long grain parboiled" },
+      { label: "Broken Grain", value: "5% / 25% (on request)" },
+      { label: "Moisture", value: "Max 14%" },
+      { label: "Foreign Matter", value: "Max 0.1%" },
+    ],
+    certifications: ["APEDA Registered Exporter","FSSAI","ISO 9001:2015"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 25 MT)",
+  },
+  {
+    id: "ragi-finger-millet",
+    slug: "ragi-finger-millet-whole-flour",
+    name: "Ragi (Finger Millet), Whole & Flour",
+    category: "oilseeds",
+    categoryLabel: "Millets, Nuts & Oilseeds",
+    subtitle: "Nutritious whole ragi grain and stone-milled ragi flour from southern India.",
+    description:
+      "Whole finger millet and milled ragi flour sourced from Karnataka and Tamil Nadu, supplied for health-food brands, baby-food makers and retailers.",
+    image: "/images/ragi-finger-millet.jpg",
+    imageCredit: {"author":"Sengai Podhuvan","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0","source":"https://commons.wikimedia.org/wiki/File:Food_grain_finger_millet.jpg"},
+    hsCode: "1008.29",
+    origin: "Karnataka & Tamil Nadu, India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer pouches"],
+    specifications: [
+      { label: "Forms", value: "Whole grain / Flour" },
+      { label: "Purity", value: "99% Min" },
+      { label: "Moisture", value: "Max 12%" },
+      { label: "Foreign Matter", value: "Max 0.5%" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 20-25 MT)",
+  },
+  {
+    id: "sesame-seeds",
+    slug: "indian-sesame-seeds-hulled-natural",
+    name: "Sesame Seeds (Hulled & Natural)",
+    category: "oilseeds",
+    categoryLabel: "Millets, Nuts & Oilseeds",
+    subtitle: "White hulled and natural sesame seeds, machine-cleaned for bakery and oil use.",
+    description:
+      "Sesame seeds sourced from major Indian growing regions, cleaned and sortex-graded as natural or hulled. Supplied to bakers, confectioners, tahini makers and oil crushers.",
+    image: "/images/sesame-seeds.jpg",
+    imageCredit: {"author":"Sanjay ach","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0","source":"https://commons.wikimedia.org/wiki/File:Sa_white_sesame_seeds.jpg"},
+    hsCode: "1207.40",
+    origin: "Gujarat, Rajasthan & Tamil Nadu, India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer pouches"],
+    specifications: [
+      { label: "Types", value: "White hulled / White natural / Black" },
+      { label: "Purity", value: "99% - 99.95% (grade dependent)" },
+      { label: "Moisture", value: "Max 6%" },
+      { label: "Oil Content", value: "Per buyer specification" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 20-25 MT)",
+  },
+  {
+    id: "groundnuts",
+    slug: "indian-groundnut-kernels-peanuts",
+    name: "Groundnut Kernels (Peanuts)",
+    category: "oilseeds",
+    categoryLabel: "Millets, Nuts & Oilseeds",
+    subtitle: "Bold and java groundnut kernels, blanched or with skin, for snacks and oil.",
+    description:
+      "Groundnut kernels in bold and java grades, available with skin or blanched, supplied for snack manufacturers, peanut-butter makers and oil crushers.",
+    image: "/images/groundnuts.jpg",
+    imageCredit: {"author":"Shark2025","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0","source":"https://commons.wikimedia.org/wiki/File:Groundnuts_3.05.25.jpg"},
+    hsCode: "1202.42",
+    origin: "Gujarat, Tamil Nadu & Andhra Pradesh, India",
+    packagingOptions: ["25 kg & 50 kg PP / Jute Bags","Custom consumer pouches"],
+    specifications: [
+      { label: "Types", value: "Bold / Java; with skin / blanched" },
+      { label: "Count per Ounce", value: "Per buyer specification" },
+      { label: "Moisture", value: "Max 7%" },
+      { label: "Aflatoxin", value: "As per destination-market limits" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 20-25 MT)",
+  },
+  {
+    id: "jaggery",
+    slug: "indian-jaggery-gud-cubes-blocks",
+    name: "Jaggery (Gud) Cubes, Blocks & Powder",
+    category: "fmcg",
+    categoryLabel: "FMCG Provisions",
+    subtitle: "Traditional unrefined cane jaggery in cubes, blocks and powder.",
+    description:
+      "Unrefined cane jaggery produced by traditional boiling methods and supplied as cubes, blocks or powder for retail packs, sweet makers and ayurvedic food buyers.",
+    image: "/images/jaggery.jpg",
+    imageCredit: {"author":"Mangosapiens","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0","source":"https://commons.wikimedia.org/wiki/File:Jaggery_cubes.jpg"},
+    hsCode: "1701.99",
+    origin: "Tamil Nadu, Maharashtra & Uttar Pradesh, India",
+    packagingOptions: ["1 kg & 5 kg retail packs","10 kg & 25 kg cartons / bags"],
+    specifications: [
+      { label: "Forms", value: "Cubes / Blocks / Powder" },
+      { label: "Sucrose", value: "Per buyer specification" },
+      { label: "Moisture", value: "Max 10%" },
+      { label: "Colour", value: "Golden to dark brown" },
+    ],
+    certifications: ["FSSAI","ISO 9001:2015","APEDA Registered Exporter"],
+    shelfLife: "6 - 12 Months",
+    minOrderQuantity: "1 x 20ft FCL (approx. 18-20 MT)",
+  },
 ];
+
+// Display order: core agro commodities first, client-driven sourcing categories last.
+const CATEGORY_ORDER: Product["category"][] = [
+  "rice", "spices", "pulses", "oilseeds", "fmcg",
+  "fruits", "sweets", "textiles", "machinery", "utensils", "mats",
+];
+
+export const PRODUCTS: Product[] = [...PRODUCT_LIST].sort(
+  (a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category)
+);
 
 export const CATEGORIES = [
   { id: "all", label: "All Commodities", count: PRODUCTS.length },
   { id: "rice", label: "Basmati & Non-Basmati Rice", count: PRODUCTS.filter((p) => p.category === "rice").length },
   { id: "spices", label: "Spices & Seasonings", count: PRODUCTS.filter((p) => p.category === "spices").length },
   { id: "pulses", label: "Agro Pulses & Dals", count: PRODUCTS.filter((p) => p.category === "pulses").length },
+  { id: "oilseeds", label: "Millets, Nuts & Oilseeds", count: PRODUCTS.filter((p) => p.category === "oilseeds").length },
   { id: "fmcg", label: "FMCG Provisions", count: PRODUCTS.filter((p) => p.category === "fmcg").length },
+  { id: "fruits", label: "Seasonal Fresh Fruits", count: PRODUCTS.filter((p) => p.category === "fruits").length },
+  { id: "sweets", label: "Traditional Sweets", count: PRODUCTS.filter((p) => p.category === "sweets").length },
   { id: "textiles", label: "Textiles & Garments", count: PRODUCTS.filter((p) => p.category === "textiles").length },
   { id: "machinery", label: "Machinery & Equipment", count: PRODUCTS.filter((p) => p.category === "machinery").length },
   { id: "utensils", label: "Utensils & Cookware", count: PRODUCTS.filter((p) => p.category === "utensils").length },
-  { id: "fruits", label: "Seasonal Fresh Fruits", count: PRODUCTS.filter((p) => p.category === "fruits").length },
-  { id: "sweets", label: "Traditional Sweets", count: PRODUCTS.filter((p) => p.category === "sweets").length },
   { id: "mats", label: "Door Mats & Floor Coverings", count: PRODUCTS.filter((p) => p.category === "mats").length },
 ] as const;
