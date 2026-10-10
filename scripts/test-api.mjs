@@ -108,14 +108,22 @@ async function runTests() {
       body: JSON.stringify({
         name: "Maria Lopez",
         email: "maria@importer.example.com",
+        company: "Lopez Foods",
+        phone: "+34 600 123 456",
         message: "Commodity: turmeric fingers. Please send FOB pricing for 5 MT.",
         renderTimestamp: Date.now() - 5000,
         consent: true,
       }),
     });
     const data = await res.json();
-    assert(res.status === 200, "Minimal RFQ (optional fields omitted) returns HTTP 200");
+    assert(res.status === 200, "Minimal RFQ (no commodity, destination or volume) returns HTTP 200");
     assert(/^JI-\d{8}-[0-9A-F]{6}$/.test(data.referenceId || ""), "RFQ response includes a reference number");
+
+    const base = { name: "Maria Lopez", email: "maria@importer.example.com", company: "Lopez Foods", phone: "+34 600 123 456", message: "Need FOB price for 5 MT turmeric.", renderTimestamp: Date.now() - 5000, consent: true };
+    const send = (b, ip) =>
+      fetch(`${BASE_URL}/api/contact`, { method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": ip }, body: JSON.stringify(b) });
+    assert((await send({ ...base, company: "" }, "203.0.113.30")).status === 400, "RFQ without company returns 400");
+    assert((await send({ ...base, phone: "" }, "203.0.113.31")).status === 400, "RFQ without phone returns 400");
   } catch (e) {
     console.error("Minimal RFQ test threw:", e.message);
     failed++;

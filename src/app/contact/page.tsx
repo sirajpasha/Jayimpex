@@ -32,6 +32,8 @@ function ContactFormContent() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    company: "",
+    phone: "",
     country: "",
     volume: "",
     incoterm: "FOB",
@@ -88,6 +90,8 @@ We would like to enquire about private label packaging.`
       setFormData({
         name: "",
         email: "",
+        company: "",
+        phone: "",
         country: "",
         volume: "",
         incoterm: "FOB",
@@ -384,6 +388,39 @@ We would like to enquire about private label packaging.`
                       placeholder="e.g. trade@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="rfq-company" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
+                      Company / Importer Name <span className="text-rose-500">*</span>
+                    </label>
+                    <input
+                      id="rfq-company"
+                      type="text"
+                      required
+                      autoComplete="organization"
+                      placeholder="e.g. Al-Noor Global Trading LLC"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="rfq-phone" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
+                      Phone / WhatsApp (with Country Code) <span className="text-rose-500">*</span>
+                    </label>
+                    <input
+                      id="rfq-phone"
+                      type="tel"
+                      required
+                      autoComplete="tel"
+                      placeholder="e.g. +971 50 123 4567"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
                     />
                   </div>

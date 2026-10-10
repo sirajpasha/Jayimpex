@@ -35,9 +35,8 @@ const contactSchema = z.object({
   company: z
     .string()
     .trim()
-    .max(120, "Company name cannot exceed 120 characters")
-    .optional()
-    .default(""),
+    .min(2, "Company name must be at least 2 characters")
+    .max(120, "Company name cannot exceed 120 characters"),
   email: z
     .string()
     .trim()
@@ -46,10 +45,8 @@ const contactSchema = z.object({
   phone: z
     .string()
     .trim()
-    .max(30, "Phone number cannot exceed 30 characters")
-    .refine((v) => v === "" || v.length >= 6, "Please provide a valid contact number")
-    .optional()
-    .default(""),
+    .min(6, "Please provide a valid phone / WhatsApp number")
+    .max(30, "Phone number cannot exceed 30 characters"),
   country: z
     .string()
     .trim()
@@ -203,8 +200,16 @@ export async function POST(request: NextRequest) {
                   <td><strong>${esc(sanitizedName)}</strong></td>
                 </tr>
                 <tr>
+                  <th>Company / Org:</th>
+                  <td><strong>${esc(sanitizedCompany)}</strong></td>
+                </tr>
+                <tr>
                   <th>Business Email:</th>
                   <td><a href="mailto:${esc(sanitizedEmail)}" style="color: #0284c7;">${esc(sanitizedEmail)}</a></td>
+                </tr>
+                <tr>
+                  <th>Phone / WhatsApp:</th>
+                  <td>${esc(data.phone)}</td>
                 </tr>
                 <tr>
                   <th>Destination Seaport / Country:</th>
