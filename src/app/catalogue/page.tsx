@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { FileDown } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
-import { PrintButton } from "@/components/layout/PrintButton";
 
 export const metadata: Metadata = {
   title: "Export Catalogue & Specification Sheet",
@@ -32,9 +31,8 @@ export default function CataloguePage() {
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#D97706] hover:bg-amber-600 text-slate-950 text-sm font-semibold"
           >
             <FileDown className="w-4 h-4" aria-hidden="true" />
-            <span>Download Brochure (PDF, 16 pages)</span>
+            <span>Download Brochure</span>
           </a>
-          <PrintButton />
         </div>
       </header>
 
