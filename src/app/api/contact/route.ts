@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 import { randomBytes } from "crypto";
+import { sendWhatsAppAlert } from "@/lib/whatsapp";
 
 // Rate limiting in-memory store
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -243,6 +244,23 @@ export async function POST(request: NextRequest) {
     const smtpPass = process.env.SMTP_PASS;
     const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
     const toEmail = process.env.CONTACT_EMAIL || "info@jayimpex.net";
+    // Every RFQ also goes to these additional recipients (override with RFQ_EXTRA_RECIPIENTS, comma separated)
+    const extraRecipients = (process.env.RFQ_EXTRA_RECIPIENTS ?? "senthilmargin@gmail.com,senthilmurugan@hotmail.com")
+      .split(",")
+      .map((a) => a.trim())
+      .filter((a) => a && a.toLowerCase() !== toEmail.toLowerCase());
+    const recipients = [toEmail, ...extraRecipients];
+
+    const whatsappText = [
+      `New RFQ ${referenceId}`,
+      `${sanitizedName}, ${sanitizedCompany}`,
+      `Phone: ${sanitizeHeader(data.phone)}`,
+      `Email: ${sanitizedEmail}`,
+      sanitizedCountry ? `Destination: ${sanitizedCountry}` : "",
+      `Requirements: ${sanitizeHeader(data.message).slice(0, 400)}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
 
     if (smtpHost && smtpUser && smtpPass) {
       const transporter = nodemailer.createTransport({
@@ -257,11 +275,14 @@ export async function POST(request: NextRequest) {
 
       await transporter.sendMail({
         from: `"Jay Impex Portal" <${smtpUser}>`,
-        to: toEmail,
+        to: recipients,
         replyTo: sanitizedEmail,
         subject: emailSubject,
         html: emailHtml,
       });
+
+      // WhatsApp alert to the commercial desk number (best effort, never blocks the enquiry)
+      await sendWhatsAppAlert(whatsappText);
 
       // Buyer acknowledgement is best-effort; the RFQ itself is already delivered.
       try {
