@@ -389,7 +389,7 @@ const PRODUCT_LIST: Product[] = [
     subtitle: "Consolidated supermarket provisions, flours, seasonings & private label packaging.",
     description:
       "Jay Impex provides turn-key FMCG export consolidation for international ethnic grocery store chains, retail distributors, and hypermarkets. We consolidate mixed 20ft and 40ft containerized shipments with multi-SKU manifests including specialty flours (Chakki Atta, Besan, Rice flour), ready blended spice mixes, edible oils, and packaged staples.",
-    image: "/images/FMCG.jpg",
+    image: "/images/Rotate-Dals.jpg",
     featured: true,
     hsCode: "2103.90.40",
     origin: "Chennai, Tamil Nadu, India",
