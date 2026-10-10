@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FileDown } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
 import { PrintButton } from "@/components/layout/PrintButton";
 
@@ -23,7 +24,17 @@ export default function CataloguePage() {
           Incoterms (FOB, CIF, CFR, EXW). Contact: info@jayimpex.net · +91 94440 42275 ·
           www.jayimpex.net
         </p>
-        <PrintButton />
+        <div className="flex flex-wrap items-center gap-3 print:hidden">
+          <a
+            href="/downloads/Jay_Impex_Export_Brochure.pdf"
+            download
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#D97706] hover:bg-amber-600 text-slate-950 text-sm font-semibold"
+          >
+            <FileDown className="w-4 h-4" aria-hidden="true" />
+            <span>Download Brochure (PDF, 16 pages)</span>
+          </a>
+          <PrintButton />
+        </div>
       </header>
 
       <div className="space-y-6">
