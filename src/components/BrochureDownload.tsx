@@ -161,9 +161,12 @@ export function BrochureDownload() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="bro-company" className={labelCls}>Company</label>
+                    <label htmlFor="bro-company" className={labelCls}>
+                      Company <span className="text-rose-500">*</span>
+                    </label>
                     <input
                       id="bro-company"
+                      required
                       autoComplete="organization"
                       className={inputCls}
                       value={form.company}
@@ -171,9 +174,12 @@ export function BrochureDownload() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="bro-country" className={labelCls}>Country</label>
+                    <label htmlFor="bro-country" className={labelCls}>
+                      Country <span className="text-rose-500">*</span>
+                    </label>
                     <input
                       id="bro-country"
+                      required
                       autoComplete="country-name"
                       className={inputCls}
                       value={form.country}
@@ -182,9 +188,12 @@ export function BrochureDownload() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="bro-phone" className={labelCls}>Phone / WhatsApp</label>
+                  <label htmlFor="bro-phone" className={labelCls}>
+                    Phone / WhatsApp <span className="text-rose-500">*</span>
+                  </label>
                   <input
                     id="bro-phone"
+                    required
                     type="tel"
                     autoComplete="tel"
                     className={inputCls}

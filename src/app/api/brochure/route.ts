@@ -21,15 +21,9 @@ function isRateLimited(ip: string): boolean {
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
   email: z.string().trim().email("Please provide a valid email address").max(120),
-  company: z.string().trim().max(120).optional().default(""),
-  phone: z
-    .string()
-    .trim()
-    .max(30)
-    .refine((v) => v === "" || v.length >= 6, "Please provide a valid phone number")
-    .optional()
-    .default(""),
-  country: z.string().trim().max(100).optional().default(""),
+  company: z.string().trim().min(2, "Please enter your company name").max(120),
+  phone: z.string().trim().min(6, "Please provide a valid phone / WhatsApp number").max(30),
+  country: z.string().trim().min(2, "Please enter your country").max(100),
   honeypot: z.string().optional().default(""),
   renderTimestamp: z.number().optional().default(0),
   consent: z.boolean().refine((v) => v === true, "Privacy consent is required"),
@@ -80,16 +74,16 @@ export async function POST(request: NextRequest) {
       .toUpperCase()}`;
     const name = oneLine(d.name);
     const email = oneLine(d.email);
-    const subject = `Brochure download [${ref}]: ${name}${d.company ? ` (${oneLine(d.company)})` : ""}`;
+    const subject = `Brochure download [${ref}]: ${name} (${oneLine(d.company)})`;
     const html = `<!DOCTYPE html><html><body style="font-family:Arial,sans-serif;color:#0f172a">
       <h2 style="color:#0f284e">Brochure download request</h2>
       <table cellpadding="6" style="border-collapse:collapse;font-size:14px">
         <tr><td><b>Reference</b></td><td>${ref}</td></tr>
         <tr><td><b>Name</b></td><td>${esc(name)}</td></tr>
         <tr><td><b>Email</b></td><td><a href="mailto:${esc(email)}">${esc(email)}</a></td></tr>
-        <tr><td><b>Company</b></td><td>${esc(oneLine(d.company)) || "Not provided"}</td></tr>
-        <tr><td><b>Phone</b></td><td>${esc(oneLine(d.phone)) || "Not provided"}</td></tr>
-        <tr><td><b>Country</b></td><td>${esc(oneLine(d.country)) || "Not provided"}</td></tr>
+        <tr><td><b>Company</b></td><td>${esc(oneLine(d.company))}</td></tr>
+        <tr><td><b>Phone</b></td><td>${esc(oneLine(d.phone))}</td></tr>
+        <tr><td><b>Country</b></td><td>${esc(oneLine(d.country))}</td></tr>
         <tr><td><b>Requested</b></td><td>Export brochure (PDF)</td></tr>
         <tr><td><b>Privacy consent</b></td><td>Given</td></tr>
         <tr><td><b>IP / time</b></td><td>${esc(ip)} &middot; ${new Date().toISOString()}</td></tr>

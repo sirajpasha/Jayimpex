@@ -130,7 +130,7 @@ async function runTests() {
         headers: { "Content-Type": "application/json", "x-forwarded-for": ip },
         body: JSON.stringify(body),
       });
-    const ok = { name: "Test Buyer", email: "buyer@example.com", company: "ACME", consent: true, renderTimestamp: Date.now() - 5000 };
+    const ok = { name: "Test Buyer", email: "buyer@example.com", company: "ACME", phone: "+971 50 123 4567", country: "UAE", consent: true, renderTimestamp: Date.now() - 5000 };
     const res = await post(ok, "203.0.113.20");
     const data = await res.json();
     assert(res.status === 200 && data.success === true, "Brochure request returns success");
@@ -145,6 +145,12 @@ async function runTests() {
     assert(forged.status === 403, "Forged download token is refused (403)");
     const direct = await fetch(`${BASE_URL}/downloads/Jay_Impex_Export_Brochure.pdf`);
     assert(direct.status === 404, "PDF is not publicly reachable by direct URL");
+    const noPhone = await post({ ...ok, phone: "" }, "203.0.113.24");
+    assert(noPhone.status === 400, "Brochure request without phone returns 400");
+    const noCompany = await post({ ...ok, company: "" }, "203.0.113.25");
+    assert(noCompany.status === 400, "Brochure request without company returns 400");
+    const noCountry = await post({ ...ok, country: "" }, "203.0.113.26");
+    assert(noCountry.status === 400, "Brochure request without country returns 400");
     const badEmail = await post({ ...ok, email: "nope" }, "203.0.113.21");
     assert(badEmail.status === 400, "Brochure request with invalid email returns 400");
     const noConsent = await post({ ...ok, consent: false }, "203.0.113.22");
