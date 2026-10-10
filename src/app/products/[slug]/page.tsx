@@ -147,6 +147,28 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   priority
                 />
               </div>
+              {product.imageCredit && (
+                <p className="px-4 pb-3 text-[10px] text-slate-400 text-center">
+                  Photo: {product.imageCredit.author},{" "}
+                  <a
+                    href={product.imageCredit.licenseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    {product.imageCredit.license}
+                  </a>
+                  , via{" "}
+                  <a
+                    href={product.imageCredit.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    Wikimedia Commons
+                  </a>
+                </p>
+              )}
 
               {/* Quality & Certification Trust Badges */}
               <div className="w-full pt-4 border-t border-slate-100 flex flex-wrap gap-2 justify-center text-xs">

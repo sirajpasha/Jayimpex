@@ -10,10 +10,11 @@ The catalogue lives in [src/data/products.ts](src/data/products.ts) and renders 
 
 | Category | Products |
 | --- | --- |
-| Basmati & long-grain rice | Deity 1121 Steam Basmati, Deity 1509 Golden Sella Basmati, Sugandha Steam Long Grain Rice |
-| Spices | Salem Turmeric, Guntur Red Chilli (Sannam S4 & Teja), Malabar Black Pepper, Cumin (Jeera), Alleppey Green Cardamom, Coriander |
-| Pulses | Toor Dhal, Green Moong, Urid Dhal, Channa Dal |
-| FMCG | Branded food and provisions |
+| Rice | Deity 1121 Steam Basmati, Deity 1509 Golden Sella Basmati, Sugandha Steam Long Grain, Parboiled Non-Basmati |
+| Millets, nuts & oilseeds | Ragi (Finger Millet), Sesame Seeds, Groundnut Kernels |
+| Spices | Salem Turmeric, Guntur Red Chilli, Malabar Black Pepper, Cumin, Alleppey Cardamom, Coriander, Mustard, Fenugreek, Cinnamon, Cloves, Star Anise, Tamarind, Asafoetida, Bay Leaves |
+| Pulses | Toor, Green Moong, Urid, Channa, Masoor, Rajma, Moth Beans, Horse Gram, Black Chana |
+| FMCG | Branded food and provisions, Jaggery |
 | Client-driven custom sourcing | Cotton textiles and garments, food-processing and agro machinery, stainless steel utensils and cookware, seasonal fresh fruits (mangoes), traditional sweets, coir and rubber door mats |
 
 ## Services
