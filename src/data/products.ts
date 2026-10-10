@@ -30,7 +30,7 @@ export interface Product {
   minOrderQuantity: string;
 }
 
-export const PRODUCTS: Product[] = [
+const PRODUCT_LIST: Product[] = [
   // --- BASMATI & NON-BASMATI RICE ---
   {
     id: "deity-1121-steam-basmati",
@@ -1018,6 +1018,16 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
+// Display order: core agro commodities first, client-driven sourcing categories last.
+const CATEGORY_ORDER: Product["category"][] = [
+  "rice", "spices", "pulses", "oilseeds", "fmcg",
+  "fruits", "sweets", "textiles", "machinery", "utensils", "mats",
+];
+
+export const PRODUCTS: Product[] = [...PRODUCT_LIST].sort(
+  (a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category)
+);
+
 export const CATEGORIES = [
   { id: "all", label: "All Commodities", count: PRODUCTS.length },
   { id: "rice", label: "Basmati & Non-Basmati Rice", count: PRODUCTS.filter((p) => p.category === "rice").length },
@@ -1025,10 +1035,10 @@ export const CATEGORIES = [
   { id: "pulses", label: "Agro Pulses & Dals", count: PRODUCTS.filter((p) => p.category === "pulses").length },
   { id: "oilseeds", label: "Millets, Nuts & Oilseeds", count: PRODUCTS.filter((p) => p.category === "oilseeds").length },
   { id: "fmcg", label: "FMCG Provisions", count: PRODUCTS.filter((p) => p.category === "fmcg").length },
+  { id: "fruits", label: "Seasonal Fresh Fruits", count: PRODUCTS.filter((p) => p.category === "fruits").length },
+  { id: "sweets", label: "Traditional Sweets", count: PRODUCTS.filter((p) => p.category === "sweets").length },
   { id: "textiles", label: "Textiles & Garments", count: PRODUCTS.filter((p) => p.category === "textiles").length },
   { id: "machinery", label: "Machinery & Equipment", count: PRODUCTS.filter((p) => p.category === "machinery").length },
   { id: "utensils", label: "Utensils & Cookware", count: PRODUCTS.filter((p) => p.category === "utensils").length },
-  { id: "fruits", label: "Seasonal Fresh Fruits", count: PRODUCTS.filter((p) => p.category === "fruits").length },
-  { id: "sweets", label: "Traditional Sweets", count: PRODUCTS.filter((p) => p.category === "sweets").length },
   { id: "mats", label: "Door Mats & Floor Coverings", count: PRODUCTS.filter((p) => p.category === "mats").length },
 ] as const;

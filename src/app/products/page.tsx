@@ -63,6 +63,9 @@ export default async function CataloguePage({
     return matchesCategory && matchesSearch;
   }).sort((a, b) => {
     if (sortBy === "name") return a.name.localeCompare(b.name);
+    // Keep category order (client-sourced categories last); featured first within a category
+    const rank = (id: string) => CATEGORIES.findIndex((c) => c.id === id);
+    if (a.category !== b.category) return rank(a.category) - rank(b.category);
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
     return 0;
