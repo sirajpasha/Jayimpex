@@ -10,6 +10,8 @@ import {
   Award,
   ArrowUpRight,
   ExternalLink,
+  MessageSquare,
+  Clock,
 } from "lucide-react";
 
 export function Footer() {
@@ -22,20 +24,20 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-3">
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-[#D97706]">2005</div>
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-[#D97706]">1990</div>
               <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Established In</div>
             </div>
             <div className="p-3">
               <div className="text-2xl sm:text-3xl font-bold font-mono text-[#0284C7]">35+</div>
-              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Export Destinations</div>
+              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Export Destinations (Incl. Australia)</div>
             </div>
             <div className="p-3">
               <div className="text-2xl sm:text-3xl font-bold font-mono text-emerald-400">100%</div>
               <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">APEDA & FSSAI Compliant</div>
             </div>
             <div className="p-3">
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-amber-400">JNPT</div>
-              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Primary Marine Port</div>
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-amber-400">Chennai Port</div>
+              <div className="text-xs text-slate-400 mt-1 uppercase tracking-wider">Primary Seaport (INMAA)</div>
             </div>
           </div>
         </div>
@@ -61,16 +63,17 @@ export function Footer() {
                   JAY IMPEX
                 </span>
                 <span className="text-xs text-amber-400 font-medium tracking-wider uppercase">
-                  Global Agro Exporters
+                  Leading Commodities Exporter
                 </span>
               </div>
             </div>
 
             <p className="text-sm text-slate-400 leading-relaxed">
-              Govt. Recognized Export House specializing in premium Deity Basmati
-              Rice, authentic Indian whole & ground spices, agro pulses, and FMCG
-              commodities. Serving global food importers, supermarket chains, and
-              distributors across the Middle East, Europe, Africa, and North America.
+              Govt. Recognized Export House established in 1990 in Chennai, India.
+              Exporter of premium Deity Basmati Rice, authentic Indian spices, agro pulses,
+              FMCG provisions, and dedicated client-based sourcing of textiles, machineries,
+              stainless steel utensils, traditional sweets, seasonal fruits, and door mats.
+              Serving global importers across Australia, the Middle East, North America, Europe, and Africa.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-2 text-xs">
@@ -92,7 +95,7 @@ export function Footer() {
           {/* Column 2: Commodities (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
-              Export Sectors
+              Export Portfolios
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -100,7 +103,7 @@ export function Footer() {
                   href="/products?category=rice"
                   className="hover:text-amber-400 transition-colors flex items-center justify-between group"
                 >
-                  <span>Deity Basmati Rice (1121 / 1509)</span>
+                  <span>Deity Basmati & Non-Basmati Rice</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
@@ -124,19 +127,46 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/products?category=fmcg"
+                  href="/products?category=textiles"
                   className="hover:text-amber-400 transition-colors flex items-center justify-between group"
                 >
-                  <span>FMCG Provisions & Provisions</span>
+                  <span>Textiles, Fabrics & Garments</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about#private-label"
+                  href="/products?category=machinery"
                   className="hover:text-amber-400 transition-colors flex items-center justify-between group"
                 >
-                  <span>Private Label Custom Packaging</span>
+                  <span>Industrial & Agro Machinery</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products?category=utensils"
+                  className="hover:text-amber-400 transition-colors flex items-center justify-between group"
+                >
+                  <span>Stainless Steel Utensils & Cookware</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products?category=fruits"
+                  className="hover:text-amber-400 transition-colors flex items-center justify-between group"
+                >
+                  <span>Seasonal Fresh Fruits & Indian Sweets</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products?category=mats"
+                  className="hover:text-amber-400 transition-colors flex items-center justify-between group"
+                >
+                  <span>Door Mats & Floor Coverings</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
@@ -145,7 +175,7 @@ export function Footer() {
                   href="/products"
                   className="text-amber-400 font-medium hover:underline inline-block pt-1"
                 >
-                  View All Catalogue &rarr;
+                  View Complete Catalogue &rarr;
                 </Link>
               </li>
             </ul>
@@ -160,26 +190,26 @@ export function Footer() {
               <li className="flex items-start">
                 <Anchor className="w-4 h-4 text-[#0284C7] mr-2 shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-slate-200">JNPT / Nhava Sheva</strong>
+                  <strong className="text-slate-200">Chennai Port (INMAA)</strong>
                   <br />
-                  <span className="text-xs">Primary Terminal (INNSA)</span>
+                  <span className="text-xs">Primary Maritime Hub</span>
                 </span>
               </li>
               <li className="flex items-start">
                 <Anchor className="w-4 h-4 text-[#0284C7] mr-2 shrink-0 mt-0.5" />
                 <span>
-                  <strong className="text-slate-200">Mundra & Pipavav</strong>
+                  <strong className="text-slate-200">Kamarajar / Ennore</strong>
                   <br />
-                  <span className="text-xs">Alternate Terminals</span>
+                  <span className="text-xs">Container Terminal</span>
                 </span>
               </li>
               <li className="pt-1 text-xs">
-                <span className="text-slate-400">Incoterms Supported:</span>
-                <div className="font-mono text-slate-200 mt-0.5">FOB &bull; CIF &bull; CFR</div>
+                <span className="text-slate-400">International Corridors:</span>
+                <div className="text-slate-200 mt-0.5 font-medium">Australia &bull; Middle East &bull; USA &bull; Europe</div>
               </li>
-              <li className="text-xs">
-                <span className="text-slate-400">Third-Party Inspection:</span>
-                <div className="text-slate-200 mt-0.5">SGS &bull; Geo-Chem &bull; Bureau Veritas</div>
+              <li className="pt-1 text-xs">
+                <span className="text-slate-400">Incoterms Supported:</span>
+                <div className="font-mono text-slate-200 mt-0.5">FOB &bull; CIF &bull; CFR &bull; EXW</div>
               </li>
             </ul>
           </div>
@@ -187,19 +217,17 @@ export function Footer() {
           {/* Column 4: Commercial Office & Contact (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
-              Commercial Desk
+              Let&apos;s Connect
             </h3>
             <div className="space-y-3 text-sm text-slate-400">
               <div className="flex items-start">
                 <MapPin className="w-4 h-4 text-[#D97706] mr-2.5 shrink-0 mt-1" />
                 <address className="not-italic text-xs sm:text-sm text-slate-300 leading-snug">
-                  <strong>Registered Office:</strong>
+                  Marginfree Super Market, 1739,
                   <br />
-                  202, Marine Chambers, 11,
+                  18th Main Road, Anna Nagar West,
                   <br />
-                  New Marine Lines, Churchgate,
-                  <br />
-                  Mumbai - 400 020, Maharashtra, India.
+                  Chennai - 600040, Tamil Nadu, India.
                 </address>
               </div>
 
@@ -207,28 +235,39 @@ export function Footer() {
                 <Phone className="w-4 h-4 text-[#0284C7] mr-2.5 shrink-0" />
                 <div className="text-xs sm:text-sm">
                   <a
-                    href="tel:+919820124748"
+                    href="tel:+919444042275"
                     className="hover:text-white font-mono transition-colors block"
                   >
-                    +91 98201 24748
-                  </a>
-                  <a
-                    href="tel:+919322275151"
-                    className="hover:text-white font-mono transition-colors block"
-                  >
-                    +91 93222 75151
+                    +91 94440 42275
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center">
+                <MessageSquare className="w-4 h-4 text-emerald-400 mr-2.5 shrink-0" />
+                <a
+                  href="https://wa.me/919444042275"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white font-mono text-xs sm:text-sm transition-colors text-emerald-400"
+                >
+                  +91 94440 42275 (WhatsApp)
+                </a>
+              </div>
+
+              <div className="flex items-center">
                 <Mail className="w-4 h-4 text-[#D97706] mr-2.5 shrink-0" />
                 <a
-                  href="mailto:export@jayimpex.net"
+                  href="mailto:info@jayimpex.com"
                   className="hover:text-white font-mono text-xs sm:text-sm transition-colors"
                 >
-                  export@jayimpex.net
+                  info@jayimpex.com
                 </a>
+              </div>
+
+              <div className="flex items-center text-xs text-slate-400">
+                <Clock className="w-4 h-4 text-[#0284C7] mr-2.5 shrink-0" />
+                <span>Mon-Sat: 10:00 AM - 10:00 PM</span>
               </div>
 
               <div className="pt-2">

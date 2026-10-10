@@ -17,29 +17,29 @@ const capabilities = [
   {
     title: "Govt. Recognized Exporter",
     subtitle: "Global Seaport Containerization",
-    desc: "Exporting certified agricultural commodities, Deity Basmati Rice, and Indian spices directly to international ports via JNPT Nhava Sheva under FOB, CIF, and CFR Incoterms.",
+    desc: "Exporting certified agricultural commodities, Deity Basmati Rice, and Indian spices directly to international ports via Chennai Port (INMAA) and major terminals under FOB, CIF, and CFR Incoterms.",
     image: "/images/Exporter.jpg",
     badge: "International Trade",
     linkText: "Export Credentials",
     href: "/about",
   },
   {
-    title: "Agro Commodities Wholesaler",
-    subtitle: "Direct Farm-Gate Procurement",
-    desc: "Procuring bulk agricultural harvests directly from premier mandis and farmer collectives across Punjab, Andhra Pradesh, Gujarat, and Tamil Nadu with zero intermediary margins.",
+    title: "Commodities Wholesaler Since 1990",
+    subtitle: "Direct Farm-Gate & Factory Procurement",
+    desc: "Connecting buyers to prime agricultural mandis, processing mills, and manufacturing belts across Tamil Nadu, Andhra Pradesh, Punjab, and pan-India with zero intermediary margins.",
     image: "/images/wholesaler.jpg",
-    badge: "Bulk Sourcing",
+    badge: "Bulk Procurement",
     linkText: "Sourcing Epicenters",
     href: "/about#sourcing",
   },
   {
-    title: "Distribution & Private Labeling",
-    subtitle: "Turnkey Supermarket Packing",
-    desc: "Facilitating bespoke packaging in BOPP, non-woven zipper, and jute bags under your proprietary brand. Multilingual nutritional compliance and barcoding ready for shelf display.",
+    title: "Client-Driven Custom Sourcing",
+    subtitle: "Multi-Commodity Merchant Export",
+    desc: "Procuring textiles, industrial machineries, stainless steel utensils, seasonal fresh fruits, traditional sweets, door mats, and private-label packaging tailored to client specifications.",
     image: "/images/Retailers.jpg",
-    badge: "Custom OEM",
-    linkText: "Private Label Solutions",
-    href: "/about#private-label",
+    badge: "Bespoke Sourcing",
+    linkText: "Custom Sourcing Solutions",
+    href: "/products",
   },
 ];
 
@@ -53,28 +53,29 @@ const exportProcessSteps = [
   {
     step: "02",
     title: "Sortex Grading & Lab Testing",
-    desc: "Commodities undergo multi-deck optical Sortex sorting to eliminate foreign matter. SGS or Geo-Chem executes pre-shipment laboratory assays verifying chemical and microbial purity.",
+    desc: "Commodities undergo multi-deck optical Sortex sorting to eliminate foreign matter. SGS, Geo-Chem, or designated agency executes pre-shipment laboratory assays verifying quality.",
     icon: ShieldCheck,
   },
   {
     step: "03",
     title: "Export Packing & Staging",
-    desc: "Products are hermetically sealed in food-grade multi-wall bags, laminated BOPP pouches, or jute sacks. Palletized and containerized with desiccant protection against maritime humidity.",
+    desc: "Products are hermetically sealed in food-grade multi-wall bags, laminated BOPP pouches, seaworthy wooden crates, or cartons with desiccant protection against maritime humidity.",
     icon: Boxes,
   },
   {
     step: "04",
-    title: "JNPT Port Dispatch & Clearance",
-    desc: "Direct transit to JNPT Nhava Sheva (INNSA) Container Freight Station. Customs clearance, phytosanitary fumigation, and issuance of original Bill of Lading and Certificate of Origin.",
+    title: "Chennai Port Dispatch & Clearance",
+    desc: "Direct transit to Chennai Port (INMAA) / Kamarajar Port (Ennore) Container Freight Stations. Customs clearance, phytosanitary fumigation, and issuance of original Bill of Lading.",
     icon: Anchor,
   },
 ];
 
 const tradeCorridors = [
-  { region: "Middle East & GCC", countries: "UAE, Saudi Arabia, Kuwait, Oman, Qatar, Bahrain" },
-  { region: "Europe & UK", countries: "United Kingdom, Netherlands, Germany, France, Belgium" },
-  { region: "Africa", countries: "Kenya, Tanzania, South Africa, Nigeria, Ghana" },
-  { region: "North America", countries: "United States, Canada" },
+  { region: "Oceania & Australia", countries: "Australia (Melbourne, Sydney, Brisbane, Fremantle), New Zealand" },
+  { region: "Middle East & GCC", countries: "UAE (Dubai, Jebel Ali), Saudi Arabia, Kuwait, Oman, Qatar, Bahrain" },
+  { region: "North America", countries: "United States (New York, Los Angeles), Canada (Vancouver, Montreal)" },
+  { region: "Europe & UK", countries: "United Kingdom, Netherlands (Rotterdam), Germany, France, Belgium" },
+  { region: "Africa", countries: "Egypt (Alexandria), Kenya (Mombasa), Tanzania, South Africa, Nigeria, Ghana" },
   { region: "Southeast Asia", countries: "Malaysia, Singapore, Vietnam, Indonesia" },
 ];
 
@@ -92,19 +93,20 @@ export default function Home() {
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Govt. Recognized Export House &bull; Est. 2005 &bull; Mumbai</span>
+                <span>Govt. Recognized Export House &bull; Est. 1990 &bull; Chennai, India</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                India&apos;s Trusted Exporter of{" "}
-                <span className="text-amber-400">Deity Basmati Rice</span>,{" "}
-                <span className="text-sky-400">Spices &amp; Agro Commodities</span>
+                India&apos;s Leading Exporter of{" "}
+                <span className="text-amber-400">Commodities</span>,{" "}
+                <span className="text-sky-400">Agro Products &amp; Custom Sourcing</span>
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Supplying international importers, supermarket chains, and food distributors
-                with laboratory-certified Deity Basmati Rice, hand-selected Indian spices, pulses,
-                and FMCG commodities from JNPT Nhava Sheva to worldwide seaports.
+                Operating from Chennai, India, Jay Impex is a leading multi-category commodities exporter.
+                From Deity Basmati Rice, spices, pulses, and FMCG provisions to client-specified
+                sourcing of textiles, machineries, utensils, sweets, seasonal fruits, and door mats —
+                shipped directly via Chennai Port to 35+ global destinations.
               </p>
 
               {/* Trust Pill Bar */}
@@ -115,11 +117,11 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-1.5 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/80">
                   <Ship className="w-4 h-4 text-[#0284C7]" />
-                  <span>Port JNPT / Nhava Sheva</span>
+                  <span>Port Chennai (INMAA)</span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700/80">
                   <Globe2 className="w-4 h-4 text-amber-400" />
-                  <span>35+ Global Markets</span>
+                  <span>35+ Global Markets (Incl. Australia)</span>
                 </div>
               </div>
 
@@ -480,18 +482,18 @@ export default function Home() {
                 Exporting to 35+ International Destinations
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Operating out of our Mumbai trade desk, we manage direct container lines to major
-                commercial ports across the Middle East, Europe, Africa, and the Americas.
+                Operating out of our Chennai trade desk, we manage direct container lines to major
+                commercial ports across Australia, the Middle East, Europe, Africa, and the Americas.
               </p>
 
               <div className="bg-slate-900/60 rounded-xl p-4 border border-slate-800 space-y-2 text-xs">
                 <div className="flex items-center text-slate-300">
                   <Anchor className="w-4 h-4 text-[#0284C7] mr-2 shrink-0" />
-                  <span>Primary Loading Port: <strong>JNPT / Nhava Sheva (INNSA)</strong></span>
+                  <span>Primary Loading Port: <strong>Chennai Port (INMAA) &bull; Ennore</strong></span>
                 </div>
                 <div className="flex items-center text-slate-300">
                   <Ship className="w-4 h-4 text-[#D97706] mr-2 shrink-0" />
-                  <span>Alternate Terminals: <strong>Mundra (INMUN) &bull; Pipavav (INPAV)</strong></span>
+                  <span>Alternate Terminals: <strong>Tuticorin (INTUT) &bull; Kattupalli &bull; Cochin &bull; Vizag</strong></span>
                 </div>
               </div>
 
@@ -540,11 +542,11 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="tel:+919820124748"
+              href="tel:+919444042275"
               className="inline-flex items-center px-5 py-3 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-mono text-sm shadow-md transition-colors"
             >
               <PhoneCall className="w-4 h-4 text-amber-400 mr-2" />
-              <span>+91 98201 24748</span>
+              <span>+91 94440 42275</span>
             </a>
             <Link
               href="/contact"

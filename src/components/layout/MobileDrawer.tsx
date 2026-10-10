@@ -22,6 +22,11 @@ const categoryLinks = [
   { href: "/products?category=spices", label: "Whole & Ground Indian Spices" },
   { href: "/products?category=pulses", label: "Agro Pulses & Lentils (Dals)" },
   { href: "/products?category=fmcg", label: "FMCG & Branded Provisions" },
+  { href: "/products?category=textiles", label: "Textiles, Fabrics & Garments" },
+  { href: "/products?category=machinery", label: "Machinery & Agro Processing" },
+  { href: "/products?category=utensils", label: "Stainless Steel Utensils & Cookware" },
+  { href: "/products?category=fruits", label: "Seasonal Fruits & Indian Sweets" },
+  { href: "/products?category=mats", label: "Door Mats & Floor Coverings" },
 ];
 
 export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
@@ -136,7 +141,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           <div className="bg-slate-800/50 rounded-xl p-3 border border-slate-700/60 text-xs space-y-2">
             <div className="flex items-center text-slate-300">
               <Anchor className="w-4 h-4 text-[#0284C7] mr-2 shrink-0" />
-              <span>Port: <strong>JNPT / Nhava Sheva (INNSA)</strong></span>
+              <span>Port: <strong>Chennai Port (INMAA) &bull; Ennore</strong></span>
             </div>
             <div className="flex items-center text-slate-300">
               <ShieldCheck className="w-4 h-4 text-emerald-400 mr-2 shrink-0" />
@@ -157,14 +162,14 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           </Link>
           <div className="grid grid-cols-2 gap-2 text-xs pt-1">
             <a
-              href="tel:+919820124748"
+              href="tel:+919444042275"
               className="flex items-center justify-center space-x-1.5 py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-[#0284C7]" />
               <span>Call Desk</span>
             </a>
             <a
-              href="mailto:export@jayimpex.net"
+              href="mailto:info@jayimpex.com"
               className="flex items-center justify-center space-x-1.5 py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-[#D97706]" />

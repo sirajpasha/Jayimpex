@@ -221,7 +221,7 @@ export async function POST(request: NextRequest) {
             </div>
             <div class="footer">
               <p style="margin: 0;">Submission IP: ${clientIp} &bull; Timestamp: ${new Date().toISOString()}</p>
-              <p style="margin: 4px 0 0;">Jay Impex &bull; 202, Marine Chambers, New Marine Lines, Mumbai - 400 020</p>
+              <p style="margin: 4px 0 0;">Jay Impex &bull; Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India</p>
             </div>
           </div>
         </body>
@@ -233,7 +233,7 @@ export async function POST(request: NextRequest) {
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
     const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
-    const toEmail = process.env.CONTACT_EMAIL || "export@jayimpex.net";
+    const toEmail = process.env.CONTACT_EMAIL || "info@jayimpex.com";
 
     if (smtpHost && smtpUser && smtpPass) {
       const transporter = nodemailer.createTransport({
@@ -273,7 +273,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: "An internal system error occurred while transmitting your request. Please try again or reach our desk at export@jayimpex.net.",
+        error: "An internal system error occurred while transmitting your request. Please try again or reach our desk at info@jayimpex.com.",
       },
       { status: 500 }
     );

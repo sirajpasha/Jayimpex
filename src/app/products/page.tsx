@@ -73,12 +73,14 @@ function CatalogueContent() {
               <span>Verified APEDA &amp; FSSAI Sourced Commodities</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
-              Global Agro Export Catalogue
+              Global Commodities &amp; Sourcing Catalogue
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Explore our laboratory-certified commodities: Deity Basmati Rice,
-              pure whole &amp; ground Indian spices, sorted pulses, and FMCG provisions.
-              Containerized dispatch from JNPT Port (Mumbai) to 35+ global seaports.
+              Explore our certified agricultural commodities and client-driven merchant sourcing:
+              Deity Basmati Rice, Indian spices, pulses, FMCG provisions, textiles, machineries,
+              utensils, sweets, seasonal fruits, and door mats.
+              Containerized dispatch from Chennai Port (INMAA) to 35+ global seaports across Australia,
+              the Middle East, North America, Europe, and Africa.
             </p>
           </div>
         </div>

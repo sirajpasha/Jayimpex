@@ -12,10 +12,22 @@ import {
 export const metadata: Metadata = {
   title: "About Us & Sourcing Capabilities | Jay Impex Exporters",
   description:
-    "Learn about Jay Impex: Established in 2005 in Mumbai, India. Certified APEDA, FSSAI & ISO 9001:2015 exporter of Deity Basmati Rice, spices, pulses, and FMCG commodities.",
+    "Learn about Jay Impex: Established in 1990 in Chennai, India. Certified exporter of Deity Basmati Rice, spices, pulses, FMCG, and custom sourcing of textiles, machineries, utensils, sweets, seasonal fruits, and door mats.",
 };
 
 const sourcingHubs = [
+  {
+    region: "Chennai & South India Gateway",
+    badge: "Headquarters & Logistics",
+    items: "Chennai Port (INMAA), FMCG Consolidation, Multi-Commodity Export Desk",
+    desc: "Headquartered in Anna Nagar West, Chennai. Proximity to Chennai Port and Kamarajar Port for rapid container stuffing, customs clearance, and global ocean sailings.",
+  },
+  {
+    region: "Tamil Nadu Industrial & Textile Belts",
+    badge: "Textiles, Machinery & Utensils",
+    items: "Tirupur (Apparel), Coimbatore (Machinery), Salem (SS Utensils), Karur (Mats)",
+    desc: "Direct procurement of cotton garments, agro processing machinery, stainless steel cookware, and coir door mats manufactured to client technical specifications.",
+  },
   {
     region: "Punjab & Haryana",
     badge: "Basmati Paddy Belt",
@@ -41,16 +53,16 @@ const sourcingHubs = [
     desc: "Multi-tier optical sortex cleaning and destoning facilities near Unjha to ensure 99.5% Europe-grade seed purity.",
   },
   {
-    region: "Kerala (Malabar Coast)",
-    badge: "Rainforest Spices",
-    items: "Tellicherry Black Pepper (TGSEB), Alleppey Green Cardamom, Cloves",
-    desc: "Estate-grown highland spices hand-picked from the biodiversity-rich Western Ghats, packed with intense essential oils.",
+    region: "Kerala (Malabar Coast & Alleppey)",
+    badge: "Rainforest Spices & Coir",
+    items: "Tellicherry Black Pepper, Cardamom, Alleppey Natural Coir Mats",
+    desc: "Highland spices hand-picked from the biodiverse Western Ghats, alongside high-durability natural coconut coir door mats from traditional weaving hubs.",
   },
   {
-    region: "Mumbai Logistics Hub",
-    badge: "Central Consolidation",
-    items: "FMCG Provisions, Blended Flours, Mixed Multi-SKU Containers",
-    desc: "Port-adjacent staging warehouses in Navi Mumbai for rapid customs clearance and container stuffing directly into JNPT port.",
+    region: "Southern Horticultural Belts",
+    badge: "Fresh Fruits & Sweets",
+    items: "Export Mangoes (Banganapalli & Alphonso), Bananas, Traditional Ghee Sweets",
+    desc: "APEDA cold-chain certified export of seasonal fresh fruits and nitrogen-packed authentic Indian sweets with extended shelf life.",
   },
 ];
 
@@ -58,7 +70,7 @@ const accreditations = [
   {
     name: "APEDA Certified",
     authority: "Ministry of Commerce, Govt. of India",
-    desc: "Recognized export compliance for grains, cereals, and processed food products.",
+    desc: "Recognized export compliance for grains, cereals, fresh fruits, and processed food products.",
   },
   {
     name: "Spices Board of India",
@@ -73,12 +85,12 @@ const accreditations = [
   {
     name: "ISO 9001:2015",
     authority: "Quality Management System Certification",
-    desc: "Standardized quality control workflows from farm-gate to container seal.",
+    desc: "Standardized quality control workflows from farm-gate and factory to container seal.",
   },
   {
     name: "DGFT IEC Registered",
     authority: "Directorate General of Foreign Trade",
-    desc: "Valid statutory Import-Export authorization code since 2005.",
+    desc: "Valid statutory Import-Export authorization code since 1990.",
   },
   {
     name: "SGS / Geo-Chem Partnered",
@@ -104,15 +116,16 @@ export default function AboutPage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Two Decades of Agro Export Heritage &bull; Est. 2005</span>
+              <span>Over Three Decades of Global Export Heritage &bull; Est. 1990</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Bridging India&apos;s Agro Harvests with Global Markets
+              Connecting India&apos;s Commodities &amp; Manufacturing to Worldwide Markets
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Jay Impex is a Govt. Recognized Export House headquartered in Mumbai.
-              We specialize in sourcing, quality grading, and international containerized
-              shipments of Deity Basmati Rice, authentic spices, pulses, and FMCG provisions.
+              Jay Impex is a Govt. Recognized Export House headquartered in Chennai, Tamil Nadu, India.
+              We are a leading commodities exporter: from staple agro commodities (Deity Basmati Rice,
+              spices, pulses, FMCG) to bespoke client-driven procurement of textiles, machineries,
+              utensils, traditional sweets, seasonal fruits, and door mats.
             </p>
           </div>
         </div>
@@ -126,29 +139,31 @@ export default function AboutPage() {
               Company Provenance
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F284E] tracking-tight">
-              Reliable Agro Supply Chain Partner Since 2005
+              Reliable Commodities Sourcing &amp; Export Partner Since 1990
             </h2>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Founded over two decades ago in Mumbai&apos;s historic commercial business district,
-              Jay Impex has evolved from a regional agricultural merchant into a premier
-              multi-commodity export powerhouse trusted across 35+ global destinations.
+              Established in 1990 in Chennai, Tamil Nadu, Jay Impex has evolved over more than
+              three decades from a premier domestic commodities wholesaler into a diversified
+              international export house trusted across 35+ countries — including Australia,
+              the Middle East, North America, Europe, and Africa.
             </p>
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Our core strength lies in our deep-rooted farm-gate networks across India&apos;s
-              primary agricultural belts. By bypassing intermediate broker layers, we maintain
-              strict control over harvest freshness, moisture thresholds, Sortex purity, and
-              competitive container pricing.
+              Our core strength lies in our pan-India network of direct farm-gate and factory relationships.
+              Whether delivering full container loads of Sortex-cleaned Deity Basmati Rice and high-curcumin
+              turmeric, or sourcing custom orders of cotton textiles, food processing machinery, stainless steel
+              kitchenware, fresh seasonal mangoes, or natural coir door mats, we tailor each consignment
+              strictly to the client&apos;s technical specifications, packaging, and delivery schedule.
             </p>
 
             {/* Key Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-xs">
-                <div className="text-2xl font-bold font-mono text-[#D97706]">20+ Yrs</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Export Experience</div>
+                <div className="text-2xl font-bold font-mono text-[#D97706]">35+ Yrs</div>
+                <div className="text-xs text-slate-500 font-medium mt-1">Export &amp; Trade Heritage</div>
               </div>
               <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-xs">
                 <div className="text-2xl font-bold font-mono text-[#0284C7]">35+</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Countries Served</div>
+                <div className="text-xs text-slate-500 font-medium mt-1">Countries Served (Incl. Australia)</div>
               </div>
               <div className="bg-white rounded-xl p-4 border border-slate-200 shadow-xs">
                 <div className="text-2xl font-bold font-mono text-emerald-600">100%</div>
@@ -166,7 +181,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-lg text-[#0F284E]">JAY IMPEX</h3>
-                  <p className="text-xs text-slate-500">Commercial Export Desk &bull; Mumbai</p>
+                  <p className="text-xs text-slate-500">Commercial Export Desk &bull; Chennai, India</p>
                 </div>
               </div>
 
@@ -174,31 +189,31 @@ export default function AboutPage() {
                 <div className="flex items-start">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2 shrink-0 mt-0.5" />
                   <span>
-                    <strong>Direct Farm-Gate Procurement:</strong> Harvests selected directly from APMC mandis.
+                    <strong>Direct Farm-Gate &amp; Factory Procurement:</strong> Direct sourcing from prime mandis and manufacturing clusters.
                   </span>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2 shrink-0 mt-0.5" />
                   <span>
-                    <strong>Advanced Optical Sortexing:</strong> Double chromatic camera sorting eliminates foreign matter.
+                    <strong>Multi-Commodity Merchant Sourcing:</strong> Agros, textiles, machineries, utensils, sweets, fruits, and mats.
                   </span>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2 shrink-0 mt-0.5" />
                   <span>
-                    <strong>Port Proximity Advantage:</strong> Staging facilities located just 40km from JNPT terminal.
+                    <strong>Chennai Port Proximity:</strong> Container staging facilities adjacent to Chennai Port (INMAA) &amp; Kamarajar terminals.
                   </span>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2 shrink-0 mt-0.5" />
                   <span>
-                    <strong>Turnkey Export Documentation:</strong> Bill of Lading, Certificate of Origin, Phytosanitary, Fumigation.
+                    <strong>Turnkey Export Documentation:</strong> Bill of Lading, Certificate of Origin, Phytosanitary, and SGS lab assays.
                   </span>
                 </div>
               </div>
 
               <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                <span>Incoterms: <strong>FOB / CIF / CFR</strong></span>
+                <span>Incoterms: <strong>FOB / CIF / CFR / EXW</strong></span>
                 <Link
                   href="/contact"
                   className="font-bold text-[#D97706] hover:underline"

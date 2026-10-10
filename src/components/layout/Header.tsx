@@ -40,6 +40,31 @@ const navItems: NavItem[] = [
         label: "FMCG Commodities",
         desc: "Processed consumer packaged food & grocery exports",
       },
+      {
+        href: "/products?category=textiles",
+        label: "Textiles & Garments",
+        desc: "Cotton apparel, fabrics, home linens & custom sourcing",
+      },
+      {
+        href: "/products?category=machinery",
+        label: "Machinery & Equipment",
+        desc: "Agro processing machines & industrial milling equipment",
+      },
+      {
+        href: "/products?category=utensils",
+        label: "Utensils & Cookware",
+        desc: "Stainless steel kitchenware, commercial vessels & brassware",
+      },
+      {
+        href: "/products?category=fruits",
+        label: "Seasonal Fruits & Sweets",
+        desc: "Export mangoes, fresh fruits & authentic Indian confectionery",
+      },
+      {
+        href: "/products?category=mats",
+        label: "Door Mats & Floor Coverings",
+        desc: "Natural coir entrance mats, rubber mats & custom rugs",
+      },
     ],
   },
   { href: "/about", label: "Sourcing & Quality" },
@@ -78,11 +103,11 @@ export function Header() {
                     JAY IMPEX
                   </span>
                   <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-semibold bg-amber-100 text-amber-800 rounded">
-                    EST. 2005
+                    EST. 1990
                   </span>
                 </div>
                 <span className="text-[11px] font-medium text-slate-500 tracking-wider uppercase mt-0.5">
-                  Global Agro Commodities &bull; FMCG Exporters
+                  Leading Commodities Exporter &bull; Sourcing Partner
                 </span>
               </div>
             </Link>

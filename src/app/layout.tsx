@@ -21,21 +21,24 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.jayimpex.net"),
   title: {
-    default: "Jay Impex | Global Agro Commodities & FMCG Exporters",
-    template: "%s | Jay Impex - Agro & FMCG Exporters",
+    default: "Jay Impex | Leading Commodities Exporter & Sourcing Partner | Chennai, India",
+    template: "%s | Jay Impex - Commodities Exporters",
   },
   description:
-    "Leading Indian exporter of premium Deity Basmati Rice, authentic pulses, whole & ground spices, and FMCG commodities to worldwide ports since 2005. APEDA & ISO 9001:2015 certified.",
+    "Leading Indian exporter of premium commodities, Deity Basmati Rice, authentic spices, pulses, FMCG provisions, and client-driven sourcing of textiles, machineries, utensils, sweets, seasonal fruits, and door mats since 1990 from Chennai, India.",
   keywords: [
     "Jay Impex",
+    "Commodities Exporters Chennai",
     "Basmati Rice Exporters India",
     "Deity Basmati Rice",
-    "1121 Steam Rice",
     "Indian Spices Exporters",
     "Agro Commodities",
-    "Pulses Exporters Mumbai",
-    "FMCG Exports",
-    "JNPT Port Agro Exporters",
+    "Textiles Exporters India",
+    "Machinery Sourcing India",
+    "Stainless Steel Utensils India",
+    "Australia Commodities Importers",
+    "Chennai Port Exporters",
+    "Est 1990",
   ],
   authors: [{ name: "Jay Impex Commercial Desk", url: "https://www.jayimpex.net" }],
   creator: "Jay Impex",
@@ -55,23 +58,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.jayimpex.net",
     siteName: "Jay Impex",
-    title: "Jay Impex | Global Agro Commodities & FMCG Exporters",
+    title: "Jay Impex | Leading Commodities Exporter & Sourcing Partner | Chennai, India",
     description:
-      "Premier Indian exporter of Deity Basmati Rice, whole and ground spices, pulses, and FMCG provisions. Certified quality, global shipping from JNPT port.",
+      "Premier Indian exporter of commodities, Deity Basmati Rice, spices, pulses, and custom sourcing of textiles, machineries, utensils, sweets, fruits, and mats. Certified quality, global shipping from Chennai Port to Australia and worldwide.",
     images: [
       {
         url: "/images/Deity_Rice.png",
         width: 1200,
         height: 630,
-        alt: "Jay Impex - Premium Agro Commodities & Deity Rice",
+        alt: "Jay Impex - Leading Commodities Exporter & Sourcing Partner",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jay Impex | Global Agro Commodities & FMCG Exporters",
+    title: "Jay Impex | Leading Commodities Exporter & Sourcing Partner",
     description:
-      "Premier Indian exporter of Deity Basmati Rice, whole and ground spices, pulses, and FMCG provisions.",
+      "Premier Indian exporter of commodities, Deity Basmati Rice, spices, pulses, and client sourcing from Chennai Port to Australia & worldwide.",
     images: ["/images/Deity_Rice.png"],
   },
   robots: {

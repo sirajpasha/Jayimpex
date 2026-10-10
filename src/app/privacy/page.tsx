@@ -45,8 +45,8 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-xl font-bold text-[#0F284E] mb-3">1. Scope &amp; Purpose</h2>
             <p className="text-slate-600">
-              Jay Impex is a Govt. Recognized Export House operating from Mumbai, India.
-              We operate exclusively as a business-to-business (B2B) international agro-commodities
+              Jay Impex is a Govt. Recognized Export House operating from Chennai, Tamil Nadu, India.
+              We operate exclusively as a business-to-business (B2B) international commodities
               merchant and exporter. We collect business contact and quotation parameters solely to
               process Requests for Quotation (RFQs), formulate proforma invoices, coordinate marine
               shipping logistics, and maintain trade correspondence.
@@ -103,17 +103,17 @@ export default function PrivacyPage() {
             <h3 className="font-bold text-slate-900">Commercial Compliance Contact</h3>
             <div className="text-xs sm:text-sm text-slate-600 space-y-1">
               <div><strong>Jay Impex — Compliance Desk</strong></div>
-              <div>202, Marine Chambers, 11, New Marine Lines, Churchgate, Mumbai - 400 020, India</div>
+              <div>Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India</div>
               <div>
                 Email:{" "}
-                <a href="mailto:export@jayimpex.net" className="text-[#0284C7] hover:underline font-mono">
-                  export@jayimpex.net
+                <a href="mailto:info@jayimpex.com" className="text-[#0284C7] hover:underline font-mono">
+                  info@jayimpex.com
                 </a>
               </div>
               <div>
                 Helpline:{" "}
-                <a href="tel:+919820124748" className="text-[#0284C7] hover:underline font-mono">
-                  +91 98201 24748
+                <a href="tel:+919444042275" className="text-[#0284C7] hover:underline font-mono">
+                  +91 94440 42275
                 </a>
               </div>
             </div>

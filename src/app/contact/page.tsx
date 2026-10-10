@@ -33,9 +33,16 @@ const commodityOptions = [
   "Black Urid Dhal (Gota & Split)",
   "Channa Dal (Bengal Gram Split)",
   "FMCG Branded Food & Provisions",
+  "Textiles, Fabrics & Garments (Tirupur / Karur)",
+  "Industrial Food Processing & Agro Machinery",
+  "Stainless Steel Utensils & Commercial Cookware",
+  "Indian Seasonal Fresh Fruits (Mangoes & Fresh Produce)",
+  "Traditional Sweets & Confectionery (Extended Shelf-Life)",
+  "Natural Coir & Rubber Door Mats (Floor Coverings)",
   "Private Label Custom Packaging (OEM)",
   "Mixed Container Multi-Commodity Consignment",
-  "Other Agro Commodity Specification",
+  "Custom Client Sourcing & Merchant Procurement",
+  "Other Commodity Specification",
 ];
 
 function ContactFormContent() {
@@ -121,7 +128,7 @@ function ContactFormContent() {
       if (err instanceof Error) {
         setErrorMessage(err.message);
       } else {
-        setErrorMessage("An unexpected error occurred. Please contact export@jayimpex.net directly.");
+        setErrorMessage("An unexpected error occurred. Please contact info@jayimpex.com directly.");
       }
     } finally {
       setSubmitting(false);
@@ -144,15 +151,16 @@ function ContactFormContent() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Direct Commercial Quotations &bull; Mon - Sat 09:30 - 18:30 IST</span>
+              <span>Direct Commercial Quotations &bull; Mon - Sat: 10:00 AM - 10:00 PM IST</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Commercial Export Desk &amp; RFQ Portal
             </h1>
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Connect directly with our international trade desk in Mumbai. Submit
-              specifications for Deity Basmati Rice, spices, pulses, or mixed container
-              freight to receive tailored FOB / CIF quotation sheets.
+              Connect directly with our international trade desk in Chennai, India. Submit
+              specifications for Deity Basmati Rice, spices, pulses, textiles, machineries,
+              utensils, sweets, seasonal fruits, door mats, or mixed container freight
+              to receive tailored FOB / CIF quotation sheets.
             </p>
           </div>
         </div>
@@ -167,10 +175,10 @@ function ContactFormContent() {
             <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
               <div className="border-b border-slate-100 pb-4">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#0284C7] block">
-                  Registered Commercial Office
+                  Let&apos;s Connect
                 </span>
                 <h2 className="text-xl font-bold text-[#0F284E] mt-1">Jay Impex</h2>
-                <p className="text-xs text-slate-500">Govt. Recognized Agro Export House</p>
+                <p className="text-xs text-slate-500">Leading Commodities Exporter &bull; Est. 1990</p>
               </div>
 
               <div className="space-y-4 text-sm text-slate-600">
@@ -181,11 +189,11 @@ function ContactFormContent() {
                       Office Address
                     </strong>
                     <address className="not-italic text-slate-700 leading-relaxed mt-0.5">
-                      202, Marine Chambers, 11,
+                      Marginfree Super Market, 1739,
                       <br />
-                      New Marine Lines, Churchgate,
+                      18th Main Road, Anna Nagar West,
                       <br />
-                      Mumbai - 400 020, Maharashtra, India.
+                      Chennai - 600040, Tamil Nadu, India.
                     </address>
                   </div>
                 </div>
@@ -194,14 +202,30 @@ function ContactFormContent() {
                   <Phone className="w-5 h-5 text-[#0284C7] mr-3 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-slate-900 block text-xs uppercase text-slate-400">
-                      Commercial Desk Lines
+                      Commercial Desk Phone
                     </strong>
                     <div className="space-y-0.5 mt-0.5 font-mono text-slate-800">
-                      <a href="tel:+919820124748" className="hover:text-[#0284C7] block transition-colors">
-                        +91 98201 24748
+                      <a href="tel:+919444042275" className="hover:text-[#0284C7] block transition-colors">
+                        +91 94440 42275
                       </a>
-                      <a href="tel:+919322275151" className="hover:text-[#0284C7] block transition-colors">
-                        +91 93222 75151
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <MessageSquare className="w-5 h-5 text-emerald-500 mr-3 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 block text-xs uppercase text-slate-400">
+                      WhatsApp Commercial Desk
+                    </strong>
+                    <div className="space-y-0.5 mt-0.5 font-mono text-slate-800">
+                      <a
+                        href="https://wa.me/919444042275"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-emerald-600 block transition-colors"
+                      >
+                        +91 94440 42275
                       </a>
                     </div>
                   </div>
@@ -211,13 +235,13 @@ function ContactFormContent() {
                   <Mail className="w-5 h-5 text-[#D97706] mr-3 shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-slate-900 block text-xs uppercase text-slate-400">
-                      Trade Desk Inquiries
+                      Trade Desk Email
                     </strong>
                     <a
-                      href="mailto:export@jayimpex.net"
+                      href="mailto:info@jayimpex.com"
                       className="text-[#0F284E] hover:text-[#0284C7] font-mono font-medium block mt-0.5 transition-colors"
                     >
-                      export@jayimpex.net
+                      info@jayimpex.com
                     </a>
                   </div>
                 </div>
@@ -229,9 +253,9 @@ function ContactFormContent() {
                       Operating Hours
                     </strong>
                     <div className="text-slate-700 mt-0.5 text-xs">
-                      Monday &ndash; Saturday: 09:30 &ndash; 18:30 IST (UTC +5:30)
+                      Monday &ndash; Saturday: 10:00 AM &ndash; 10:00 PM IST (UTC +5:30)
                       <br />
-                      Sunday: Closed (Emergency dispatch available)
+                      Sunday: Closed (Emergency dispatch on call)
                     </div>
                   </div>
                 </div>
@@ -243,7 +267,7 @@ function ContactFormContent() {
                       Primary Marine Terminals
                     </strong>
                     <div className="text-slate-700 mt-0.5 text-xs">
-                      JNPT / Nhava Sheva (INNSA) &bull; Mundra (INMUN)
+                      Chennai Port (INMAA) &bull; Kamarajar Port (Ennore) &bull; Tuticorin
                     </div>
                   </div>
                 </div>
@@ -252,13 +276,13 @@ function ContactFormContent() {
               {/* Direct WhatsApp Action Button */}
               <div className="pt-2">
                 <a
-                  href="https://wa.me/919820124748?text=Hello%20Jay%20Impex%20Trade%20Desk,%20I%20would%20like%20to%20inquire%20about%20agro%20commodity%20exports."
+                  href="https://wa.me/919444042275?text=Hello%20Jay%20Impex%20Trade%20Desk,%20I%20would%20like%20to%20inquire%20about%20commodities%20export."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wider uppercase transition-colors shadow-sm"
                 >
                   <MessageSquare className="w-4 h-4 mr-2" />
-                  <span>Chat via WhatsApp (+91 98201 24748)</span>
+                  <span>Chat via WhatsApp (+91 94440 42275)</span>
                 </a>
               </div>
             </div>
@@ -268,10 +292,10 @@ function ContactFormContent() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2 text-[#0F284E] font-bold text-sm">
                   <Map className="w-4 h-4 text-[#D97706]" />
-                  <span>Mumbai Port Office Map</span>
+                  <span>Chennai Office Map</span>
                 </div>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Marine+Chambers+New+Marine+Lines+Churchgate+Mumbai+400020"
+                  href="https://maps.app.goo.gl/KgEAc8GiFQkS2KFX7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-[#0284C7] hover:underline inline-flex items-center"
@@ -284,8 +308,8 @@ function ContactFormContent() {
               {mapLoaded ? (
                 <div className="relative h-60 w-full rounded-xl overflow-hidden border border-slate-200">
                   <iframe
-                    title="Jay Impex Office Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.847154245638!2d72.8252!3d18.9372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1de4582f3ef%3A0x6b8c8d8b63a968a!2sMarine%20Chambers%2C%20New%20Marine%20Lines%2C%20Churchgate%2C%20Mumbai%2C%20Maharashtra%20400020!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                    title="Jay Impex Chennai Office Location"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d485.7586242312663!2d80.19957117275578!3d13.094813907156608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5264113c43e955%3A0xed6bd5a7e4ca433a!2sMargin%20Free%20Super%20Market!5e0!3m2!1sen!2sin!4v1753955620993"
                     className="w-full h-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -295,7 +319,7 @@ function ContactFormContent() {
                 <div className="h-44 w-full rounded-xl bg-slate-100 border border-slate-200 flex flex-col items-center justify-center p-4 text-center space-y-3">
                   <MapPin className="w-8 h-8 text-[#D97706]" />
                   <p className="text-xs text-slate-600 max-w-xs">
-                    Located in Marine Chambers, Churchgate, Mumbai. 40km from JNPT Port Container Freight Station.
+                    Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040. Easy navigation landmark.
                   </p>
                   <button
                     onClick={() => setMapLoaded(true)}
@@ -426,10 +450,10 @@ function ContactFormContent() {
                   <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
                     Destination Seaport &amp; Country <span className="text-rose-500">*</span>
                   </label>
-                  <input
+                    <input
                     type="text"
                     required
-                    placeholder="e.g. Jebel Ali Port (Dubai, UAE) or Rotterdam (Netherlands)"
+                    placeholder="e.g. Melbourne/Sydney (Australia), Jebel Ali (Dubai), Rotterdam, or New York"
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
@@ -464,8 +488,8 @@ function ContactFormContent() {
                       onChange={(e) => setFormData({ ...formData, incoterm: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
                     >
-                      <option value="FOB">FOB (JNPT / Mumbai)</option>
-                      <option value="CIF">CIF (Port of Discharge)</option>
+                      <option value="FOB">FOB (Chennai Port / South India)</option>
+                      <option value="CIF">CIF (Port of Discharge - Global)</option>
                       <option value="CFR">CFR (Cost &amp; Freight)</option>
                       <option value="EXW">EXW (Factory gate)</option>
                     </select>

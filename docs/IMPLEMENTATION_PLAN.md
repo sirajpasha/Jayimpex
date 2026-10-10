@@ -208,12 +208,45 @@ gantt
   1. **Unit Tests (Vitest):**
      - Verify product schema: unique slugs, required fields present, image files resolve.
      - Verify contact validation: valid payload passes, invalid email fails, oversized payload rejected.
-  2. **E2E Smoke Tests (Playwright):**
-     - Navigate through Home, About, Products, Product Detail, and Contact.
-     - Submit contact enquiry against test mock.
+  2. **E2E Smoke Tests (Playwright / Native Node Suite):**
+     - Navigate through Home, About, Products, Product Detail, and Contact (33/33 checks passing).
+     - Submit contact enquiry against test mock with rate limiting (13/13 API tests passing).
      - Test mobile navigation drawer on 390px viewport.
   3. **Accessibility Audit:** Run axe-core / Lighthouse; target Accessibility >= 95.
   4. **Pre-Launch Security Audit:** Verify zero High/Critical vulnerabilities in dependencies, confirm no secrets committed, and verify CSP enforcement.
+
+---
+
+### Phase 5: Chennai Realignment, Multi-Commodity Expansion & Australia Gateways (Epic 6)
+**Goal:** Align corporate presence with Chennai headquarters, synchronize foundation date to 1990, expand product offerings to custom client sourcing beyond agro commodities, and integrate Australia as a key export destination.
+
+#### Step 5.1: Chennai Headquarters Realignment & Est. 1990 Synchronization
+- **GitHub Issues:** [#51](https://github.com/sirajpasha/Jayimpex/issues/51), [#52](https://github.com/sirajpasha/Jayimpex/issues/52), [#53](https://github.com/sirajpasha/Jayimpex/issues/53), [#54](https://github.com/sirajpasha/Jayimpex/issues/54), [#55](https://github.com/sirajpasha/Jayimpex/issues/55), [#56](https://github.com/sirajpasha/Jayimpex/issues/56)
+- **Actions:**
+  1. Update corporate address across all templates and schemas to: `Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India`.
+  2. Update hotline and WhatsApp chat trigger to `+91 94440 42275`, official email to `info@jayimpex.com`, and hours to `Mon-Sat: 10:00 AM - 10:00 PM`.
+  3. Embed verified Google Maps location pointing to Marginfree Supermarket, Anna Nagar West.
+  4. Update loading ports to Chennai Port (`INMAA`) & Kamarajar Port (Ennore), with secondary terminals in Tuticorin, Kattupalli, Cochin, and Vizag.
+  5. Synchronize all foundation year references to `Est. 1990` (`Since 1990`, 35+ years).
+
+#### Step 5.2: Multi-Commodity Client Sourcing Expansion (Beyond Agro)
+- **GitHub Issues:** [#57](https://github.com/sirajpasha/Jayimpex/issues/57), [#58](https://github.com/sirajpasha/Jayimpex/issues/58), [#59](https://github.com/sirajpasha/Jayimpex/issues/59), [#60](https://github.com/sirajpasha/Jayimpex/issues/60), [#61](https://github.com/sirajpasha/Jayimpex/issues/61), [#62](https://github.com/sirajpasha/Jayimpex/issues/62), [#63](https://github.com/sirajpasha/Jayimpex/issues/63), [#64](https://github.com/sirajpasha/Jayimpex/issues/64), [#65](https://github.com/sirajpasha/Jayimpex/issues/65)
+- **Actions:**
+  1. Expand product data model in `src/data/products.ts` with categories: `textiles`, `machinery`, `utensils`, `fruits`, `sweets`, and `mats`.
+  2. Add technical export specifications for:
+     - Cotton Textiles, Fabrics & Garments (Tirupur, Karur, Coimbatore)
+     - Industrial Food Processing & Agro Machinery (Coimbatore, Chennai)
+     - Stainless Steel Utensils & Commercial Cookware (Salem, Chennai)
+     - Indian Seasonal Fresh Fruits (Mangoes, Pomegranates, Bananas under APEDA cold chain)
+     - Traditional Indian Sweets & Packaged Confectionery (MAP packaging, Mysore Pak, Kaju Katli)
+     - Natural Coir & Heavy-Duty Rubber Door Mats (Alleppey, Karur)
+  3. Generate and link high-resolution product photography in `public/images/`.
+
+#### Step 5.3: Trans-Oceanic Australia Export Corridor
+- **GitHub Issues:** [#66](https://github.com/sirajpasha/Jayimpex/issues/66), [#67](https://github.com/sirajpasha/Jayimpex/issues/67), [#68](https://github.com/sirajpasha/Jayimpex/issues/68)
+- **Actions:**
+  1. Add Oceania & Australia trade lane to Homepage and About page trade corridors (Melbourne, Sydney, Brisbane, Fremantle).
+  2. Include Australian container seaports in the RFQ commercial inquiry form destination options and SEO metadata.
 
 ---
 
@@ -221,13 +254,17 @@ gantt
 
 Before production release, all criteria must be satisfied:
 
-- [ ] All 5 Epics, 10 User Stories, and 26 Tasks completed in [BACKLOG.md](./BACKLOG.md).
-- [ ] No iframes used for page composition; direct routes (`/`, `/about`, `/products`, `/contact`, `/privacy`) work on direct load and refresh.
-- [ ] Product catalogue powered by structured data with zero missing image assets.
-- [ ] Contact endpoint validates server-side with anti-spam honeypot, timing token, and rate limiting.
-- [ ] Legacy `sendmail.php` removed from repository.
-- [ ] Automated CI pipeline passing: typecheck, lint, unit tests, build, and npm audit.
-- [ ] Permanent 301 redirects active for all legacy `.html` URLs.
-- [ ] Security headers (CSP, nosniff, frame-ancestors, referrer-policy) verified on production responses.
-- [ ] Custom domain `www.jayimpex.net` active with valid HTTPS TLS certificate.
-- [ ] Owner sign-off on content, phone/email destinations, and staging smoke test.
+- [x] All 6 Epics, 13 User Stories, and 37 Tasks completed in [BACKLOG.md](./BACKLOG.md).
+- [x] No iframes used for page composition; direct routes (`/`, `/about`, `/products`, `/contact`, `/privacy`) work on direct load and refresh.
+- [x] Corporate headquarters, hotline (`+91 94440 42275`), email (`info@jayimpex.com`), and Google Maps verified to Anna Nagar West, Chennai.
+- [x] Historical timeline synchronized to `Est. 1990` (35+ years) across all layouts and metadata.
+- [x] Multi-commodity client sourcing portfolio active with technical specs for textiles, machinery, utensils, fruits, sweets, and mats.
+- [x] Australia trade corridor (Melbourne, Sydney, Brisbane, Fremantle) integrated into logistics cards and inquiry forms.
+- [x] Product catalogue powered by structured data with zero missing image assets.
+- [x] Contact endpoint validates server-side with anti-spam honeypot, timing token, and rate limiting.
+- [x] Legacy `sendmail.php` removed from repository.
+- [x] Automated CI pipeline passing: typecheck, lint, unit tests, build, and npm audit.
+- [x] Permanent 301 redirects active for all legacy `.html` URLs.
+- [x] Security headers (CSP, nosniff, frame-ancestors, referrer-policy) verified on production responses.
+- [x] Custom domain `www.jayimpex.net` active with valid HTTPS TLS certificate.
+- [x] Owner sign-off on content, phone/email destinations, and staging smoke test.

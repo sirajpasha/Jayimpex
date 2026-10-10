@@ -41,9 +41,9 @@ export async function generateMetadata({
 
   return {
     title: `${product.name} - Technical Export Specifications | Jay Impex`,
-    description: `${product.subtitle} Origin: ${product.origin}. HS Code: ${product.hsCode}. Certified global export from JNPT Port.`,
+    description: `${product.subtitle} Origin: ${product.origin}. HS Code: ${product.hsCode}. Certified global export from Chennai Port (INMAA).`,
     openGraph: {
-      title: `${product.name} | Jay Impex Agro Exports`,
+      title: `${product.name} | Jay Impex Commodities Exports`,
       description: product.subtitle,
       url: `https://www.jayimpex.net/products/${product.slug}`,
       images: [
@@ -146,19 +146,19 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   <span className="text-slate-400 block text-[10px] uppercase">Primary Port</span>
                   <span className="font-semibold text-slate-800 flex items-center mt-0.5">
                     <Anchor className="w-3.5 h-3.5 text-[#0284C7] mr-1" />
-                    JNPT (INNSA)
+                    Chennai (INMAA)
                   </span>
                 </div>
                 <div>
                   <span className="text-slate-400 block text-[10px] uppercase">Alternate Ports</span>
                   <span className="font-semibold text-slate-800 block mt-0.5">
-                    Mundra &bull; Pipavav
+                    Kamarajar (Ennore) &bull; Tuticorin
                   </span>
                 </div>
                 <div className="border-r border-slate-100 pr-2 pt-2 border-t">
                   <span className="text-slate-400 block text-[10px] uppercase">Supported Incoterms</span>
                   <span className="font-mono font-semibold text-slate-800 block mt-0.5">
-                    FOB, CIF, CFR
+                    FOB, CIF, CFR, EXW
                   </span>
                 </div>
                 <div className="pt-2 border-t">
@@ -207,7 +207,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="tel:+919820124748"
+                href="tel:+919444042275"
                 className="inline-flex items-center justify-center px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 shadow-xs transition-colors"
               >
                 <PhoneCall className="w-4 h-4 text-[#0284C7] mr-2" />
