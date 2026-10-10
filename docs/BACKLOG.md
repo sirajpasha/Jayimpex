@@ -21,7 +21,7 @@
 | **Phase 2 (Pages & Catalogue)** | 16 issues (#11–#28) | Completed on `feature/phase-2-pages-catalogue` |
 | **Phase 3 (Contact & API)** | 12 issues (#29–#40) | Completed on `feature/phase-3-contact-service` |
 | **Phase 4 (QA & Cutover)** | 11 issues (#41–#50) | Completed on `feature/phase-4-seo-cutover` |
-| **Phase 5 (Chennai, Scope & Australia)** | 11 issues (#51–#61) | Completed on `feature/phase-4-seo-cutover` |
+| **Phase 5 (Chennai, Scope & Australia)** | 18 issues (#52–#69) | Completed on `feature/phase-4-seo-cutover` |
 
 ---
 
@@ -44,9 +44,9 @@ graph TD
     E5["Epic 5: SEO, QA & Deployment (#41) ✅"] --> S51["Story 5.1: SEO & URL Migration (#42) ✅"]
     E5 --> S52["Story 5.2: Automated Test Suite (#45) ✅"]
 
-    E6["Epic 6: Chennai, Multi-Commodity & Australia (#51) ✅"] --> S61["Story 6.1: Chennai Realignment & Est. 1990 (#52) ✅"]
-    E6 --> S62["Story 6.2: Multi-Commodity Client Sourcing (#56) ✅"]
-    E6 --> S63["Story 6.3: Trans-Oceanic Australia Gateway (#63) ✅"]
+    E6["Epic 6: Chennai, Multi-Commodity & Australia (#52) ✅"] --> S61["Story 6.1: Chennai Realignment & Est. 1990 (#53) ✅"]
+    E6 --> S62["Story 6.2: Multi-Commodity Client Sourcing (#58) ✅"]
+    E6 --> S63["Story 6.3: Trans-Oceanic Australia Gateway (#67) ✅"]
 ```
 
 ---
@@ -153,29 +153,29 @@ graph TD
 ---
 
 ### Epic 6: Multi-Commodity Enterprise Expansion, Geographic Realignment & Trans-Oceanic Corridors
-> **GitHub Issue:** [#51](https://github.com/sirajpasha/Jayimpex/issues/51) | **Priority:** `P0` | **Phase:** `Phase 5 - Enterprise Scope & Geographic Realignment`  
+> **GitHub Issue:** [#52](https://github.com/sirajpasha/Jayimpex/issues/52) | **Priority:** `P0` | **Phase:** `Phase 5 - Enterprise Scope & Geographic Realignment`  
 > **PRD Mapping:** Section 5 (Findings 3, 4, 6), Section 6, Section 7, Section 8 (FR-2, FR-4, FR-6)
 
-- [x] **[Story 6.1] Chennai Corporate Headquarters Realignment & Foundation Date Synchronization** — [#52](https://github.com/sirajpasha/Jayimpex/issues/52) `P0`
+- [x] **[Story 6.1] Chennai Corporate Headquarters Realignment & Foundation Date Synchronization** — [#53](https://github.com/sirajpasha/Jayimpex/issues/53) `P0`
   - *User Story:* As an international buyer and partner, I want accurate corporate headquarters details and historical continuity so that I can establish direct verified trade relations.
-  - [x] **[Task 6.1.1]** Realign corporate headquarters and registered office to Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu — [#53](https://github.com/sirajpasha/Jayimpex/issues/53) `P0`
-  - [x] **[Task 6.1.2]** Synchronize hotline (`+91 94440 42275`), WhatsApp direct routing, email (`info@jayimpex.com`), business hours (`Mon-Sat: 10:00 AM - 10:00 PM`), and interactive Google Maps embed — [#54](https://github.com/sirajpasha/Jayimpex/issues/54) `P0`
-  - [x] **[Task 6.1.3]** Realign primary export seaport gateway to Chennai Port (`INMAA`) & Kamarajar Port (Ennore), with secondary South Indian maritime terminals (Tuticorin, Kattupalli, Cochin, Vizag) — [#55](https://github.com/sirajpasha/Jayimpex/issues/55) `P0`
-  - [x] **[Task 6.1.4]** Synchronize company establishment date to `Est. 1990` (`Since 1990`, 35+ years) across all badges, header elements, hero stats, and corporate narratives — [#56](https://github.com/sirajpasha/Jayimpex/issues/56) `P0`
+  - [x] **[Task 6.1.1]** Realign corporate headquarters and registered office to Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu — [#54](https://github.com/sirajpasha/Jayimpex/issues/54) `P0`
+  - [x] **[Task 6.1.2]** Synchronize hotline (`+91 94440 42275`), WhatsApp direct routing, email (`info@jayimpex.com`), business hours (`Mon-Sat: 10:00 AM - 10:00 PM`), and interactive Google Maps embed — [#55](https://github.com/sirajpasha/Jayimpex/issues/55) `P0`
+  - [x] **[Task 6.1.3]** Realign primary export seaport gateway to Chennai Port (`INMAA`) & Kamarajar Port (Ennore), with secondary South Indian maritime terminals (Tuticorin, Kattupalli, Cochin, Vizag) — [#56](https://github.com/sirajpasha/Jayimpex/issues/56) `P0`
+  - [x] **[Task 6.1.4]** Synchronize company establishment date to `Est. 1990` (`Since 1990`, 35+ years) across all badges, header elements, hero stats, and corporate narratives — [#57](https://github.com/sirajpasha/Jayimpex/issues/57) `P0`
 
-- [x] **[Story 6.2] Leading Multi-Commodity Exporter & Custom Client Sourcing Expansion (Beyond Agro)** — [#57](https://github.com/sirajpasha/Jayimpex/issues/57) `P0`
+- [x] **[Story 6.2] Leading Multi-Commodity Exporter & Custom Client Sourcing Expansion (Beyond Agro)** — [#58](https://github.com/sirajpasha/Jayimpex/issues/58) `P0`
   - *User Story:* As an overseas procurement officer, I want to source diverse manufactured and natural goods from India (textiles, machinery, utensils, fresh fruits, sweets, mats) based on our custom specifications.
-  - [x] **[Task 6.2.1]** Expand product data schema to support `textiles`, `machinery`, `utensils`, `fruits`, `sweets`, and `mats` commodity sectors — [#58](https://github.com/sirajpasha/Jayimpex/issues/58) `P0`
-  - [x] **[Task 6.2.2]** Create Indian Cotton Textiles, Fabrics & Garments export specification (`/products/indian-cotton-textiles-fabrics-garments`) with sourcing from Tirupur, Karur & Coimbatore — [#59](https://github.com/sirajpasha/Jayimpex/issues/59) `P0`
-  - [x] **[Task 6.2.3]** Create Industrial Food Processing & Agro Machinery specification (`/products/industrial-food-processing-agro-machinery`) with precision engineering sourcing from Coimbatore & Chennai — [#60](https://github.com/sirajpasha/Jayimpex/issues/60) `P0`
-  - [x] **[Task 6.2.4]** Create Stainless Steel Utensils & Commercial Cookware specification (`/products/stainless-steel-utensils-commercial-cookware`) from Salem & Chennai metallurgy hubs — [#61](https://github.com/sirajpasha/Jayimpex/issues/61) `P0`
-  - [x] **[Task 6.2.5]** Create Indian Seasonal Fresh Fruits specification (`/products/indian-seasonal-fresh-fruits-mangoes-produce`) featuring Banganapalli/Alphonso mangoes, pomegranates, and bananas with APEDA cold-chain reefer protocols — [#62](https://github.com/sirajpasha/Jayimpex/issues/62) `P0`
-  - [x] **[Task 6.2.6]** Create Traditional Indian Sweets & Confectionery specification (`/products/traditional-sweets-packaged-indian-confectionery`) with Modified Atmosphere Packaging (MAP) for extended ocean freight shelf-life — [#63](https://github.com/sirajpasha/Jayimpex/issues/63) `P0`
-  - [x] **[Task 6.2.7]** Create Natural Coir & Heavy-Duty Rubber Door Mats specification (`/products/natural-coir-rubber-door-mats-floor-coverings`) sourced from Alleppey & Karur — [#64](https://github.com/sirajpasha/Jayimpex/issues/64) `P0`
-  - [x] **[Task 6.2.8]** Generate and map high-resolution commercial asset imagery for all 6 new sourcing categories — [#65](https://github.com/sirajpasha/Jayimpex/issues/65) `P0`
+  - [x] **[Task 6.2.1]** Expand product data schema to support `textiles`, `machinery`, `utensils`, `fruits`, `sweets`, and `mats` commodity sectors — [#59](https://github.com/sirajpasha/Jayimpex/issues/59) `P0`
+  - [x] **[Task 6.2.2]** Create Indian Cotton Textiles, Fabrics & Garments export specification (`/products/indian-cotton-textiles-fabrics-garments`) with sourcing from Tirupur, Karur & Coimbatore — [#60](https://github.com/sirajpasha/Jayimpex/issues/60) `P0`
+  - [x] **[Task 6.2.3]** Create Industrial Food Processing & Agro Machinery specification (`/products/industrial-food-processing-agro-machinery`) with precision engineering sourcing from Coimbatore & Chennai — [#61](https://github.com/sirajpasha/Jayimpex/issues/61) `P0`
+  - [x] **[Task 6.2.4]** Create Stainless Steel Utensils & Commercial Cookware specification (`/products/stainless-steel-utensils-commercial-cookware`) from Salem & Chennai metallurgy hubs — [#62](https://github.com/sirajpasha/Jayimpex/issues/62) `P0`
+  - [x] **[Task 6.2.5]** Create Indian Seasonal Fresh Fruits specification (`/products/indian-seasonal-fresh-fruits-mangoes-produce`) featuring Banganapalli/Alphonso mangoes, pomegranates, and bananas with APEDA cold-chain reefer protocols — [#63](https://github.com/sirajpasha/Jayimpex/issues/63) `P0`
+  - [x] **[Task 6.2.6]** Create Traditional Indian Sweets & Confectionery specification (`/products/traditional-sweets-packaged-indian-confectionery`) with Modified Atmosphere Packaging (MAP) for extended ocean freight shelf-life — [#64](https://github.com/sirajpasha/Jayimpex/issues/64) `P0`
+  - [x] **[Task 6.2.7]** Create Natural Coir & Heavy-Duty Rubber Door Mats specification (`/products/natural-coir-rubber-door-mats-floor-coverings`) sourced from Alleppey & Karur — [#65](https://github.com/sirajpasha/Jayimpex/issues/65) `P0`
+  - [x] **[Task 6.2.8]** Generate and map high-resolution commercial asset imagery for all 6 new sourcing categories — [#66](https://github.com/sirajpasha/Jayimpex/issues/66) `P0`
 
-- [x] **[Story 6.3] Trans-Oceanic Expansion: Australia Export Corridor** — [#66](https://github.com/sirajpasha/Jayimpex/issues/66) `P0`
+- [x] **[Story 6.3] Trans-Oceanic Expansion: Australia Export Corridor** — [#67](https://github.com/sirajpasha/Jayimpex/issues/67) `P0`
   - *User Story:* As an importer in Australia, I want to see direct shipping routes to Australian container ports so that I can request port-specific FOB/CIF quotations.
-  - [x] **[Task 6.3.1]** Add Oceania & Australia trade lane to Homepage and About page trade corridors, featuring Melbourne, Sydney, Brisbane, and Fremantle container ports — [#67](https://github.com/sirajpasha/Jayimpex/issues/67) `P0`
-  - [x] **[Task 6.3.2]** Update RFQ commercial enquiry form destination port options, layout metadata, and logistics dispatch references — [#68](https://github.com/sirajpasha/Jayimpex/issues/68) `P0`
+  - [x] **[Task 6.3.1]** Add Oceania & Australia trade lane to Homepage and About page trade corridors, featuring Melbourne, Sydney, Brisbane, and Fremantle container ports — [#68](https://github.com/sirajpasha/Jayimpex/issues/68) `P0`
+  - [x] **[Task 6.3.2]** Update RFQ commercial enquiry form destination port options, layout metadata, and logistics dispatch references — [#69](https://github.com/sirajpasha/Jayimpex/issues/69) `P0`
 

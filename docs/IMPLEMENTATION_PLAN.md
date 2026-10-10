@@ -221,7 +221,7 @@ gantt
 **Goal:** Align corporate presence with Chennai headquarters, synchronize foundation date to 1990, expand product offerings to custom client sourcing beyond agro commodities, and integrate Australia as a key export destination.
 
 #### Step 5.1: Chennai Headquarters Realignment & Est. 1990 Synchronization
-- **GitHub Issues:** [#51](https://github.com/sirajpasha/Jayimpex/issues/51), [#52](https://github.com/sirajpasha/Jayimpex/issues/52), [#53](https://github.com/sirajpasha/Jayimpex/issues/53), [#54](https://github.com/sirajpasha/Jayimpex/issues/54), [#55](https://github.com/sirajpasha/Jayimpex/issues/55), [#56](https://github.com/sirajpasha/Jayimpex/issues/56)
+- **GitHub Issues:** [#52](https://github.com/sirajpasha/Jayimpex/issues/52), [#53](https://github.com/sirajpasha/Jayimpex/issues/53), [#54](https://github.com/sirajpasha/Jayimpex/issues/54), [#55](https://github.com/sirajpasha/Jayimpex/issues/55), [#56](https://github.com/sirajpasha/Jayimpex/issues/56), [#57](https://github.com/sirajpasha/Jayimpex/issues/57)
 - **Actions:**
   1. Update corporate address across all templates and schemas to: `Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India`.
   2. Update hotline and WhatsApp chat trigger to `+91 94440 42275`, official email to `info@jayimpex.com`, and hours to `Mon-Sat: 10:00 AM - 10:00 PM`.
@@ -230,7 +230,7 @@ gantt
   5. Synchronize all foundation year references to `Est. 1990` (`Since 1990`, 35+ years).
 
 #### Step 5.2: Multi-Commodity Client Sourcing Expansion (Beyond Agro)
-- **GitHub Issues:** [#57](https://github.com/sirajpasha/Jayimpex/issues/57), [#58](https://github.com/sirajpasha/Jayimpex/issues/58), [#59](https://github.com/sirajpasha/Jayimpex/issues/59), [#60](https://github.com/sirajpasha/Jayimpex/issues/60), [#61](https://github.com/sirajpasha/Jayimpex/issues/61), [#62](https://github.com/sirajpasha/Jayimpex/issues/62), [#63](https://github.com/sirajpasha/Jayimpex/issues/63), [#64](https://github.com/sirajpasha/Jayimpex/issues/64), [#65](https://github.com/sirajpasha/Jayimpex/issues/65)
+- **GitHub Issues:** [#58](https://github.com/sirajpasha/Jayimpex/issues/58), [#59](https://github.com/sirajpasha/Jayimpex/issues/59), [#60](https://github.com/sirajpasha/Jayimpex/issues/60), [#61](https://github.com/sirajpasha/Jayimpex/issues/61), [#62](https://github.com/sirajpasha/Jayimpex/issues/62), [#63](https://github.com/sirajpasha/Jayimpex/issues/63), [#64](https://github.com/sirajpasha/Jayimpex/issues/64), [#65](https://github.com/sirajpasha/Jayimpex/issues/65), [#66](https://github.com/sirajpasha/Jayimpex/issues/66)
 - **Actions:**
   1. Expand product data model in `src/data/products.ts` with categories: `textiles`, `machinery`, `utensils`, `fruits`, `sweets`, and `mats`.
   2. Add technical export specifications for:
@@ -243,7 +243,7 @@ gantt
   3. Generate and link high-resolution product photography in `public/images/`.
 
 #### Step 5.3: Trans-Oceanic Australia Export Corridor
-- **GitHub Issues:** [#66](https://github.com/sirajpasha/Jayimpex/issues/66), [#67](https://github.com/sirajpasha/Jayimpex/issues/67), [#68](https://github.com/sirajpasha/Jayimpex/issues/68)
+- **GitHub Issues:** [#67](https://github.com/sirajpasha/Jayimpex/issues/67), [#68](https://github.com/sirajpasha/Jayimpex/issues/68), [#69](https://github.com/sirajpasha/Jayimpex/issues/69)
 - **Actions:**
   1. Add Oceania & Australia trade lane to Homepage and About page trade corridors (Melbourne, Sydney, Brisbane, Fremantle).
   2. Include Australian container seaports in the RFQ commercial inquiry form destination options and SEO metadata.

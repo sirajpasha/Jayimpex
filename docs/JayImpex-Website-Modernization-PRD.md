@@ -562,11 +562,12 @@ Tests should verify observable behavior and security boundaries, not private imp
 - Deploy staging candidate and test with the owner.
 - Perform production DNS/domain cutover, smoke tests, monitoring, and rollback readiness.
 
-### Phase 5 — Optional improvements
-- CMS/admin content editing.
-- Product detail pages and richer product filtering.
-- Enquiry persistence/CRM integration.
-- Analytics, multilingual content, and other enhancements after business need is established.
+### Phase 5 — Chennai Realignment, Multi-Commodity Custom Sourcing & Trans-Oceanic Australia Gateways (Epic 6)
+- Realign physical registered headquarters to Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu.
+- Synchronize corporate foundation date across all brand touchpoints to Est. 1990 (Since 1990, 35+ years of export operations).
+- Expand commercial export scope from solely agricultural staples to a leading multi-commodity custom sourcing partner from India.
+- Implement structured technical export specifications, real HS codes, packaging parameters, and high-resolution assets for Textiles, Food Processing & Agro Machinery, Stainless Steel Utensils & Cookware, Indian Seasonal Fresh Fruits (APEDA cold chain), Traditional Sweets (MAP packaging), and Natural Coir/Rubber Door Mats.
+- Expand trans-oceanic shipping lanes to include Australia (Melbourne, Sydney, Brisbane, Fremantle) across trade corridors and RFQ port selectors.
 
 ## 15. User stories
 
@@ -624,6 +625,17 @@ Tests should verify observable behavior and security boundaries, not private imp
 45. As an operator, I want secrets stored outside source control and client bundles so that deployment credentials are not publicly exposed.
 46. As a site owner, I want minimal third-party scripts so that the attack surface, tracking, and page weight are reduced.
 47. As a maintainer, I want an incident-response and dependency-patching process so that security remains an ongoing responsibility after launch.
+
+### Multi-commodity enterprise expansion and geographic realignment (Epic 6)
+48. As an international buyer, I want to see Jay Impex's registered office in Chennai (Marginfree Super Market, Anna Nagar West) and direct contact channels (+91 94440 42275, info@jayimpex.com) so that I can establish direct trade relationships.
+49. As a prospective partner, I want historical continuity showing Est. 1990 / 35+ years of export excellence so that I have confidence in company longevity.
+50. As an overseas importer, I want to source textiles and readymade garments from South Indian manufacturing hubs (Tirupur, Karur, Coimbatore) to our tech-pack specifications.
+51. As an agricultural or industrial plant operator, I want to procure robust food processing and agro machinery (rice milling, spice pulverizers, Sortex cleaners) with CE/ISO standards and factory acceptance testing.
+52. As a hospitality or retail client, I want commercial food-grade stainless steel utensils and cookware (Salem, Chennai) with heavy-duty induction bases.
+53. As a supermarket chain buyer, I want seasonal Indian fresh fruits (Banganapalli/Alphonso mangoes, pomegranates, bananas) exported under APEDA phytosanitary cold-chain protocols.
+54. As a diaspora or confectionery retailer, I want traditional Indian sweets (Mysore Pak, Kaju Katli) packaged with Modified Atmosphere Packaging (MAP) for extended export shelf life.
+55. As a home improvement retailer, I want natural coconut coir and vulcanized rubber scraper door mats from Alleppey and Karur.
+56. As an Australian importer, I want direct container shipping lines to Melbourne, Sydney, Brisbane, and Fremantle so that I can request port-specific FOB Chennai or CIF quotations.
 
 ## 16. Implementation decisions and open decisions
 
