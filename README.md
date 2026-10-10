@@ -70,8 +70,6 @@ npm run dev          # http://localhost:3000
 | `SMTP_PORT` | `587` | SMTP port |
 | `CONTACT_EMAIL` | `info@jayimpex.net` | Recipient of RFQ and brochure-request emails |
 | `RFQ_EXTRA_RECIPIENTS` | senthilmargin@gmail.com, senthilmurugan@hotmail.com | Comma-separated extra recipients of every RFQ email |
-| `WHATSAPP_TOKEN`, `WHATSAPP_PHONE_NUMBER_ID` | none | WhatsApp Business Cloud API credentials; RFQ alerts to WhatsApp are sent only when both are set |
-| `WHATSAPP_TO`, `WHATSAPP_TEMPLATE`, `WHATSAPP_TEMPLATE_LANG` | 919444042275, none, en | Alert recipient and optional approved template (needed outside the 24-hour window) |
 | `BROCHURE_TOKEN_SECRET` | derived from `SMTP_PASS` | Optional secret that signs brochure download links |
 
 ## Deployment

@@ -74,7 +74,7 @@ export default function PrivacyPage() {
               <li>Formulating accurate FOB, CIF, or CFR commodity price quotations.</li>
               <li>Communicating phytosanitary specifications, laboratory test results, and shipping schedules.</li>
               <li>Fulfilling statutory export documentation with customs and regulatory bodies (APEDA, DGFT).</li>
-              <li>Notifying our commercial team of your enquiry by email and by WhatsApp message.</li>
+              <li>Notifying our commercial team of your enquiry by email.</li>
               <li>Preventing malicious denial-of-service, automated form spam, and phishing attempts.</li>
             </ul>
             <p className="text-slate-600 mt-2 font-medium">

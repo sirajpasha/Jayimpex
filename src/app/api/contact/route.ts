@@ -2,7 +2,6 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import nodemailer from "nodemailer";
 import { randomBytes } from "crypto";
-import { sendWhatsAppAlert } from "@/lib/whatsapp";
 
 // Rate limiting in-memory store
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -251,17 +250,6 @@ export async function POST(request: NextRequest) {
       .filter((a) => a && a.toLowerCase() !== toEmail.toLowerCase());
     const recipients = [toEmail, ...extraRecipients];
 
-    const whatsappText = [
-      `New RFQ ${referenceId}`,
-      `${sanitizedName}, ${sanitizedCompany}`,
-      `Phone: ${sanitizeHeader(data.phone)}`,
-      `Email: ${sanitizedEmail}`,
-      sanitizedCountry ? `Destination: ${sanitizedCountry}` : "",
-      `Requirements: ${sanitizeHeader(data.message).slice(0, 400)}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
     if (smtpHost && smtpUser && smtpPass) {
       const transporter = nodemailer.createTransport({
         host: smtpHost,
@@ -280,9 +268,6 @@ export async function POST(request: NextRequest) {
         subject: emailSubject,
         html: emailHtml,
       });
-
-      // WhatsApp alert to the commercial desk number (best effort, never blocks the enquiry)
-      await sendWhatsAppAlert(whatsappText);
 
       // Buyer acknowledgement is best-effort; the RFQ itself is already delivered.
       try {
