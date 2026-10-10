@@ -197,7 +197,7 @@ export function Header() {
               <Link
                 href="/catalogue"
                 className="inline-flex items-center text-xs font-medium text-slate-600 hover:text-[#0F284E] px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors"
-                title="Printable export catalogue (save as PDF)"
+                title="View the export catalogue and download the brochure"
               >
                 <FileText className="w-3.5 h-3.5 text-[#0284C7] mr-1.5" />
                 <span>Download Catalogue</span>
