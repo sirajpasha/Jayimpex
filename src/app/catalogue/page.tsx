@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { FileDown } from "lucide-react";
 import { PRODUCTS } from "@/data/products";
+import { BrochureDownload } from "@/components/BrochureDownload";
 
 export const metadata: Metadata = {
   title: "Export Catalogue & Specification Sheet",
@@ -25,14 +25,7 @@ export default function CataloguePage() {
           www.jayimpex.net
         </p>
         <div className="flex flex-wrap items-center gap-3 print:hidden">
-          <a
-            href="/downloads/Jay_Impex_Export_Brochure.pdf"
-            download
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#D97706] hover:bg-amber-600 text-slate-950 text-sm font-semibold"
-          >
-            <FileDown className="w-4 h-4" aria-hidden="true" />
-            <span>Download Brochure</span>
-          </a>
+          <BrochureDownload />
         </div>
       </header>
 

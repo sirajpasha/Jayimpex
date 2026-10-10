@@ -62,6 +62,7 @@ export default function PrivacyPage() {
               <li>Contact details: Name, designation, business email address, phone/WhatsApp number.</li>
               <li>Company details: Business/importer name, country of incorporation, target destination seaport.</li>
               <li>Trade specifications: Commodity requirements, estimated volume, preferred packaging, Incoterms.</li>
+              <li>Brochure requests: Name, email, company, phone and country entered in the brochure download form.</li>
               <li>Technical logs: IP address, submission timestamp, and basic browser user-agent for rate-limiting and anti-spam verification.</li>
             </ul>
           </div>

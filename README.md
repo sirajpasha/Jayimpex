@@ -68,7 +68,8 @@ npm run dev          # http://localhost:3000
 | --- | --- | --- |
 |  `SMTP_HOST` (GoDaddy: `smtpout.secureserver.net`), `SMTP_USER`, `SMTP_PASS` | none | SMTP credentials for RFQ email |
 | `SMTP_PORT` | `587` | SMTP port |
-| `CONTACT_EMAIL` | `info@jayimpex.net` | RFQ recipient |
+| `CONTACT_EMAIL` | `info@jayimpex.net` | Recipient of RFQ and brochure-request emails |
+| `BROCHURE_TOKEN_SECRET` | derived from `SMTP_PASS` | Optional secret that signs brochure download links |
 
 ## Deployment
 

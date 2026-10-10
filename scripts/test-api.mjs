@@ -122,6 +122,40 @@ async function runTests() {
     failed++;
   }
 
+  // 2c. Brochure download: details are submitted first, the PDF is only served with the issued token
+  try {
+    const post = (body, ip) =>
+      fetch(`${BASE_URL}/api/brochure`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-forwarded-for": ip },
+        body: JSON.stringify(body),
+      });
+    const ok = { name: "Test Buyer", email: "buyer@example.com", company: "ACME", consent: true, renderTimestamp: Date.now() - 5000 };
+    const res = await post(ok, "203.0.113.20");
+    const data = await res.json();
+    assert(res.status === 200 && data.success === true, "Brochure request returns success");
+    assert(typeof data.downloadUrl === "string" && data.downloadUrl.includes("token="), "Brochure request issues a download link");
+    const pdf = await fetch(`${BASE_URL}${data.downloadUrl}`);
+    const bytes = new Uint8Array(await pdf.arrayBuffer());
+    assert(pdf.status === 200 && pdf.headers.get("content-type") === "application/pdf", "Valid token downloads the PDF");
+    assert(String.fromCharCode(...bytes.slice(0, 4)) === "%PDF", "Downloaded file is a PDF");
+    const noToken = await fetch(`${BASE_URL}/api/brochure/download`);
+    assert(noToken.status === 403, "Download without a token is refused (403)");
+    const forged = await fetch(`${BASE_URL}/api/brochure/download?token=${Date.now() + 600000}.forged`);
+    assert(forged.status === 403, "Forged download token is refused (403)");
+    const direct = await fetch(`${BASE_URL}/downloads/Jay_Impex_Export_Brochure.pdf`);
+    assert(direct.status === 404, "PDF is not publicly reachable by direct URL");
+    const badEmail = await post({ ...ok, email: "nope" }, "203.0.113.21");
+    assert(badEmail.status === 400, "Brochure request with invalid email returns 400");
+    const noConsent = await post({ ...ok, consent: false }, "203.0.113.22");
+    assert(noConsent.status === 400, "Brochure request without consent returns 400");
+    const bot = await (await post({ ...ok, honeypot: "x" }, "203.0.113.23")).json();
+    assert(bot.success === true && !bot.downloadUrl, "Honeypot brochure request gets no download link");
+  } catch (e) {
+    console.error("Brochure test threw:", e.message);
+    failed++;
+  }
+
   // 3. Missing Required Field (Name missing)
   try {
     const invalidBody = {
