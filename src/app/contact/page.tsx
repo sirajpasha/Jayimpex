@@ -18,33 +18,6 @@ import {
   Map,
 } from "lucide-react";
 
-const commodityOptions = [
-  "Deity 1121 Steam Basmati Rice",
-  "Deity 1509 Golden Sella Basmati Rice",
-  "Sugandha / Sharbati Long Grain Rice",
-  "Salem Pure Turmeric Fingers & Powder",
-  "Guntur Sannam / Teja Red Chilli",
-  "Malabar Black Pepper (TGSEB)",
-  "Indian Cumin Seeds (Jeera)",
-  "Green Cardamom (Alleppey Bold)",
-  "Coriander Seeds (Dhaniya)",
-  "Toor Dhal (Yellow Split Pigeon Peas)",
-  "Green Moong (Whole & Split Lentils)",
-  "Black Urid Dhal (Gota & Split)",
-  "Channa Dal (Bengal Gram Split)",
-  "FMCG Branded Food & Provisions",
-  "Textiles, Fabrics & Garments (Tirupur / Karur)",
-  "Industrial Food Processing & Agro Machinery",
-  "Stainless Steel Utensils & Commercial Cookware",
-  "Indian Seasonal Fresh Fruits (Mangoes & Fresh Produce)",
-  "Traditional Sweets & Confectionery (Extended Shelf-Life)",
-  "Natural Coir & Rubber Door Mats (Floor Coverings)",
-  "Private Label Custom Packaging (OEM)",
-  "Mixed Container Multi-Commodity Consignment",
-  "Custom Client Sourcing & Merchant Procurement",
-  "Other Commodity Specification",
-];
-
 function ContactFormContent() {
   const searchParams = useSearchParams();
   const prefillProduct = searchParams.get("product") || "";
@@ -58,16 +31,17 @@ function ContactFormContent() {
 
   const [formData, setFormData] = useState({
     name: "",
-    company: "",
     email: "",
-    phone: "",
     country: "",
-    commodity: prefillProduct || (prefillSubject ? "Private Label Custom Packaging (OEM)" : "Deity 1121 Steam Basmati Rice"),
     volume: "",
     incoterm: "FOB",
     message: prefillProduct
-      ? `We would like to request an export quotation for ${prefillProduct}. Please provide CIF / FOB pricing, available packaging, and shipping timeline.`
-      : "",
+      ? `Commodity: ${prefillProduct}
+We would like to request an export quotation. Please provide CIF / FOB pricing, available packaging, and shipping timeline.`
+      : prefillSubject
+        ? `Commodity: Private label custom packaging (OEM)
+We would like to enquire about private label packaging.`
+        : "",
     honeypot: "", // hidden spam trap
     consent: false,
   });
@@ -113,11 +87,8 @@ function ContactFormContent() {
       // Reset form after successful submission
       setFormData({
         name: "",
-        company: "",
         email: "",
-        phone: "",
         country: "",
-        commodity: "Deity 1121 Steam Basmati Rice",
         volume: "",
         incoterm: "FOB",
         message: "",
@@ -419,24 +390,6 @@ function ContactFormContent() {
                 </div>
 
                 <div>
-                  <label htmlFor="rfq-commodity" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
-                    Commodity Sector <span className="text-rose-500">*</span>
-                  </label>
-                  <select
-                    id="rfq-commodity"
-                    value={formData.commodity}
-                    onChange={(e) => setFormData({ ...formData, commodity: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                  >
-                    {commodityOptions.map((opt, i) => (
-                      <option key={i} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
                   <label htmlFor="rfq-message" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">
                     Your Requirements <span className="text-rose-500">*</span>
                   </label>
@@ -444,7 +397,7 @@ function ContactFormContent() {
                     id="rfq-message"
                     required
                     rows={4}
-                    placeholder="Quantity, grade or specification, packaging, target destination or timeline..."
+                    placeholder="Commodity name, quantity, grade or specification, packaging, target destination or timeline..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
@@ -454,37 +407,10 @@ function ContactFormContent() {
                 {/* Optional shipment details (collapsed to keep the first request short) */}
                 <details className="rounded-lg border border-slate-200 bg-slate-50/50 p-4">
                   <summary className="cursor-pointer text-sm font-semibold text-[#0F284E] select-none">
-                    Add company &amp; shipment details{" "}
+                    Add shipment details{" "}
                     <span className="font-normal text-slate-500">(optional, speeds up your quote)</span>
                   </summary>
                   <div className="mt-4 space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="rfq-company" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Company / Importer Name</label>
-                        <input
-                          id="rfq-company"
-                          type="text"
-                          autoComplete="organization"
-                          placeholder="e.g. Al-Noor Global Trading LLC"
-                          value={formData.company}
-                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="rfq-phone" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Phone / WhatsApp (with country code)</label>
-                        <input
-                          id="rfq-phone"
-                          type="tel"
-                          autoComplete="tel"
-                          placeholder="e.g. +971 50 123 4567"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-slate-900 bg-slate-50/50"
-                        />
-                      </div>
-                    </div>
-
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div className="sm:col-span-2">
                         <label htmlFor="rfq-country" className="block text-xs font-semibold text-slate-700 uppercase tracking-wide mb-1.5">Destination Seaport &amp; Country</label>

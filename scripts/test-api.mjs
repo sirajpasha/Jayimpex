@@ -108,8 +108,7 @@ async function runTests() {
       body: JSON.stringify({
         name: "Maria Lopez",
         email: "maria@importer.example.com",
-        commodity: "Salem Pure Turmeric Fingers & Powder",
-        message: "Please send FOB pricing for 5 MT turmeric fingers.",
+        message: "Commodity: turmeric fingers. Please send FOB pricing for 5 MT.",
         renderTimestamp: Date.now() - 5000,
         consent: true,
       }),
