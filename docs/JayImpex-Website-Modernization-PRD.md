@@ -25,7 +25,7 @@ From an international buyer's perspective, Jay Impex requires an authoritative, 
 
 From an operational perspective, maintaining legacy static HTML and iframe-based wrappers created maintenance overhead, fragile navigation, poor mobile ergonomics, and security risks. The contact flow previously lacked server-side validation and anti-spam controls.
 
-The modernization delivers a unified, data-driven application that preserves verified history (`Est. 1990`), consolidates official Chennai contact channels (`+91 94440 42275`, `info@jayimpex.com`), and enforces rigorous server-side validation and spam defense.
+The modernization delivers a unified, data-driven application that preserves verified history (`Est. 1990`), consolidates official Chennai contact channels (`+91 94440 42275`, `info@jayimpex.net`), and enforces rigorous server-side validation and spam defense.
 
 ## 3. Goals and measurable outcomes
 
@@ -84,7 +84,7 @@ The following points are grounded in the attached source snapshot:
 6. `contact.html`: **Confirmed by owner:** Official verified contact channels:
    - **Address**: Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India.
    - **Hotline & WhatsApp**: `+91 94440 42275` (WhatsApp direct: `https://wa.me/919444042275`).
-   - **Commercial Email**: `info@jayimpex.com`.
+   - **Commercial Email**: `info@jayimpex.net`.
    - **Operating Hours**: Monday–Saturday, 10:00 AM–10:00 PM.
    - **Primary Maritime Seaports**: Chennai Port (`INMAA`) & Kamarajar Port (Ennore), with secondary South Indian terminals (Tuticorin, Kattupalli, Cochin, Vizag).
    - **Key International Destinations**: **Australia** (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Africa, Americas.
@@ -222,7 +222,7 @@ Priority labels: **P0** = launch blocker; **P1** = important for initial release
 Verified corporate contact values confirmed by owner:
 - **Physical Address**: Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai – 600040, Tamil Nadu, India.
 - **Hotline & WhatsApp**: `+91 94440 42275` (one-click WhatsApp chat link).
-- **Commercial Email**: `info@jayimpex.com`.
+- **Commercial Email**: `info@jayimpex.net`.
 - **Operating Hours**: Monday–Saturday, 10:00 AM–10:00 PM IST.
 - **Seaport Loading Hubs**: Primary at Chennai Port (`INMAA`) & Kamarajar Port (Ennore); alternate terminals at Tuticorin, Kattupalli, Cochin, and Vizag.
 - **Destination Corridors**: **Australia** (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Americas.
@@ -360,7 +360,7 @@ Implemented TypeScript data-driven architecture:
   - `shelfLife`: Temperature and storage durability terms.
   - `minOrderQuantity`: Minimum commercial export lot (FCL, LCL, air cargo).
 - **Category**: Array with identifiers, labels, and real-time product counts.
-- **ContactSettings**: Marginfree Super Market, Anna Nagar West, Chennai - 600040; phone/WhatsApp `+91 94440 42275`; email `info@jayimpex.com`; hours `Mon-Sat: 10:00 AM - 10:00 PM`; dispatch via Chennai Port (`INMAA`).
+- **ContactSettings**: Marginfree Super Market, Anna Nagar West, Chennai - 600040; phone/WhatsApp `+91 94440 42275`; email `info@jayimpex.net`; hours `Mon-Sat: 10:00 AM - 10:00 PM`; dispatch via Chennai Port (`INMAA`).
 - **DestinationCorridors**: Australia (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Africa, Americas.
 - **Enquiry / RFQ Schema**: Validated via Zod with strict string trimming, email regex, honeypot detection, rapid-submission timing thresholds (<2.5s), and IP rate-limiting.
 
@@ -627,7 +627,7 @@ Tests should verify observable behavior and security boundaries, not private imp
 47. As a maintainer, I want an incident-response and dependency-patching process so that security remains an ongoing responsibility after launch.
 
 ### Multi-commodity enterprise expansion and geographic realignment (Epic 6)
-48. As an international buyer, I want to see Jay Impex's registered office in Chennai (Marginfree Super Market, Anna Nagar West) and direct contact channels (+91 94440 42275, info@jayimpex.com) so that I can establish direct trade relationships.
+48. As an international buyer, I want to see Jay Impex's registered office in Chennai (Marginfree Super Market, Anna Nagar West) and direct contact channels (+91 94440 42275, info@jayimpex.net) so that I can establish direct trade relationships.
 49. As a prospective partner, I want historical continuity showing Est. 1990 / 35+ years of export excellence so that I have confidence in company longevity.
 50. As an overseas importer, I want to source textiles and readymade garments from South Indian manufacturing hubs (Tirupur, Karur, Coimbatore) to our tech-pack specifications.
 51. As an agricultural or industrial plant operator, I want to procure robust food processing and agro machinery (rice milling, spice pulverizers, Sortex cleaners) with CE/ISO standards and factory acceptance testing.
@@ -654,8 +654,8 @@ Tests should verify observable behavior and security boundaries, not private imp
 1. **Official company positioning [CONFIRMED]:** Leading Commodities Exporter & Custom Sourcing Partner from India, operating from Chennai, Tamil Nadu (Est. 1990).
 2. **Definitive product catalogue & imagery [CONFIRMED]:** Full multi-commodity portfolio across 10 sectors (Agro, Textiles, Machinery, Utensils, Fruits, Sweets, Mats) with verified high-resolution commercial imagery.
 3. **Product origins & international destinations [CONFIRMED]:** Sourcing across South India and pan-India clusters. Trans-oceanic shipping corridors include **Australia** (Melbourne, Sydney, Brisbane, Fremantle), Middle East, Europe, Africa, Americas.
-4. **Official contact details [CONFIRMED]:** Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040; phone and WhatsApp `+91 94440 42275`; email `info@jayimpex.com`; hours Monday–Saturday, 10:00 AM–10:00 PM; Google Maps embed points to Marginfree Super Market.
-5. **Enquiry routing [CONFIRMED]:** Server-side delivery configured for `info@jayimpex.com` with anti-spam protections.
+4. **Official contact details [CONFIRMED]:** Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040; phone and WhatsApp `+91 94440 42275`; email `info@jayimpex.net`; hours Monday–Saturday, 10:00 AM–10:00 PM; Google Maps embed points to Marginfree Super Market.
+5. **Enquiry routing [CONFIRMED]:** Server-side delivery configured for `info@jayimpex.net` with anti-spam protections.
 6. **Canonical domain [CONFIRMED]:** `https://www.jayimpex.net` with permanent 301/308 redirects from legacy static `.html` and `sendmail.php` URLs.
 7. **Product detail pages & search [CONFIRMED]:** Implemented pre-rendered dynamic routes (`/products/:slug`) and real-time category filtering.
 8. **Content maintenance model [CONFIRMED]:** Version-controlled typed datasets in `src/data/products.ts` with CI validation.

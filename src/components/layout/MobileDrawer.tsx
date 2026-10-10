@@ -169,7 +169,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               <span>Call Desk</span>
             </a>
             <a
-              href="mailto:info@jayimpex.com"
+              href="mailto:info@jayimpex.net"
               className="flex items-center justify-center space-x-1.5 py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-[#D97706]" />

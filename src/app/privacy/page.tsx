@@ -106,8 +106,8 @@ export default function PrivacyPage() {
               <div>Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India</div>
               <div>
                 Email:{" "}
-                <a href="mailto:info@jayimpex.com" className="text-[#0284C7] hover:underline font-mono">
-                  info@jayimpex.com
+                <a href="mailto:info@jayimpex.net" className="text-[#0284C7] hover:underline font-mono">
+                  info@jayimpex.net
                 </a>
               </div>
               <div>

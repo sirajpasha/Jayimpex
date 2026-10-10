@@ -159,7 +159,7 @@ graph TD
 - [x] **[Story 6.1] Chennai Corporate Headquarters Realignment & Foundation Date Synchronization** — [#53](https://github.com/sirajpasha/Jayimpex/issues/53) `P0`
   - *User Story:* As an international buyer and partner, I want accurate corporate headquarters details and historical continuity so that I can establish direct verified trade relations.
   - [x] **[Task 6.1.1]** Realign corporate headquarters and registered office to Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu — [#54](https://github.com/sirajpasha/Jayimpex/issues/54) `P0`
-  - [x] **[Task 6.1.2]** Synchronize hotline (`+91 94440 42275`), WhatsApp direct routing, email (`info@jayimpex.com`), business hours (`Mon-Sat: 10:00 AM - 10:00 PM`), and interactive Google Maps embed — [#55](https://github.com/sirajpasha/Jayimpex/issues/55) `P0`
+  - [x] **[Task 6.1.2]** Synchronize hotline (`+91 94440 42275`), WhatsApp direct routing, email (`info@jayimpex.net`), business hours (`Mon-Sat: 10:00 AM - 10:00 PM`), and interactive Google Maps embed — [#55](https://github.com/sirajpasha/Jayimpex/issues/55) `P0`
   - [x] **[Task 6.1.3]** Realign primary export seaport gateway to Chennai Port (`INMAA`) & Kamarajar Port (Ennore), with secondary South Indian maritime terminals (Tuticorin, Kattupalli, Cochin, Vizag) — [#56](https://github.com/sirajpasha/Jayimpex/issues/56) `P0`
   - [x] **[Task 6.1.4]** Synchronize company establishment date to `Est. 1990` (`Since 1990`, 35+ years) across all badges, header elements, hero stats, and corporate narratives — [#57](https://github.com/sirajpasha/Jayimpex/issues/57) `P0`
 

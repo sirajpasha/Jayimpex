@@ -11,7 +11,7 @@ export default function GlobalError({
       <h1 className="text-3xl font-extrabold text-[#0F284E]">Something went wrong</h1>
       <p className="text-slate-600">
         We could not load this page. Please try again, or reach our commercial desk on
-        WhatsApp or phone at +91 94440 42275 or info@jayimpex.com.
+        WhatsApp or phone at +91 94440 42275 or info@jayimpex.net.
       </p>
       <button
         type="button"

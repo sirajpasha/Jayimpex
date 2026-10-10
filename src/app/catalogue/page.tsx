@@ -20,7 +20,7 @@ export default function CataloguePage() {
         <p className="text-sm text-slate-600 max-w-3xl">
           Commodities exporters since 1990, Chennai, India. Specifications are indicative
           and tailored per shipment; request a quote for current grades, pricing and
-          Incoterms (FOB, CIF, CFR, EXW). Contact: info@jayimpex.com · +91 94440 42275 ·
+          Incoterms (FOB, CIF, CFR, EXW). Contact: info@jayimpex.net · +91 94440 42275 ·
           www.jayimpex.net
         </p>
         <PrintButton />

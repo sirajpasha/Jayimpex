@@ -128,7 +128,7 @@ function ContactFormContent() {
       if (err instanceof Error) {
         setErrorMessage(err.message);
       } else {
-        setErrorMessage("An unexpected error occurred. Please contact info@jayimpex.com directly.");
+        setErrorMessage("An unexpected error occurred. Please contact info@jayimpex.net directly.");
       }
     } finally {
       setSubmitting(false);
@@ -238,10 +238,10 @@ function ContactFormContent() {
                       Trade Desk Email
                     </strong>
                     <a
-                      href="mailto:info@jayimpex.com"
+                      href="mailto:info@jayimpex.net"
                       className="text-[#0F284E] hover:text-[#0284C7] font-mono font-medium block mt-0.5 transition-colors"
                     >
-                      info@jayimpex.com
+                      info@jayimpex.net
                     </a>
                   </div>
                 </div>

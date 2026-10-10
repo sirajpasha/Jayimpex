@@ -253,7 +253,7 @@ export async function POST(request: NextRequest) {
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
     const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
-    const toEmail = process.env.CONTACT_EMAIL || "info@jayimpex.com";
+    const toEmail = process.env.CONTACT_EMAIL || "info@jayimpex.net";
 
     if (smtpHost && smtpUser && smtpPass) {
       const transporter = nodemailer.createTransport({
@@ -309,7 +309,7 @@ export async function POST(request: NextRequest) {
         {
           success: false,
           error:
-            "Our enquiry desk is temporarily unable to accept online requests. Please email info@jayimpex.com or WhatsApp +91 94440 42275 directly.",
+            "Our enquiry desk is temporarily unable to accept online requests. Please email info@jayimpex.net or WhatsApp +91 94440 42275 directly.",
         },
         { status: 503 }
       );
@@ -328,7 +328,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: "An internal system error occurred while transmitting your request. Please try again or reach our desk at info@jayimpex.com.",
+        error: "An internal system error occurred while transmitting your request. Please try again or reach our desk at info@jayimpex.net.",
       },
       { status: 500 }
     );

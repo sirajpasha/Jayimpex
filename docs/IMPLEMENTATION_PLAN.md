@@ -24,7 +24,7 @@ The objective of this project is to modernize JayImpex's legacy static website i
 | **Data & Content Layer** | **Version-Controlled JSON (`data/products.json`)** | PRD FR-11: Structured data in version control. Eliminates the complexity and attack surface of a CMS while guaranteeing build-time validation. |
 | **Schema Validation** | **Zod** | Validates incoming contact form submissions and verifies product catalogue integrity at build time (PRD §9.2, §10.2). |
 | **Spam & Anti-Abuse** | **Honeypot + Timing Token + Rate Limiting** | Layered defense: off-screen honeypot field, encrypted submission timestamp (<3s rejected), and IP-based rate limiting via proxy headers (PRD §10.2). |
-| **Email Delivery** | **Resend / Nodemailer via Verified Provider** | Server-side API integration with fixed verified `From` header (`noreply@jayimpex.com`) and sanitized `Reply-To`. Legacy `sendmail.php` is permanently retired. |
+| **Email Delivery** | **Resend / Nodemailer via Verified Provider** | Server-side API integration with fixed verified `From` header (`noreply@jayimpex.net`) and sanitized `Reply-To`. Legacy `sendmail.php` is permanently retired. |
 | **CI / CD Pipeline** | **GitHub Actions + Railway** | Automated pipeline triggering on pull requests and pushes to `main`: clean install, lint, typecheck, unit tests, build, and vulnerability audits. |
 
 ---
@@ -180,7 +180,7 @@ gantt
   2. **Spam Rejection Layer 1 (Honeypot):** Reject requests if hidden field `website_url` is filled.
   3. **Spam Rejection Layer 2 (Timing Token):** Reject requests submitted in less than 3 seconds.
   4. **Rate Limiting:** Enforce maximum 5 submissions per IP per 15-minute window.
-  5. **Email Delivery Adapter:** Fixed sender identity (`From: quotes@jayimpex.com`); strip newline characters (`\r`, `\n`) before placing submitter email into `Reply-To`.
+  5. **Email Delivery Adapter:** Fixed sender identity (`From: quotes@jayimpex.net`); strip newline characters (`\r`, `\n`) before placing submitter email into `Reply-To`.
   6. **Safe Telemetry:** Redact personal identifiers and message bodies from routine server logs.
   7. Permanently remove legacy `sendmail.php`.
 
@@ -224,7 +224,7 @@ gantt
 - **GitHub Issues:** [#52](https://github.com/sirajpasha/Jayimpex/issues/52), [#53](https://github.com/sirajpasha/Jayimpex/issues/53), [#54](https://github.com/sirajpasha/Jayimpex/issues/54), [#55](https://github.com/sirajpasha/Jayimpex/issues/55), [#56](https://github.com/sirajpasha/Jayimpex/issues/56), [#57](https://github.com/sirajpasha/Jayimpex/issues/57)
 - **Actions:**
   1. Update corporate address across all templates and schemas to: `Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India`.
-  2. Update hotline and WhatsApp chat trigger to `+91 94440 42275`, official email to `info@jayimpex.com`, and hours to `Mon-Sat: 10:00 AM - 10:00 PM`.
+  2. Update hotline and WhatsApp chat trigger to `+91 94440 42275`, official email to `info@jayimpex.net`, and hours to `Mon-Sat: 10:00 AM - 10:00 PM`.
   3. Embed verified Google Maps location pointing to Marginfree Supermarket, Anna Nagar West.
   4. Update loading ports to Chennai Port (`INMAA`) & Kamarajar Port (Ennore), with secondary terminals in Tuticorin, Kattupalli, Cochin, and Vizag.
   5. Synchronize all foundation year references to `Est. 1990` (`Since 1990`, 35+ years).
@@ -256,7 +256,7 @@ Before production release, all criteria must be satisfied:
 
 - [x] All 6 Epics, 13 User Stories, and 37 Tasks completed in [BACKLOG.md](./BACKLOG.md).
 - [x] No iframes used for page composition; direct routes (`/`, `/about`, `/products`, `/contact`, `/privacy`) work on direct load and refresh.
-- [x] Corporate headquarters, hotline (`+91 94440 42275`), email (`info@jayimpex.com`), and Google Maps verified to Anna Nagar West, Chennai.
+- [x] Corporate headquarters, hotline (`+91 94440 42275`), email (`info@jayimpex.net`), and Google Maps verified to Anna Nagar West, Chennai.
 - [x] Historical timeline synchronized to `Est. 1990` (35+ years) across all layouts and metadata.
 - [x] Multi-commodity client sourcing portfolio active with technical specs for textiles, machinery, utensils, fruits, sweets, and mats.
 - [x] Australia trade corridor (Melbourne, Sydney, Brisbane, Fremantle) integrated into logistics cards and inquiry forms.

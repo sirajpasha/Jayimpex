@@ -258,10 +258,10 @@ export function Footer() {
               <div className="flex items-center">
                 <Mail className="w-4 h-4 text-[#D97706] mr-2.5 shrink-0" />
                 <a
-                  href="mailto:info@jayimpex.com"
+                  href="mailto:info@jayimpex.net"
                   className="hover:text-white font-mono text-xs sm:text-sm transition-colors"
                 >
-                  info@jayimpex.com
+                  info@jayimpex.net
                 </a>
               </div>
 

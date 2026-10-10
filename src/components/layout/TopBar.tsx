@@ -25,12 +25,12 @@ export function TopBar() {
               Mon - Sat: 10:00 AM - 10:00 PM
             </span>
             <a
-              href="mailto:info@jayimpex.com"
+              href="mailto:info@jayimpex.net"
               className="inline-flex items-center hover:text-white transition-colors"
               title="Direct commercial desk email"
             >
               <Mail className="w-3.5 h-3.5 text-[#D97706] mr-1.5 shrink-0" />
-              <span className="font-mono">info@jayimpex.com</span>
+              <span className="font-mono">info@jayimpex.net</span>
             </a>
             <a
               href="tel:+919444042275"

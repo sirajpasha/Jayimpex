@@ -65,9 +65,9 @@ npm run dev          # http://localhost:3000
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS` | none | SMTP credentials for RFQ email |
+|  `SMTP_HOST` (GoDaddy: `smtpout.secureserver.net`), `SMTP_USER`, `SMTP_PASS` | none | SMTP credentials for RFQ email |
 | `SMTP_PORT` | `587` | SMTP port |
-| `CONTACT_EMAIL` | `info@jayimpex.com` | RFQ recipient |
+| `CONTACT_EMAIL` | `info@jayimpex.net` | RFQ recipient |
 
 ## Deployment
 
@@ -80,4 +80,4 @@ Product requirements, backlog and implementation plan are in [docs/](docs/).
 ## Contact
 
 Marginfree Super Market, 1739, 18th Main Road, Anna Nagar West, Chennai - 600040, Tamil Nadu, India
-Phone: +91 94440 42275 · Email: info@jayimpex.com
+Phone: +91 94440 42275 · Email: info@jayimpex.net

@@ -111,7 +111,7 @@ export default function RootLayout({
             url: "https://www.jayimpex.net",
             logo: "https://www.jayimpex.net/images/Jayimpex-Logo-min.PNG",
             foundingDate: "1990",
-            email: "info@jayimpex.com",
+            email: "info@jayimpex.net",
             telephone: "+91-94440-42275",
             address: {
               "@type": "PostalAddress",
